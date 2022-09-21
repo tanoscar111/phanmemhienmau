@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BoodDonationAppModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'BoodDonationApp.dbo.Batch' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Batch">
+    <Key>
+      <PropertyRef Name="BatchID" />
+    </Key>
+    <Property Name="BatchID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BatchName" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'BoodDonationApp.dbo.BloodDonation' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="BloodDonation">
+    <Key>
+      <PropertyRef Name="BloodID" />
+      <PropertyRef Name="NgaySinh" />
+      <PropertyRef Name="BatchID" />
+      <PropertyRef Name="IdUser" />
+    </Key>
+    <Property Name="BloodID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Hovaten" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="NgaySinh" Type="date" Nullable="false" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="13" Nullable="false" />
+    <Property Name="DiaChi" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="BatchID" Type="int" Nullable="false" />
+    <Property Name="IdUser" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'BoodDonationApp.dbo.Role' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="RoleID" />
+      <PropertyRef Name="NameRole" />
+    </Key>
+    <Property Name="RoleID" Type="int" Nullable="false" />
+    <Property Name="NameRole" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'BoodDonationApp.dbo.User' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="IdUser" />
+      <PropertyRef Name="RoleID" />
+    </Key>
+    <Property Name="IdUser" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Password" Type="nvarchar" MaxLength="255" />
+    <Property Name="RoleID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="BoodDonationAppModelStoreContainer">
+    <EntitySet Name="Batch" EntityType="Self.Batch" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Batch].[BatchID] AS [BatchID], 
+    [Batch].[BatchName] AS [BatchName]
+    FROM [dbo].[Batch] AS [Batch]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="BloodDonation" EntityType="Self.BloodDonation" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [BloodDonation].[BloodID] AS [BloodID], 
+    [BloodDonation].[Hovaten] AS [Hovaten], 
+    [BloodDonation].[NgaySinh] AS [NgaySinh], 
+    [BloodDonation].[Phone] AS [Phone], 
+    [BloodDonation].[DiaChi] AS [DiaChi], 
+    [BloodDonation].[Email] AS [Email], 
+    [BloodDonation].[BatchID] AS [BatchID], 
+    [BloodDonation].[IdUser] AS [IdUser]
+    FROM [dbo].[BloodDonation] AS [BloodDonation]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Role" EntityType="Self.Role" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Role].[RoleID] AS [RoleID], 
+    [Role].[NameRole] AS [NameRole]
+    FROM [dbo].[Role] AS [Role]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="User" EntityType="Self.User" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [User].[IdUser] AS [IdUser], 
+    [User].[UserName] AS [UserName], 
+    [User].[Password] AS [Password], 
+    [User].[RoleID] AS [RoleID]
+    FROM [dbo].[User] AS [User]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>

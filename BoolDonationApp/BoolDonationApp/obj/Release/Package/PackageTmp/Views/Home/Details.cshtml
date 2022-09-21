@@ -1,0 +1,125 @@
+﻿@model BoolDonationApp.Models.BloodDonation
+
+@{
+    ViewBag.Title = "Details";
+    Layout = null;
+}
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link href="~/Content/giaychungnhan.css" rel="stylesheet" />
+<div class="giaychungnhan">
+    <div id="certificate">
+    <div style="width:100%;display:flex; height:90vh" >
+
+        <div class="row-left" style="
+    padding-left:15px;
+    padding-right:15px;
+    padding-top: 19px;
+    width:49.5%;
+">
+            <div class="row-left-container">
+                <div>
+                    <h4 class="row-left-title">Hiến máu cứu người </h4>
+                    <h4 class="row-left-title">Một nghĩa cữ cao đẹp </h4>
+                    <ol>
+                        <li style="color: #ff0000 ">Giấy chứng nhận này được trao cho người hiến máu  sau mỗi lần hiến máu tình nguyện</li>
+                        <li style="color: #ff0000 ">Có giá trị  để được truyền máu  miễn phí bằng số lượng   máu đã hiến ,khi bản thân người hiến máu có nhu cầu sử dụng máu tại tất cả  các cơ sở  y tế  công lập trên toàn quốc</li>
+                        <li style="color: #ff0000 ">Người hiến máu cần  xuất trình Giấy  chứng nhận này  để làm cơ sở  cho các cơ sở y tế  thực hiện   việc truyền máu  miễn phí</li>
+                        <li style="color: #ff0000 ">Cơ sở y tế có trách nhiệm ký ,đóng dấu , xác nhận  số lượng máu  đã truyền miễn phí   cho người  hiến máu  vào giấy  chứng nhận</li>
+                    </ol>
+                </div>
+            </div>
+            <div class="liness" style=" height: 1.8px; background: #c10000; width: 100%;"></div>
+            <div class="row-left-bottom" style="padding-top:19px">
+                <h4 class="row-left-title">Chứng nhận của sở y tế </h4>
+                <h4 class="row-left-title">Đã truyền máu </h4>
+                <div class="dateTime-container">
+                    <h5 class="dateTime-container-date" style="color: #ff0000; text-align: center; text-transform: initial; padding-top: 20px; ">
+                        Ngày ...... tháng ...... năm
+                    </h5>
+                    <h5 class="dateTime-container-date" style="color: #ff0000; text-align: center; text-transform: initial; padding-top: 10px;">
+                        Số lượng ............. ml
+                    </h5>
+                </div>
+            </div>
+        </div>
+        <div style="width:1%"></div>
+        <div class=" row-left" style="padding-left: 15px; padding-right: 15px; padding-top: 19px; width: 49.5%; ">
+            <div class="row-right-container">
+                <h4 class="row-left-title" style="color: #c10000; text-align: center; font-size: 22px; font-weight: bold; text-transform: uppercase;">Cộng hòa xã hội chủ nghĩa việt nam </h4>
+                <h4 class="row-left-title" style="color: #c10000; text-align: center; font-size: 22px; font-weight: bold; text-transform: uppercase;">Độc lập tự do hạnh phúc </h4>
+                <div class="liness" style="display:flex;justify-content:center;align-items:center">
+                    <div style=" height: 1.8px; background: #c10000; width: 40%;"></div>
+
+                </div>
+                <h4 class="row-left-title" style="padding-top:10px">Giấy chứng nhận </h4>
+                <h4 class="row-left-title">Hiến máu tình nguyện </h4>
+                <p style="color: #ff0000; font-size: 23px;">BCĐ vận động  hiến máu tình nguyện thành phố Đà Nẵng</p>
+            </div>
+            <div style="display: flex; font-size: 21px;">
+                <p style="color: #ff0000;padding-right:10px ">Ông/Bà :</p>
+                <p style="color: #ff0000"> @Html.DisplayFor(model => model.Hovaten)</p>
+            </div>
+            <div style="display: flex; font-size: 21px;">
+                <p style="color: #ff0000;padding-right:10px " padding-right: 10px">GIới tính:</p>
+                @if (Model.gioitinh == 0)
+                {
+                    <p style="color: #ff0000">
+                        Nữ
+                    </p>
+                }
+                else
+                {
+                    <p style="color: #ff0000">
+                        nam
+                    </p>
+                }
+            </div>
+            <div style="display: flex; font-size: 21px;">
+                <p style="color: #ff0000;padding-right:10px " padding-right: 10px">Sinh ngày:</p>
+                <p style="color: #ff0000"> @Html.DisplayFor(model => model.NgaySinh)</p>
+            </div>
+            <div style="display: flex; font-size: 21px;">
+                <p style="color: #ff0000;padding-right:10px " padding-right: 10px">Số điện thoại:</p>
+                <p style="color: #ff0000">  @Html.DisplayFor(model => model.Phone)</p>
+            </div>
+            <div style="display: flex; font-size: 21px;">
+                <p style="color: #ff0000;padding-right:10px " padding-right: 10px">Số CMND:</p>
+                <p style="color: #ff0000">   @Html.DisplayFor(model => model.CMND)</p>
+            </div>
+            <div style="display: flex; font-size: 21px;">
+                <p style="color: #ff0000;padding-right:10px " padding-right: 10px">Địa chỉ:</p>
+                <p style="color: #ff0000">   @Html.DisplayFor(model => model.DiaChi)</p>
+            </div>
+
+            <h4 style="color: #c10000;text-align:center ">Đã hiến máu tình nguyện</h4>
+            <p style="color: #ff0000; font-size:21px ">Tại cơ sở tiếp nhận máu:Viện huyết học-Truyền máu Trung ương</p>
+            <p style="color: #ff0000; font-size: 21px ">Người bệnh luôn  ghi ơn tấm lòng nhân ái của Ông/Bà</p>
+            <div style="display:flex; justify-content:flex-end ;width:100%;padding:20px 15px">
+                <p style="color: #ff0000; font-size: 21px">Đà Nẵng ,Ngày ...... tháng...... năm .......</p>
+            </div>
+
+
+
+
+
+
+        </div>
+
+        </div>
+
+    </div>
+    <button onclick="printCertificate()" style="margin-top:10px">
+        
+        <img src="~/Content/Images/printer.png" style="width:50px" />
+    </button>
+</div>
+<script>
+    function printCertificate() {
+        const printContents = document.getElementById('certificate').innerHTML;
+        const originalContents = document.body.innerHTML;
+        document.body.innerHTML = printContents;
+        window.print();
+        document.body.innerHTML = originalContents;
+    }
+</script>

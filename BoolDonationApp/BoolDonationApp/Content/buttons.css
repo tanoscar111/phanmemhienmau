@@ -1,0 +1,22 @@
+﻿.noselects {
+    padding: 15px 25px 15px 25px;
+    display: flex;
+    align-items: center;
+    background: #007bff;
+    border-radius: 4px;
+}
+
+.icons {
+    padding-right: 4px;
+}
+
+.texts {
+    font-size: 16px;
+    color: #ffff;
+    text-transform:uppercase;
+
+}
+
+.iconss {
+    color: #ffff !important;
+}

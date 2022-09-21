@@ -1,0 +1,15 @@
+<div style="display: flex; font-size: 21px;">
+                <p style="color: #ff0000;padding-right:10px " padding-right: 10px">GIới tính:</p>
+                @if (Model.gioitinh == 0)
+                {
+                    <p style="color: #ff0000">
+                        Nữ
+                    </p>
+                }
+                else
+                {
+                    <p style="color: #ff0000">
+                        nam
+                    </p>
+                }
+            </div>

@@ -1,0 +1,41 @@
+﻿
+.formBool {
+    width: 100%;
+    height: 10vh;
+    color: #fff !important;
+    background: url(Images/bg-header.jpg) no-repeat top center !important;
+    object-fit:cover;
+    background-size: cover !important;
+}
+.formBool-container {
+    height:100%;
+    padding: 10px 0;
+}
+.imgBood {
+    height:100%;
+}
+.formBool-left {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+.text-logo {
+    text-transform:uppercase;
+    font-size:18px;
+    font-weight:bold;
+    padding-left:15px;
+}
+.tittle-text {
+    color: #007bff;
+    font-size: 30px;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+    padding-top: 15px;
+}
+.control-label {
+    line-height: 19px;
+    font-size: 17px;
+    font-weight: 600;
+}

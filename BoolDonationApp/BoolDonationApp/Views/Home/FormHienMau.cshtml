@@ -1,0 +1,556 @@
+﻿@model BoolDonationApp.Models.BloodDonation
+
+@{
+    Layout = null;
+    ViewBag.Title = "FormHienMau";
+
+}
+<style>
+    .buttons {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        text-align: center;
+        /*   padding: 2em 0em; */
+    }
+
+    .containers {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        background-color: #FFF;
+        padding: 40px 0px;
+        width: 240px;
+    }
+
+    h1 {
+        text-align: left;
+        color: #444;
+        letter-spacing: 0.05em;
+        margin: 0 0 0.4em;
+        font-size: 1em;
+    }
+
+    p {
+        text-align: left;
+        color: #444;
+        letter-spacing: 0.05em;
+        font-size: 0.8em;
+        margin: 0 0 2em;
+    }
+
+
+    .btn {
+        letter-spacing: 0.1em;
+        cursor: pointer;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 45px;
+        max-width: 160px;
+        position: relative;
+        text-decoration: none;
+        text-transform: uppercase;
+        width: 100%;
+    }
+
+        .btn:hover {
+            text-decoration: none;
+        }
+
+    /*btn_background*/
+    .effect01 {
+        color: #FFF;
+        border: 4px solid #000;
+        box-shadow: 0px 0px 0px 1px #000 inset;
+        background-color: #007bff;
+        overflow: hidden;
+        position: relative;
+        transition: all 0.3s ease-in-out;
+    }
+</style>
+<link href="~/Content/FormBool.css" rel="stylesheet" />
+<link href="~/Content/buttons.css" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<body>
+    <script type="text/javascript">
+        $(function () {
+            $("#IDQuan").on("change", function (){
+                $("#IDTinh").val($(this).text());
+            });
+
+        });
+    </script>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+
+    @section scripts{
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+        <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+        <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+        <script>
+            $(document).ready(function () { $(".FromJson").select2(); });
+        </script>
+        <style>
+            .texts {
+                width: 100% !important;
+                height: 70px !important;
+            }
+        </style>
+    }
+    <div class="bool">
+        <div class="formBool">
+            <div class="container">
+                <div class="formBool-container">
+                    <div class="formBool-left">
+                        <img src="~/Content/Images/dai hoi 1.png" alt="Logo" class="imgBood">
+                        <h4 class="text-logo">Bệnh viện Đà Nẵng</h4>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="container">
+            <div class="form-container">
+                @using (Html.BeginForm("FormHienMau", "Home", FormMethod.Post))
+                {
+                    @Html.AntiForgeryToken()
+
+                    <div class="form-horizontal">
+                        <h4 class="tittle-text">Phiếu đăng kí hiến máu tình nguyện</h4>
+
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="form-group">
+                            <p class="control-label col-md-2">Đợt hiến máu <b class="text-danger">(*)</b>:</p>
+                            <div class="col-md-12">
+                                @Html.DropDownListFor(model => model.BatchID, ViewBag.ListOfBatch as IEnumerable<SelectListItem>, "Chọn đợi hiến máu", new { @class = "form-control" })
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <p class="control-label col-md-2">Họ và tên <b class="text-danger">(*)</b>:</p>
+                            <div class="col-md-12">
+                                @Html.EditorFor(model => model.Hovaten, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Hovaten, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <p class="control-label col-md-2">Giới tính :</p>
+                            <div class="col-md-12">
+                                <select class="form-control" aria-label="Default select example" name="Gioitinhform">
+                                    <option disabled selected>Giới tính</option>
+                                    <option value=1>Nam </option>
+                                    <option value=0>Nữ</option>
+                                </select>
+                            </div>
+
+
+                        </div>
+
+                        <div class="form-group">
+                            <p class="control-label col-md-2">Ngày sinh <b class="text-danger">(*)</b>:</p>
+                            <div class="col-md-12">
+                                @Html.EditorFor(model => model.NgaySinh, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.NgaySinh, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <p class="control-label col-md-2">Số điện thoại <b class="text-danger">(*)</b>:</p>
+                            <div class="col-md-12">
+                                @Html.EditorFor(model => model.Phone, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <div style="display:flex">
+                                <div class="col-md-2">
+                                    <p class="control-label ">Số nhà <b class="text-danger">(*)</b>:</p>
+                                    <div>
+                                        @Html.EditorFor(model => model.sonha, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.sonha, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <p class="control-label ">Tổ <b class="text-danger">(*)</b>:</p>
+                                    <div>
+                                        @Html.EditorFor(model => model.Nest, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.Nest, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="col-md-2">
+                                    <p class="control-label ">Đường <b class="text-danger">(*)</b>:</p>
+                                    <div>
+                                        @Html.EditorFor(model => model.duong, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.duong, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <p class="control-label ">Phường <b class="text-danger">(*)</b>:</p>
+                                    <div>
+                                        @Html.DropDownListFor(model => model.IDPhuong, ViewBag.ListOfPhuong as IEnumerable<SelectListItem>, "Chọn phường", new { @class = "form-control FromJson" })
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <p class="control-label ">Quận<b class="text-danger">(*)</b>:</p>
+                                    <div>
+                                        @Html.DropDownListFor(model => model.IDQuan, ViewBag.ListOfQuan as IEnumerable<SelectListItem>, "Chọn Quận", new { @class = "form-control FromJson" })
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <p class="control-label ">Tỉnh<b class="text-danger">(*)</b>:</p>
+                                    <div>
+                                        @Html.DropDownListFor(model => model.IDTinh, ViewBag.ListOfTinh as IEnumerable<SelectListItem>, "Chọn Tỉnh", new { @class = "form-control FromJson" })
+                                    </div>
+                                </div>
+                                @*<div class="col-md-2">
+            <p class="control-label ">Quốc gia <b class="text-danger">(*)</b>:</p>
+            <div>
+                @Html.DropDownListFor(model => model.IDQuocGia, ViewBag.ListOfQuocGia as IEnumerable<SelectListItem>, "Chọn Quốc gia", new { @class = "form-control FromJson" })
+            </div>
+        </div>*@
+
+
+
+
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <p class="control-label col-md-2">Email @*<b class="text-danger">(*)</b>*@:</p>
+                            <div class="col-md-12">
+                                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <p class="control-label col-md-2">Nhóm máu @*<b class="text-danger">(*)</b>*@:</p>
+                            <div class="col-md-12">
+                                @Html.EditorFor(model => model.NhomMau, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.NhomMau, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <p class="control-label col-md-2">Số CMND/CCCD <b class="text-danger">(*)</b>:</p>
+                            <div class="col-md-12">
+                                @Html.EditorFor(model => model.CMND, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.CMND, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="formquestion">
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <p>dành cho người hiến máu</p>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="d-flex">
+                                        <div class="col-md-2">
+                                            <p>Có</p>
+
+                                        </div>
+                                        <div class="col-md-2">
+                                            <p>Không</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-8">
+                                    <p style="font-weight:bold">1/Trước đây quí vị đã từng hiến máu chưa?</p>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="d-flex">
+                                        <div class="col-md-2">
+                                            <input id="Remember" name="cau1true" type="checkbox" />
+
+                                        </div>
+                                        <div class="col-md-2">
+                                            <input id="Remember" name="cau1false" type="checkbox" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-8">
+                                    <p> <span style="font-weight:bold">2/Quý vị từng mắc các bệnh như:</span>Tâm thần kinh,hô hấp ,tiêu hóa,viêm gan/vàng da,tim mạch,huyết áp thấp/cao,bệnh thận,hen,ho kéo dài,bệnh máu,lao ung thư,Hemophilia ,vv</p>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="d-flex">
+                                        <div class="col-md-2">
+                                            <input id="Remember" name="cau2true" type="checkbox" />
+
+                                        </div>
+                                        <div class="col-md-2">
+                                            <input id="Remember" name="cau2false" type="checkbox" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-8">
+                                    <span style="font-weight:bold">3/Trong vòng 6 tháng gần đây,quý vị có:</span>
+                                    <p> Sút cân >= 4kg không rõ nguyên nhân</p>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="d-flex">
+                                        <div class="col-md-2">
+                                            <input id="Remember" name="cau3true" type="checkbox" />
+
+                                        </div>
+                                        <div class="col-md-2">
+                                            <input id="Remember" name="cau3false" type="checkbox" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-8">
+
+                                    <p> Nổi hạch kéo dài?</p>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="d-flex">
+                                        <div class="col-md-2">
+                                            <input id="Remember" name="cau4true" type="checkbox" />
+
+                                        </div>
+                                        <div class="col-md-2">
+                                            <input id="Remember" name="cau4false" type="checkbox" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-8">
+
+                                    <p> Phẩu thuật?</p>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="d-flex">
+                                        <div class="col-md-2">
+                                            <input id="Remember" name="cau5true" type="checkbox" />
+
+                                        </div>
+                                        <div class="col-md-2">
+                                            <input id="Remember" name="cau5false" type="checkbox" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-8">
+
+                                    <p>Xăm mình,xỏ lỗ qua da(tai,mũi,...),châm cứu</p>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="d-flex">
+                                        <div class="col-md-2">
+                                            <input id="Remember" name="cau6true" type="checkbox" />
+
+                                        </div>
+                                        <div class="col-md-2">
+                                            <input id="Remember" name="cau6false" type="checkbox" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-8">
+
+                                    <p>Được truyền máu,chế phẩm máu?</p>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="d-flex">
+                                        <div class="col-md-2">
+                                            <input id="Remember" name="cau7true" type="checkbox" />
+
+                                        </div>
+                                        <div class="col-md-2">
+                                            <input id="Remember" name="cau7false" type="checkbox" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-8">
+
+                                    <p>Sử dụng ma túy ,tiêm chích .... ?</p>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="d-flex">
+                                        <div class="col-md-2">
+                                            <input id="Remember" name="cau8true" type="checkbox" />
+
+                                        </div>
+                                        <div class="col-md-2">
+                                            <input id="Remember" name="cau8false" type="checkbox" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-8">
+
+                                    <p>Quan hệ tình dục với người nhiễm hoặc có nguy cơ lây nhiễm HIV,viêm gan?</p>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="d-flex">
+                                        <div class="col-md-2">
+                                            <input id="Remember" name="cau9true" type="checkbox" />
+
+                                        </div>
+                                        <div class="col-md-2">
+                                            <input id="Remember" name="cau9false" type="checkbox" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-8">
+                                    <p>Quan hệ tình dục với người cùng giới </p>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="d-flex">
+                                        <div class="col-md-2">
+                                            <input id="Remember" name="cau10true" type="checkbox" />
+
+                                        </div>
+                                        <div class="col-md-2">
+                                            <input id="Remember" name="cau10false" type="checkbox" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-8">
+
+                                    <p>Tiêm vacxin phòng bệnh Loại vacxin .....</p>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="d-flex">
+                                        <div class="col-md-2">
+                                            <input id="Remember" name="cau11true" type="checkbox" />
+
+                                        </div>
+                                        <div class="col-md-2">
+                                            <input id="Remember" name="cau11false" type="checkbox" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-8">
+
+                                    <p>Sống trong vùng có dịch lưu hành (sốt xuất huyết,sốt rét,bò điên,Ebola,Zika,Covid-19)... ?</p>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="d-flex">
+                                        <div class="col-md-2">
+                                            <input id="Remember" name="cau12true" type="checkbox" />
+
+                                        </div>
+                                        <div class="col-md-2">
+                                            <input id="Remember" name="cau12false" type="checkbox" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-8">
+                                    <p style="font-weight:bold">Trong vòng 1 tuần gần đây ,Quý vị có</p>
+                                    <p>Bị cúm,ho,nhức đầu,sốt</p>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="d-flex">
+                                        <div class="col-md-2">
+                                            <input id="Remember" name="cau13true" type="checkbox" />
+
+                                        </div>
+                                        <div class="col-md-2">
+                                            <input id="Remember" name="cau13false" type="checkbox" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-8">
+                                    <p>Dùng thuốc kháng sinh,ASPIRIN,CORTICOID ...?</p>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="d-flex">
+                                        <div class="col-md-2">
+                                            <input id="Remember" name="cau14true" type="checkbox" />
+
+                                        </div>
+                                        <div class="col-md-2">
+                                            <input id="Remember" name="cau14false" type="checkbox" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-8">
+                                    <p>Đến khám sức khỏe,làm xét nghiệm,chữa răng?</p>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="d-flex">
+                                        <div class="col-md-2">
+                                            <input id="Remember" name="cau15true" type="checkbox" />
+
+                                        </div>
+                                        <div class="col-md-2">
+                                            <input id="Remember" name="cau15false" type="checkbox" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-8">
+                                    <p style="font-weight:bold">Quí vị hiện đối tượng tàn tật hoặc hưởng trợ cấp cấp tàn tật hoặc nạn nhân chất độc màu da cam không ?</p>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="d-flex">
+                                        <div class="col-md-2">
+                                            <input id="Remember" name="cau16true" type="checkbox" />
+
+                                        </div>
+                                        <div class="col-md-2">
+                                            <input id="Remember" name="cau16false" type="checkbox" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-8">
+                                    <p style="font-weight:bold">Câu hỏi dành cho phụ nữ:</p>
+                                    <p>Chị hiện đang nuôi con dưới 12 tháng tuổi/đang trong kỳ kinh nguyệt?</p>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="d-flex">
+                                        <div class="col-md-2">
+                                            <input id="Remember" name="cau17true" type="checkbox" />
+
+                                        </div>
+                                        <div class="col-md-2">
+                                            <input id="Remember" name="cau17false" type="checkbox" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-8">
+                                    <p>Chị đã từng có thai hoặc sinh con chưa?</p>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="d-flex">
+                                        <div class="col-md-2">
+                                            <input id="Remember" name="cau18true" type="checkbox" />
+
+                                        </div>
+                                        <div class="col-md-2">
+                                            <input id="Remember" name="cau18false" type="checkbox" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                         
+                        <div class="">
+                            <div class="col-md-offset-2 col-md-12">
+                                <p class="text-danger">@ViewBag.Danger</p>
+                            </div>
+                          
+                        </div>
+
+
+                        <div class="buttons">
+                            <div class="containers">
+                                <input type="submit" value="Xác nhận" class="btn effect01" />
+
+                            </div>
+                        </div>
+
+                    </div>
+                }
+            </div>
+        </div>
+
+
+    </div>
+</body>

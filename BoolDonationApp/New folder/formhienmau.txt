@@ -1,0 +1,271 @@
+@{
+    Layout = null;
+    ViewBag.Title = "FormHienMau";
+
+}
+<style>
+    .buttons {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        text-align: center;
+        /*   padding: 2em 0em; */
+    }
+
+    .containers {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        background-color: #FFF;
+        padding: 40px 0px;
+        width: 240px;
+    }
+
+    h1 {
+        text-align: left;
+        color: #444;
+        letter-spacing: 0.05em;
+        margin: 0 0 0.4em;
+        font-size: 1em;
+    }
+
+    p {
+        text-align: left;
+        color: #444;
+        letter-spacing: 0.05em;
+        font-size: 0.8em;
+        margin: 0 0 2em;
+    }
+
+
+    .btn {
+        letter-spacing: 0.1em;
+        cursor: pointer;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 45px;
+        max-width: 160px;
+        position: relative;
+        text-decoration: none;
+        text-transform: uppercase;
+        width: 100%;
+    }
+
+        .btn:hover {
+            text-decoration: none;
+        }
+
+    /*btn_background*/
+    .effect01 {
+        color: #FFF;
+        border: 4px solid #000;
+        box-shadow: 0px 0px 0px 1px #000 inset;
+        background-color: #007bff;
+        overflow: hidden;
+        position: relative;
+        transition: all 0.3s ease-in-out;
+    }
+</style>
+<link href="~/Content/FormBool.css" rel="stylesheet" />
+<link href="~/Content/buttons.css" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<body>
+    @*<script type="text/javascript">
+            $(function () {
+                $("#IDQuan").on("change", function {
+                    $("#IDTinh").val($(this).text());
+                });
+
+            });
+        </script>*@
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+
+    @section scripts{
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+        <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+        <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+        <script>
+            $(document).ready(function () { $(".FromJson").select2(); });
+        </script>
+        <style>
+            .texts {
+                width: 100% !important;
+                height: 70px !important;
+            }
+        </style>
+    }
+    <div class="bool">
+        <div class="formBool">
+            <div class="container">
+                <div class="formBool-container">
+                    <div class="formBool-left">
+                        <img src="~/Content/Images/dai hoi 1.png" alt="Logo" class="imgBood">
+                        <h4 class="text-logo">Bệnh viện Đà Nẵng</h4>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="container">
+            <div class="form-container">
+                @using (Html.BeginForm("FormHienMau", "Home", FormMethod.Post))
+                {
+
+                    @Html.AntiForgeryToken()
+
+                <div class="form-horizontal">
+                    <h4 class="tittle-text">Phiếu đăng kí hiến máu tình nguyện</h4>
+
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        <p class="control-label col-md-2">Đợt hiến máu <b class="text-danger">(*)</b>:</p>
+                        <div class="col-md-12">
+                            @Html.DropDownListFor(m => m.BatchID, ViewBag.ListOfBatch as IEnumerable<SelectListItem>, "Chọn đợi hiến máu", new { @class = "form-control" })
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <p class="control-label col-md-2">Họ và tên <b class="text-danger">(*)</b>:</p>
+                        <div class="col-md-12">
+                            @Html.EditorFor(m => m.Hovaten, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Hovaten, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <p class="control-label col-md-2">Giới tính :</p>
+                        <div class="col-md-12">
+                            <select class="form-control" aria-label="Default select example" name="Gioitinhform">
+                                <option disabled selected>Giới tính</option>
+                                <option value=1>Nam </option>
+                                <option value=0>Nữ</option>
+                            </select>
+                        </div>
+
+
+                    </div>
+
+                    <div class="form-group">
+                        <p class="control-label col-md-2">Ngày sinh <b class="text-danger">(*)</b>:</p>
+                        <div class="col-md-12">
+                            @Html.EditorFor(m => m.NgaySinh, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(m => m.NgaySinh, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <p class="control-label col-md-2">Số điện thoại <b class="text-danger">(*)</b>:</p>
+                        <div class="col-md-12">
+                            @Html.EditorFor(m => m.Phone, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(m => m.Phone, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <div style="display:flex">
+                            <div class="col-md-2">
+                                <p class="control-label ">Tổ <b class="text-danger">(*)</b>:</p>
+                                <div>
+                                    @Html.EditorFor(m => m.sonha, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(m => m.sonha, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <p class="control-label ">Số nhà <b class="text-danger">(*)</b>:</p>
+                                <div>
+                                    @Html.EditorFor(m => m.Nest, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(m => m.Nest, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <p class="control-label ">Đường <b class="text-danger">(*)</b>:</p>
+                                <div>
+                                    @Html.EditorFor(m => m.duong, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(m => m.duong, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <p class="control-label ">Phường <b class="text-danger">(*)</b>:</p>
+                                <div>
+                                    @Html.DropDownListFor(m => m.IDPhuong, ViewBag.ListOfPhuong as IEnumerable<SelectListItem>, "Chọn phường", new { @class = "form-control FromJson" })
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <p class="control-label ">Quận<b class="text-danger">(*)</b>:</p>
+                                <div>
+                                    @Html.DropDownListFor(m => m.IDQuan, ViewBag.ListOfQuan as IEnumerable<SelectListItem>, "Chọn Quận", new { @class = "form-control FromJson" })
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <p class="control-label ">Quốc gia <b class="text-danger">(*)</b>:</p>
+                                <div>
+                                    @Html.DropDownListFor(m => m.IDQuocGia, ViewBag.ListOfQuocGia as IEnumerable<SelectListItem>, "Chọn Quốc gia", new { @class = "form-control FromJson" })
+                                </div>
+                            </div>
+
+
+
+
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <p class="control-label col-md-2">Email @*<b class="text-danger">(*)</b>*@:</p>
+                        <div class="col-md-12">
+                            @Html.EditorFor(m => m.Email, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <p class="control-label col-md-2">Nhóm máu @*<b class="text-danger">(*)</b>*@:</p>
+                        <div class="col-md-12">
+                            @Html.EditorFor(m => m.NhomMau, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(m => m.NhomMau, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <p class="control-label col-md-2">Số CMND/CCCD <b class="text-danger">(*)</b>:</p>
+                        <div class="col-md-12">
+                            @Html.EditorFor(m => m.CMND, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(m => m.CMND, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="">
+                        <div class="col-md-offset-2 col-md-12">
+                            <p class="text-danger">@ViewBag.Danger</p>
+                        </div>
+                        @if (ViewBag.QrCodeImage != null)
+                        {
+                            <p class="text-danger">Tạo mã thành công</p>
+                            <h3>@ViewBag.Qrcodechecks</h3>
+                            <img src="@ViewBag.QrCodeImage" style="height:200px;width:200px" />
+                        }
+                    </div>
+                   
+               
+                 
+                        <div class="buttons">
+                            <div class="containers">
+                                <input type="submit" value="Xác nhận" class="btn effect01" />
+
+                            </div>
+                        </div>
+                    </div>
+                }
+
+            </div>
+        </div>
+
+
+    </div>
+</body>

@@ -1,0 +1,33 @@
+﻿.giaychungnhan {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    padding:20px
+
+}
+.row {
+    height:100%;
+}
+.row-left {
+    border: 4px solid #c10000;
+    height: 100%;
+}
+.row-left-title {
+    color: #c10000;
+    text-align: center;
+    font-size: 33px;
+    font-weight: bold;
+    text-transform:uppercase;
+}
+ol {
+padding-left :17px;
+}
+li {
+    padding-bottom: 20px;
+    color: #ff0000;
+}
+.liness{
+    height: 1.8px;
+    background: #c10000;
+    width: 100%;
+}

@@ -1,0 +1,558 @@
+﻿@model BoolDonationApp.Common.connectBoodandUserbatch
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Khamsanloc</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="~/Content/FormBool.css" rel="stylesheet" />
+    <link href="~/Content/buttons.css" rel="stylesheet" />
+    <style>
+        .table-hover {
+            cursor: pointer;
+        }
+
+        th, td {
+            text-align: center;
+        }
+
+        td {
+            background: #bbbbbb;
+        }
+
+        .table-bordered > tbody > tr > td, .table-bordered > tbody > tr > th, .table-bordered > tfoot > tr > td, .table-bordered > tfoot > tr > th, .table-bordered > thead > tr > td, .table-bordered > thead > tr > th {
+            border: 1px solid red;
+        }
+
+        input[type=text] {
+            text-align: center
+        }
+    </style>
+</head>
+<body>
+
+    <div class="formkhamsanloc">
+        <div style="background-color: #57b4de">
+            <h5 style="text-align:center">Quản lý người hiến máu</h5>
+        </div>
+
+        <table class="table table-sm table-bordered  ">
+            <thead>
+                <tr>
+                    <th>Họ và tên</th>
+                    <th>Ngày sinh</th>
+                    <th>Giới tính</th>
+                    <th>Số điện thoại</th>
+                    <th>Số CMND</th>
+                    <th>Nhóm máu</th>
+                    <th>Số lần HM</th>
+                    <th>Ngày hiến máu</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>@Html.DisplayFor(model => model.Hovaten)</td>
+                    <td>@Html.DisplayFor(model => model.NgaySinh)</td>
+
+                    @if (Model.gioitinh == 0)
+                    {
+                        <td>Nữ</td>
+                    }
+                    else
+                    {
+                        <td>Nam</td>
+                    }
+
+                    <td>@Html.DisplayFor(model => model.Phone)</td>
+                    <td>@Html.DisplayFor(model => model.CMND)</td>
+                    <td>@Html.DisplayFor(model => model.NhomMau)</td>
+                    <td>@Html.DisplayFor(model => model.Solanhienmau)</td>
+                    <td>@Convert.ToDateTime(Model.Thoigianhien).ToString("dd/MM/yyyy")</td>
+
+                </tr>
+            </tbody>
+        </table>
+        <div class="d-flex">
+            <div class="col-md-3" style=" padding-left: 0px !important; padding-right: 0px !important; border: 1px solid rgb(0 0 0 / 15%); padding: 10px 25px; padding-left: 25px !important; padding-right: 25px !important; ">
+                <div style="display: flex;">
+                    <select class="form-control form-control-lg">
+                        <option>Khám - Khám sàn lọc trước hiến máu</option>
+                    </select>
+                </div>
+                <div>
+                    <div style="width: 100%; padding-top:10px; box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;margin-top:30px;text-align:center">
+                        @foreach (BoolDonationApp.Common.connectBoodandUserbatch bloodDonation in ViewBag.datimeBlood)
+                        {
+                            <p>@Convert.ToDateTime(@bloodDonation.Thoigianhien).ToString("dd/MM/yyyy")</p>
+
+                        }
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-9" style="border: 1px solid rgb(0 0 0 / 15%); padding: 10px 25px; ">
+
+                @using (Html.BeginForm("Khamsanloc", "Home", FormMethod.Post))
+                {
+                    <div class="d-flex">
+
+                        <div class="col-md-6" style="border: 1px solid rgb(0 0 0 / 15%);padding:10px">
+                            <div class="d-flex" style="justify-content:space-between; align-items:center">
+                                <div class="d-flex" style="justify-content:center;align-items:center">
+                                    <p style="margin-bottom:0 !important;margin-right:10px">Ngày</p>
+                                    <div> @Html.TextBoxFor(m => m.Thoigianhien, "{0:yyyy-MM-dd}", new { @class = "form-control datetimepicker", type = "date", disabled = "disabled" })</div>
+                                </div>
+                                <div class="d-flex" style="align-items:center">
+                                    <p style="margin-bottom: 0 !important; margin-right: 10px ">Số lần hiến máu</p>
+                                    <div> @Html.EditorFor(model => model.Solanhienmau, new { htmlAttributes = new { @class = "form-control", disabled = "disabled", style = "width:50px" } })</div>
+                                </div>
+
+                            </div>
+
+                            <div class="d-flex" style="align-items:center ;margin-top:15px">
+                                <p style="margin-bottom: 0 !important; padding-left: 0px !important; padding-right: 0px!important; " class="col-md-2">Đối tượng:</p>
+                                <div class="col-md-10" style="margin-bottom: 0 !important; padding-right: 0px !important; padding-left: 0px !important;">
+                                    <select class="form-control" aria-label="Default select example" name="Doituongform">
+                                        <option disabled selected>Hình thức hiến máu</option>
+                                        <option value="Tình nguyện">Tình nguyện</option>
+                                        <option value="Chuyên nghiệp">Chuyên nghiệp</option>
+                                        <option value="Người nhà cho máu tình nguyện">Người nhà cho máu tình nguyện</option>
+                                        <option value="Người nhà cho máu chuyên nghiệp">Người nhà cho máu chuyên nghiệp</option>
+                                        <option value="Khám sức khỏe">Khám sức khỏe</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="d-flex" style="align-items:center ;margin-top:15px">
+                                <p style="margin-bottom: 0 !important; padding-left: 0px !important; padding-right: 0px!important; " class="col-md-4">Hình thức hiến máu :</p>
+                                <div class="col-md-8" style="margin-bottom: 0 !important; padding-right: 0px !important; padding-left: 0px !important;">
+                                    <select id="test" class="form-control hinhthuc" aria-label="Default select example" name="Hinhthucform" onchange="showDiv()">
+                                        <option disabled selected>Hình thức hiến máu</option>
+                                        <option value="Toàn phần">Toàn phần</option>
+                                        <option value="Gạn tiểu cầu">Gạn tiểu cầu</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div id="hidden"style="display:none ">
+                                <b>Lượng máu:</b>
+                                <div style=" border: 1px solid rgb(0 0 0 / 15%); padding: 15px 10px;margin-top:10px">
+                                    <div class="d-flex" style="padding-left: 0px!important;padding-right: 0px !important; align-items:center;justify-content:center">
+
+
+                                        <div class="col-md-3" style="padding-left: 0px!important;padding-right: 0px !important;">
+                                            <input type="checkbox" class="form-check-input" id="luongmau350" style=" margin-left: 7px;">
+                                            <p class="form-check-label" for="exampleCheck1" style=" margin-left: 24px;">350ml</p>
+                                        </div>
+                                        <div class="col-md-3" style="padding-left: 0px!important;padding-right: 0px !important;">
+                                            <input type="checkbox" class="form-check-input" id="luongmau250" style=" margin-left: 7px;">
+                                            <p class="form-check-label" for="exampleCheck1" style=" margin-left: 24px;">250ml</p>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <b>Xét nghiệm trước:</b>
+                            <div style="border: 1px solid rgb(0 0 0 / 15%); padding: 15px 10px; ">
+                                <div class="col-md-12 d-flex" style="padding-left: 0px!important;padding-right: 0px !important; align-items:center">
+                                    <div class="col-md-4" style="padding-left: 0px!important;padding-right: 0px !important;">
+                                        <div class="d-flex" style="justify-content:center;align-items:center">
+                                            <p style="margin-bottom: 0 !important; margin-right: 10px; width: 347px;">Huyết sắc tố</p>
+                                            <input type="number" class="form-control" name="huyetsacto" id="huyetsacto" onchange="showErorrhst()">
+
+                                        </div>
+                                        <div id="huuyetsac" style="display: none; " >
+                                            <p class="text-danger">Huyết sắc tố không đạt</p>
+                                        </div>
+                                        </div>
+                                    <div class="col-md-4" style="padding-left: 0px!important;padding-right: 0px !important;">
+                                        <div class="d-flex" style="justify-content:center;align-items:center">
+                                            <p style="margin-bottom: 0 !important; margin-right: 10px; width: 157px; padding-left: 10px; ">Tiểu cầu</p>
+                                            <input type="number" class="form-control" name="tieucau" id="tieucau" onchange="showErorrtieucau()">
+
+                                        </div>
+                                        <div id="tieucauerr" style="display: none; ">
+                                            <p class="text-danger">Tiểu cầu không đạt</p>
+                                        </div>
+                                    </div>
+
+                                        <div class="col-md-4">
+                                            <input type="checkbox" onchange="Vienkhongdat(event)" class="form-check-input" name="veinkhongdat" id="veinkhongdat" style=" margin-left: 7px;">
+                                            <p class="form-check-label"  for="exampleCheck1" style=" margin-left: 24px;">Vein không Đạt</p>
+                                        </div>
+
+                                    </div>
+                                <div class="d-flex " style="align-items:center">
+                                    <div class="d-flex col-mod-6" style="align-items:center;margin-top: 0px;padding-left: 0px;padding-right: 0px;margin-bottom: 0px;">
+                                        <p style="margin-bottom: 0 !important; padding-left: 0px !important; padding-right: 0px!important; " class="col-md-4">HBsAG :</p>
+                                        <div class="col-md-8" style="margin-bottom: 0 !important; padding-right: 0px !important; padding-left: 0px !important;">
+                                            <select id="hsbg" class="form-control" aria-label="Default select example" name="Hsabgform" onchange="hsbgform()">
+                                                <option selected>HBsAG</option>
+                                                <option  value="Âm tính" >Âm Tính</option>
+                                                <option value="Dương Tính">Dương Tính</option>
+
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-mod-6" style="  margin-bottom: 0px;">
+                                        <input type='text' id='id1' disabled />
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="hidden_div" style="display: none; border: 1px solid rgb(0 0 0 / 15%); padding: 15px 10px;margin-top:10px">
+                                <div class="d-flex" style="padding-left: 0px!important;padding-right: 0px !important; align-items:center">
+                                    <div class="col-md-3" style="padding-left: 0px!important;padding-right: 0px !important;">
+                                        <input type="checkbox" class="form-check-input" id="exampleCheck1" style=" margin-left: 7px;">
+                                        <p class="form-check-label" for="exampleCheck1" style=" margin-left: 24px;">HBV</p>
+                                    </div>
+                                    <div class="col-md-3" style="padding-left: 0px!important;padding-right: 0px !important;">
+                                        <input type="checkbox" class="form-check-input" id="exampleCheck1" style=" margin-left: 7px;">
+                                        <p class="form-check-label" for="exampleCheck1" style=" margin-left: 24px;">HCV</p>
+
+                                    </div>
+                                    <div class="col-md-3" style="padding-left: 0px!important;padding-right: 0px !important;">
+                                        <input type="checkbox" class="form-check-input" id="exampleCheck1" style=" margin-left: 7px;">
+                                        <p class="form-check-label" for="exampleCheck1" style=" margin-left: 24px;">HIV</p>
+                                    </div>
+                                    <div class="col-md-3" style="padding-left: 0px!important;padding-right: 0px !important;">
+                                        <input type="checkbox" class="form-check-input" id="exampleCheck1" style=" margin-left: 7px;">
+                                        <p class="form-check-label" for="exampleCheck1" style=" margin-left: 24px;">Giang mai</p>
+                                    </div>
+
+                                </div>
+                            </div>
+
+
+
+                        </div>
+                        <div class="col-md-6" style="border: 1px solid rgb(0 0 0 / 15%);padding:10px">
+                            <div class="d-flex " style=" align-items:center">
+                                <p class="col-md-4" style="margin-bottom:0px !important">Cân nặng :</p>
+                                <input type="number" class="form-control" id="cannang" placeholder="cân nặng" onchange="showErorrcannang()">
+                            </div>
+                            <div class="d-flex " style=" align-items:center">
+                                <p class="col-md-4" style="margin-bottom:0px !important"></p>
+                                <div id="cannangerr" style="display: none; ">
+                                    <p class="text-danger">cân nặng không đủ</p>
+                                </div>
+                            </div>
+
+                            <div class="d-flex " style=" align-items:center;margin-top:10px">
+                                <p class="col-md-4" style="margin-bottom:0px !important">Mạch :</p>
+                                <input type="number" class="form-control" id="mach" placeholder="Mạch"  onchange="showErorrmach()">
+                            </div>
+                            <div class="d-flex " style=" align-items:center">
+                                <p class="col-md-4" style="margin-bottom:0px !important"></p>
+                                <div id="macherr" style="display: none; ">
+                                    <p class="text-danger">mạch không đủ</p>
+                                </div>
+                            </div>
+                            <div class="d-flex " style=" align-items:center;margin-top:10px">
+                                <p class="col-md-4" style="margin-bottom:0px !important">Huyết áp :</p>
+                                <div class="col-md-4"><input type="number" class="form-control" id="huyetamthu" onchange="showErorrhuyettamthu()" placeholder="Huyết áp tâm thu"></div>
+                                <div class="col-md-4">  <input type="number" class="form-control" id="huyettamtruong" onchange="showErorrhuyettamtruong()" placeholder="Huyết áp tâm trương"></div>
+                            </div>
+                            <div class="d-flex " style=" align-items:center">
+                                <div class="col-md-4" style="margin-bottom:0px !important">
+
+                                </div>
+                                <div id="huyetamthuerr" style="display: none; ">
+                                    <p class="text-danger">Huyết áp tâm thu không đủ</p>
+                                </div>
+                                <div id="huyettamtruongerr" style="display: none; ">
+                                    <p class="text-danger">huyết tâm trương không đủ</p>
+                                </div>
+
+
+                            </div>
+                            <div class="d-flex " style=" align-items:center">
+                                <p class="col-md-4" style="margin-bottom:0px !important">Tình trạng lâm sàng :</p>
+                                <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Tình trạng lâm sàng">
+                            </div>
+                            <b>Kết luận:</b>
+                            <div style="border: 1px solid rgb(0 0 0 / 15%); padding: 15px 10px; ">
+                                <div class="d-flex" style="align-items:center ;margin-top:15px">
+                                    <p style="margin-bottom: 0 !important; padding-left: 0px !important; padding-right: 0px!important; " class="col-md-4">Kết luận :</p>
+                                    <input type="text" class="form-control" id="ketluan" disabled>
+                                </div>
+                                <div class="d-flex" style="align-items:center ;margin-top:15px">
+                                    <p style="margin-bottom: 0 !important; padding-left: 0px !important; padding-right: 0px!important; " class="col-md-4">Lý do :</p>
+                                    <input type="text" class="form-control" id="lido" disabled>
+                                </div>
+                                <div class="d-flex" style="align-items:center ;margin-top:15px">
+                                    <p style="margin-bottom: 0 !important; padding-left: 0px !important; padding-right: 0px!important; " class="col-md-4">KTV xét nghiệm :</p>
+                                    <input type="text" class="form-control" id="ketluan">
+                                </div>
+                                <div class="d-flex" style="align-items:center ;margin-top:15px">
+                                    <p style="margin-bottom: 0 !important; padding-left: 0px !important; padding-right: 0px!important; " class="col-md-4">Bác sỹ kết luận :</p>
+                                    <input type="text" class="form-control" id="ketluan">
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                    </div>
+                   @*<button>Xác nhận</button>*@
+                }
+            </div>
+
+        </div>
+
+
+
+
+
+
+
+
+
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script>
+
+    var styleError = "";
+    var totalErros = "";
+    var tieycauErrors = "";
+   
+    var ketluan = "";
+    var cannangError = "";
+
+    function showDiv() {
+
+        getSelectValue = document.getElementById("test").value;
+        if (getSelectValue == "Gạn tiểu cầu") {
+
+            document.getElementById("hidden_div").style.display = "block";
+            document.getElementById("hidden").style.display = "none";
+        } if (getSelectValue == "Toàn phần") {
+            document.getElementById("hidden").style.display = "block";
+            document.getElementById("hidden_div").style.display = "none";
+        }
+        
+    }
+    function showErorrhst() {
+        getSelectValue = document.getElementById("huyetsacto").value;
+        if (getSelectValue < 125 && getSelectValue) {
+            styleError = "";
+            document.getElementById("huuyetsac").style.display = "block";
+            document.getElementById("ketluan").value = "Tạm ngừng";
+            totalErros = styleError + "Huyết sắc tố";
+            document.getElementById("lido").value  = totalErros+styleError;
+            styleError = document.getElementById("lido").value;
+        } else {
+            document.getElementById("huuyetsac").style.display = "none";
+            document.getElementById("ketluan").value = "Bình thường";
+            ketluan = document.getElementById("ketluan").value = "Bình thường";
+            document.getElementById("lido").value = ""
+        }
+        if (!getSelectValue ) {
+            document.getElementById("lido").value = ""
+            document.getElementById("ketluan").value = "";
+            totalErros = ""
+        }
+
+    };
+    function showErorrtieucau() {
+        tieycauErrors = "";
+        getSelectValue = document.getElementById("tieucau").value;
+       
+        if (getSelectValue < 120 && getSelectValue) {
+
+            document.getElementById("tieucauerr").style.display = "block";
+            document.getElementById("ketluan").value = "Tạm ngừng";
+            ketluan = document.getElementById("ketluan").value = "Tạm ngừng";
+            
+            tieycauErrors = "Thiếu máu";
+            if (document.getElementById("lido").value === "Thiếu máu") {
+                document.getElementById("lido").value = totalErros;
+            } else {
+                document.getElementById("lido").value = totalErros + "," + tieycauErrors;
+                totalErros = totalErros + "," + tieycauErrors;
+              
+            }
+            if (totalErros.includes("Thiếu máu")) {
+                document.getElementById("lido").value = "Huyết sắc tố " + "," +"Thiếu máu"
+            }
+            if (!document.getElementById("huyetsacto").value) {
+                document.getElementById("lido").value =  "Thiếu máu"
+            }
+        } else {
+            document.getElementById("tieucauerr").style.display = "none";
+            document.getElementById("ketluan").value = "Bình thường";
+            document.getElementById("lido").value = "Huyết sắc tố " ;
+        } if (!getSelectValue) {
+            document.getElementById("lido").value = ""
+            document.getElementById("ketluan").value = "";
+            styleError = ""
+
+        }
+    }
+    function Vienkhongdat(e) {
+        const { checked } = e.target;
+        
+        if (checked) {
+
+            document.getElementById("ketluan").value = "Ngừng vĩnh viễn";
+
+        } else {
+            if (ketluan) {
+                document.getElementById("ketluan").value = ketluan;
+            }else
+            document.getElementById("ketluan").value = "Bình thường";
+        }
+
+    }
+    function showErorrcannang() {
+        cannangError = "";
+        getSelectValue = document.getElementById("cannang").value;
+        if (getSelectValue < 50 && getSelectValue) {
+
+            document.getElementById("cannangerr").style.display = "block";
+            document.getElementById("ketluan").value = "Tạm ngừng";
+            cannangError = "cân nặng";
+            if (document.getElementById("lido").value === "cân nặng") {
+                document.getElementById("lido").value = totalErros;
+            } else {
+                document.getElementById("lido").value = totalErros + "," + cannangError;
+                totalErros = totalErros + "," + cannangError;
+
+            }
+            if (totalErros.includes("cân nặng")) {
+                document.getElementById("lido").value = "Huyết sắc tố " + "," + "Thiếu máu"+","+"cân nặng"
+            }
+            if (!document.getElementById("huyetsacto").value && !document.getElementById("tieucau").value) {
+                document.getElementById("lido").value = "cân nặng"
+            }
+            
+             } else {
+            document.getElementById("cannangerr").style.display = "none";
+            document.getElementById("ketluan").value = "Bình thường";
+            document.getElementById("lido").value = "Huyết sắc tố " + "," + "Thiếu máu";
+        }
+        if (!getSelectValue) {
+            document.getElementById("lido").value = ""
+            document.getElementById("ketluan").value = "";
+            styleError = ""
+        }
+
+    };
+    function showErorrmach() {
+        getSelectValue = document.getElementById("mach").value;
+        if (getSelectValue > 85 || getSelectValue < 70) {
+            document.getElementById("macherr").style.display = "block";
+            document.getElementById("ketluan").value = "Tạm ngừng";
+            machError = "Huyết áp";
+            if (document.getElementById("lido").value === "Huyết áp") {
+                document.getElementById("lido").value = totalErros;
+            } else {
+                document.getElementById("lido").value = totalErros + "," + machError;
+                totalErros = totalErros + "," + machError;
+
+            }
+            if (totalErros.includes("Huyết áp")) {
+                document.getElementById("lido").value = "Huyết sắc tố " + "," + "Thiếu máu" + "," + "cân nặng" + "," + "Huyết áp"
+            }
+            if (!document.getElementById("huyetsacto").value && !document.getElementById("tieucau").value && !document.getElementById("cannang").value) {
+                document.getElementById("lido").value = "Huyết áp"
+            }
+
+        } else {
+            document.getElementById("macherr").style.display = "none";
+            document.getElementById("ketluan").value = "Bình thường";
+        }
+        if (!getSelectValue) {
+            document.getElementById("macherr").style.display = "none";
+            document.getElementById("lido").value = ""
+            document.getElementById("ketluan").value = "";
+            styleError = ""
+        }
+
+    };
+    function showErorrhuyettamthu() {
+        getSelectValue = document.getElementById("huyetamthu").value;
+        if (getSelectValue >140 || getSelectValue < 100) {
+            document.getElementById("huyetamthuerr").style.display = "block";
+            document.getElementById("ketluan").value = "Tạm ngừng";
+            machError = "Huyết áp";
+            if (document.getElementById("lido").value === "Huyết áp") {
+                document.getElementById("lido").value = totalErros;
+            } else {
+                document.getElementById("lido").value = totalErros + "," + machError;
+                totalErros = totalErros + "," + machError;
+
+            }
+            
+            if (totalErros.includes("Huyết áp")) {
+                document.getElementById("lido").value = "Huyết sắc tố " + "," + "Thiếu máu" + "," + "cân nặng" + "," + "Huyết áp"
+            }
+            if (!document.getElementById("huyetsacto").value && !document.getElementById("tieucau").value && !document.getElementById("cannang").value  && !document.getElementById("mach").value) {
+                document.getElementById("lido").value = "Huyết áp"
+            }
+        } else {
+            document.getElementById("huyetamthuerr").style.display = "none";
+            document.getElementById("ketluan").value = "Bình thường";
+        }
+        if (!getSelectValue) {
+            document.getElementById("huyetamthuerr").style.display = "none";
+            document.getElementById("lido").value = ""
+            document.getElementById("ketluan").value = "Bình thường";
+            styleError = ""
+        }
+
+    };
+   
+    function showErorrhuyettamtruong() {
+        getSelectValue = document.getElementById("huyettamtruong").value;
+        if (getSelectValue > 90 || getSelectValue < 60) {
+            document.getElementById("huyettamtruongerr").style.display = "block";
+            document.getElementById("ketluan").value = "Tạm ngừng";
+            machError = "Huyết áp";
+            if (document.getElementById("lido").value === "Huyết áp") {
+                document.getElementById("lido").value = totalErros;
+            } else {
+                document.getElementById("lido").value = totalErros + "," + machError;
+                totalErros = totalErros + "," + machError;
+
+            }
+            if (totalErros.includes("Huyết áp")) {
+                document.getElementById("lido").value = "Huyết sắc tố " + "," + "Thiếu máu" + "," + "cân nặng" + "," + "Huyết áp"
+            }
+            if (!document.getElementById("huyetsacto").value && !document.getElementById("tieucau").value && !document.getElementById("cannang").value && !document.getElementById("huyetamthu").value && !document.getElementById("mach").value) {
+                document.getElementById("lido").value = "Huyết áp"
+            }
+        } else {
+            document.getElementById("huyettamtruongerr").style.display = "none";
+            document.getElementById("ketluan").value = "Bình thường";
+        }
+        if (!getSelectValue) {
+            document.getElementById("huyettamtruongerr").style.display = "none";
+            document.getElementById("lido").value = ""
+            document.getElementById("ketluan").value = "";
+            styleError = ""
+        }
+
+    };
+  
+  
+    function hsbgform() {
+
+        getSelectValue = document.getElementById("hsbg").value;
+        if (getSelectValue != "Âm tính") {
+
+            document.getElementById("ketluan").value = "Ngừng vĩnh viễn";
+        } else {
+            document.getElementById("ketluan").value = "Bình thường";
+        }
+    }
+
+    document.getElementById('id1').value = 'Không phản ứng';
+</script>
+</html>

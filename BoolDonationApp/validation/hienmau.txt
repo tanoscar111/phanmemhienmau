@@ -1,0 +1,38 @@
+public int BloodID { get; set; }
+        [Display(Name = "Họ và Tên")]
+        [Required(ErrorMessage = "Vui lòng nhập Họ và Tên")]
+        public string Hovaten { get; set; }
+        [Display(Name = "Ngày sinh")]
+        [DataType(DataType.Date), DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
+        [Required(ErrorMessage = "Vui lòng nhập ngày sinh")]
+        public Nullable<System.DateTime> NgaySinh { get; set; }
+
+        [Required(ErrorMessage = "Vui lòng nhập số điện thoại")]
+        [Display(Name = "Số điện thoại")]
+        [DataType(DataType.PhoneNumber)]
+        [RegularExpression(@"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$", ErrorMessage = "Số điện thoại không hợp lệ")]
+        public string Phone { get; set; }
+        [Display(Name = "Địa Chỉ ")]
+        public string DiaChi { get; set; }
+        [Display(Name = "Email ")]
+
+        public string Email { get; set; }
+        public int BatchID { get; set; }
+        [Display(Name = "Nhóm máu ")]
+        [Required(ErrorMessage = "Vui lòng nhập nhóm máu ")]
+        public string NhomMau { get; set; }
+        [Display(Name = "Số lần hiến máu")]
+        public Nullable<int> Solanhienmau { get; set; }
+        [MinLength(12, ErrorMessage = "Số CCCD hoặc CMNN phải đủ 12 số")]
+        [Display(Name = "Số CMND/CCCD")]
+        [Required(ErrorMessage = "Vui lòng nhập số CMND ")]
+        public string CMND { get; set; }
+        public int IdUser { get; set; }
+        [Display(Name = "Giới tính ")]
+        [Required(ErrorMessage = "Vui lòng nhập giới tính ")]
+        public Nullable<int> gioitinh { get; set; }
+        public Nullable<int> IsActive { get; set; }
+        [Display(Name = "Căn cước công dân")]
+        public string CCCD { get; set; }
+        [Display(Name = "Đơn vị công tác")]
+        public string Donvicongtac { get; set; }

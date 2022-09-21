@@ -1,0 +1,118 @@
+var lists = db.Batches.ToList();
+            var listPhuong = db.Phuongs.ToList();
+            var listQuan = db.Quans.ToList();
+            var listTinh = db.Tinhs.ToList();
+            var listQuocGia = db.QuocGias.ToList();
+            ViewBag.ListOfBatch = new SelectList(lists, "BatchID", "BatchName");
+            ViewBag.ListOfPhuong = new SelectList(listPhuong, "IDPhuong", "TenP");
+            ViewBag.ListOfQuan = new SelectList(listQuan, "IDQuan", "TenQ");
+            ViewBag.ListOfTinh = new SelectList(listTinh, "IDTinh", "TenT");
+            ViewBag.ListOfQuocGia = new SelectList(listQuocGia, "IDQuocGia", "TenQG");
+            try
+            {
+
+                var list = db.BloodDonations.ToList();
+                var listSelector = list.Any(m => m.Hovaten == dbBlood.Hovaten);
+                if (listSelector)
+                {
+                    if (list.Any(m => m.BatchID == dbBlood.BatchID))
+                    {
+                        ViewBag.Danger = "Tài khoản đã tồn tại hoặc  vui lòng chọn đợt khác";
+                        return View(dbBlood);
+                    }
+
+                }
+                BloodDonation BD = new BloodDonation();
+                BD.Hovaten = dbBlood.Hovaten;
+                CultureInfo culture = new CultureInfo("es-ES");
+                DateTime startTime = DateTime.Parse(dbBlood.NgaySinh.ToString(), culture);
+                DateTime endTime = DateTime.Today;
+                TimeSpan timespan = endTime.Subtract(startTime);
+                var totalDays = timespan.TotalDays;
+                var totalYears = Math.Truncate(totalDays / 365);
+                var totalMonths = Math.Truncate((totalDays % 365) / 30);
+                var remainingDays = Math.Truncate((totalDays % 365) % 30);
+                if (Gioitinhform != null)
+                {
+                    BD.gioitinh = Convert.ToInt32(Gioitinhform);
+                }
+                else
+                {
+                    ViewBag.Danger = "Vui lòng chọn giới tính";
+                    return View(dbBlood);
+                }
+                var gioitinhs = Convert.ToInt32(Gioitinhform);
+                if ((gioitinhs == 1 && ((18 <= Convert.ToInt32(totalYears)) && (Convert.ToInt32(totalYears) <= 60))) || gioitinhs == 0 && ((18 <= Convert.ToInt32(totalYears)) && (Convert.ToInt32(totalYears) <= 55)))
+                {
+                    BD.NgaySinh = dbBlood.NgaySinh;
+                }
+                else
+                {
+                    ViewBag.Danger = "Bạn đã chưa đủ tuổi hoặc quá tuổi đăng kí hiến máu";
+                    return View(dbBlood);
+                }
+                BD.Phone = dbBlood.Phone;
+
+                string BaID = dbBlood.BatchID.ToString();
+                DateTime gFinish = Convert.ToDateTime("1900-01-01");
+                //DateTime timeBlood = Convert.ToDateTime("1900-01-01");
+                SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["hienmauConnectionString"].ConnectionString);//conect DB
+                con.Open(); // mở dB
+                string sql = "select Thoigianketthuc from Batch where BatchID= '" + dbBlood.BatchID + "' ";
+                string sqls = "select Thoigianhien from Batch where BatchID= '" + dbBlood.BatchID + "'";
+                SqlCommand cmd = new SqlCommand(sql, con);//connect
+
+                SqlDataReader dr = cmd.ExecuteReader();
+
+                while (dr.Read())
+                {
+                    gFinish = dr.GetDateTime(0);//đọc từng dòng vị trí thứ 0
+
+                }
+                dr.Dispose(); dr.Close();
+                cmd.Dispose(); cmd.Clone();
+
+
+                int compare = DateTime.Compare(DateTime.Now.ToLocalTime(), gFinish);
+                if (compare > 0)
+                {
+                    ViewBag.Danger = "Đã hết thời gian hiến máu vui lòng chọn đợt hiến máu khác";
+                    return View(dbBlood);
+                }
+                BD.BatchID = dbBlood.BatchID;
+                BD.DiaChi = dbBlood.DiaChi;
+                BD.Nest = dbBlood.Nest;
+                BD.sonha = dbBlood.sonha;
+                BD.duong = dbBlood.duong;
+                BD.IDPhuong = dbBlood.IDPhuong;
+                BD.IDQuan = dbBlood.IDQuan;
+                BD.IDTinh = dbBlood.IDTinh;
+                BD.IDQuocGia = dbBlood.IDQuocGia;
+                BD.Email = dbBlood.Email;
+                BD.CMND = dbBlood.CMND;
+                BD.NhomMau = dbBlood.NhomMau;
+                BD.IsActive = 1;
+                BD.Solanhienmau = 0;
+                BD.IdUser = 1;
+                db.BloodDonations.Add(BD);
+                db.SaveChanges();
+                var codecheck = dbBlood.BatchID + dbBlood.Hovaten + dbBlood.CMND;
+                QRCodeGenerator qrcpdes = new QRCodeGenerator();
+                QRCodeData qrcodedata = qrcpdes.CreateQrCode(codecheck, QRCodeGenerator.ECCLevel.Q);
+                QRCode qrcodes = new QRCode(qrcodedata);
+                using (MemoryStream memory = new MemoryStream())
+                { 
+                    using (Bitmap bitmap = qrcodes.GetGraphic(20))
+                    {
+                        bitmap.Save(memory, ImageFormat.Png);
+                        ViewBag.QrCodeImage = "data:image/png;base64," + Convert.ToBase64String(memory.ToArray());
+                        ViewBag.Qrcodechecks = codecheck;
+                    }
+                }
+                return RedirectToAction("Susssess", "Home");
+                
+            }
+            catch
+            {
+                return View(dbBlood);
+            }

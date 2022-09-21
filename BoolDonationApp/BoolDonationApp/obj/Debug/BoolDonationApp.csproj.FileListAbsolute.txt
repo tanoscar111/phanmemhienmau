@@ -1,0 +1,723 @@
+D:\code BV\BoolDonationApp\BoolDonationApp\bin\BoolDonationApp.dll.config
+D:\code BV\BoolDonationApp\BoolDonationApp\bin\BoolDonationApp.dll
+D:\code BV\BoolDonationApp\BoolDonationApp\bin\BoolDonationApp.pdb
+D:\code BV\BoolDonationApp\BoolDonationApp\bin\roslyn\csc.exe
+D:\code BV\BoolDonationApp\BoolDonationApp\bin\roslyn\csc.exe.config
+D:\code BV\BoolDonationApp\BoolDonationApp\bin\roslyn\csc.rsp
+D:\code BV\BoolDonationApp\BoolDonationApp\bin\roslyn\csi.exe
+D:\code BV\BoolDonationApp\BoolDonationApp\bin\roslyn\csi.exe.config
+D:\code BV\BoolDonationApp\BoolDonationApp\bin\roslyn\csi.rsp
+D:\code BV\BoolDonationApp\BoolDonationApp\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\code BV\BoolDonationApp\BoolDonationApp\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\code BV\BoolDonationApp\BoolDonationApp\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\code BV\BoolDonationApp\BoolDonationApp\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\code BV\BoolDonationApp\BoolDonationApp\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\code BV\BoolDonationApp\BoolDonationApp\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\code BV\BoolDonationApp\BoolDonationApp\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\code BV\BoolDonationApp\BoolDonationApp\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\code BV\BoolDonationApp\BoolDonationApp\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\code BV\BoolDonationApp\BoolDonationApp\bin\roslyn\Microsoft.Managed.Core.targets
+D:\code BV\BoolDonationApp\BoolDonationApp\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\code BV\BoolDonationApp\BoolDonationApp\bin\roslyn\Microsoft.Win32.Primitives.dll
+D:\code BV\BoolDonationApp\BoolDonationApp\bin\roslyn\System.AppContext.dll
+D:\code BV\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Collections.Immutable.dll
+D:\code BV\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Console.dll
+D:\code BV\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+D:\code BV\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+D:\code BV\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\code BV\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Globalization.Calendars.dll
+D:\code BV\BoolDonationApp\BoolDonationApp\bin\roslyn\System.IO.Compression.dll
+D:\code BV\BoolDonationApp\BoolDonationApp\bin\roslyn\System.IO.Compression.ZipFile.dll
+D:\code BV\BoolDonationApp\BoolDonationApp\bin\roslyn\System.IO.FileSystem.dll
+D:\code BV\BoolDonationApp\BoolDonationApp\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\code BV\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Net.Http.dll
+D:\code BV\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Net.Sockets.dll
+D:\code BV\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Reflection.Metadata.dll
+D:\code BV\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+D:\code BV\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+D:\code BV\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Security.Cryptography.Encoding.dll
+D:\code BV\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Security.Cryptography.Primitives.dll
+D:\code BV\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+D:\code BV\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Text.Encoding.CodePages.dll
+D:\code BV\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Threading.Tasks.Extensions.dll
+D:\code BV\BoolDonationApp\BoolDonationApp\bin\roslyn\System.ValueTuple.dll
+D:\code BV\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Xml.ReaderWriter.dll
+D:\code BV\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Xml.XmlDocument.dll
+D:\code BV\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Xml.XPath.dll
+D:\code BV\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Xml.XPath.XDocument.dll
+D:\code BV\BoolDonationApp\BoolDonationApp\bin\roslyn\vbc.exe
+D:\code BV\BoolDonationApp\BoolDonationApp\bin\roslyn\vbc.exe.config
+D:\code BV\BoolDonationApp\BoolDonationApp\bin\roslyn\vbc.rsp
+D:\code BV\BoolDonationApp\BoolDonationApp\bin\roslyn\VBCSCompiler.exe
+D:\code BV\BoolDonationApp\BoolDonationApp\bin\roslyn\VBCSCompiler.exe.config
+D:\code BV\BoolDonationApp\BoolDonationApp\bin\Antlr3.Runtime.dll
+D:\code BV\BoolDonationApp\BoolDonationApp\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\code BV\BoolDonationApp\BoolDonationApp\bin\Microsoft.Web.Infrastructure.dll
+D:\code BV\BoolDonationApp\BoolDonationApp\bin\Newtonsoft.Json.dll
+D:\code BV\BoolDonationApp\BoolDonationApp\bin\System.Web.Helpers.dll
+D:\code BV\BoolDonationApp\BoolDonationApp\bin\System.Web.Mvc.dll
+D:\code BV\BoolDonationApp\BoolDonationApp\bin\System.Web.Optimization.dll
+D:\code BV\BoolDonationApp\BoolDonationApp\bin\System.Web.Razor.dll
+D:\code BV\BoolDonationApp\BoolDonationApp\bin\System.Web.WebPages.Deployment.dll
+D:\code BV\BoolDonationApp\BoolDonationApp\bin\System.Web.WebPages.dll
+D:\code BV\BoolDonationApp\BoolDonationApp\bin\System.Web.WebPages.Razor.dll
+D:\code BV\BoolDonationApp\BoolDonationApp\bin\WebGrease.dll
+D:\code BV\BoolDonationApp\BoolDonationApp\bin\System.Web.Helpers.xml
+D:\code BV\BoolDonationApp\BoolDonationApp\bin\System.Web.Mvc.xml
+D:\code BV\BoolDonationApp\BoolDonationApp\bin\System.Web.Optimization.xml
+D:\code BV\BoolDonationApp\BoolDonationApp\bin\System.Web.Razor.xml
+D:\code BV\BoolDonationApp\BoolDonationApp\bin\System.Web.WebPages.xml
+D:\code BV\BoolDonationApp\BoolDonationApp\bin\System.Web.WebPages.Deployment.xml
+D:\code BV\BoolDonationApp\BoolDonationApp\bin\System.Web.WebPages.Razor.xml
+D:\code BV\BoolDonationApp\BoolDonationApp\bin\Newtonsoft.Json.xml
+D:\code BV\BoolDonationApp\BoolDonationApp\bin\Antlr3.Runtime.pdb
+D:\code BV\BoolDonationApp\BoolDonationApp\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\code BV\BoolDonationApp\BoolDonationApp\obj\Debug\BoolDonationApp.csproj.AssemblyReference.cache
+D:\code BV\BoolDonationApp\BoolDonationApp\obj\Debug\BoolDonationApp.csproj.CoreCompileInputs.cache
+D:\code BV\BoolDonationApp\BoolDonationApp\obj\Debug\BoolDonationApp.csproj.CopyComplete
+D:\code BV\BoolDonationApp\BoolDonationApp\obj\Debug\BoolDonationApp.dll
+D:\code BV\BoolDonationApp\BoolDonationApp\obj\Debug\BoolDonationApp.pdb
+D:\code BV\BoolDonationApp\BoolDonationApp\bin\EntityFramework.dll
+D:\code BV\BoolDonationApp\BoolDonationApp\bin\EntityFramework.SqlServer.dll
+D:\code BV\BoolDonationApp\BoolDonationApp\bin\EntityFramework.xml
+D:\code BV\BoolDonationApp\BoolDonationApp\bin\EntityFramework.SqlServer.xml
+D:\Học Lập Trình\BoolDonationApp\BoolDonationApp\bin\BoolDonationApp.dll.config
+D:\Học Lập Trình\BoolDonationApp\BoolDonationApp\bin\BoolDonationApp.dll
+D:\Học Lập Trình\BoolDonationApp\BoolDonationApp\bin\BoolDonationApp.pdb
+D:\Học Lập Trình\BoolDonationApp\BoolDonationApp\bin\roslyn\csc.exe
+D:\Học Lập Trình\BoolDonationApp\BoolDonationApp\bin\roslyn\csc.exe.config
+D:\Học Lập Trình\BoolDonationApp\BoolDonationApp\bin\roslyn\csc.rsp
+D:\Học Lập Trình\BoolDonationApp\BoolDonationApp\bin\roslyn\csi.exe
+D:\Học Lập Trình\BoolDonationApp\BoolDonationApp\bin\roslyn\csi.exe.config
+D:\Học Lập Trình\BoolDonationApp\BoolDonationApp\bin\roslyn\csi.rsp
+D:\Học Lập Trình\BoolDonationApp\BoolDonationApp\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\Học Lập Trình\BoolDonationApp\BoolDonationApp\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\Học Lập Trình\BoolDonationApp\BoolDonationApp\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\Học Lập Trình\BoolDonationApp\BoolDonationApp\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\Học Lập Trình\BoolDonationApp\BoolDonationApp\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\Học Lập Trình\BoolDonationApp\BoolDonationApp\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\Học Lập Trình\BoolDonationApp\BoolDonationApp\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\Học Lập Trình\BoolDonationApp\BoolDonationApp\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\Học Lập Trình\BoolDonationApp\BoolDonationApp\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\Học Lập Trình\BoolDonationApp\BoolDonationApp\bin\roslyn\Microsoft.Managed.Core.targets
+D:\Học Lập Trình\BoolDonationApp\BoolDonationApp\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\Học Lập Trình\BoolDonationApp\BoolDonationApp\bin\roslyn\Microsoft.Win32.Primitives.dll
+D:\Học Lập Trình\BoolDonationApp\BoolDonationApp\bin\roslyn\System.AppContext.dll
+D:\Học Lập Trình\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Collections.Immutable.dll
+D:\Học Lập Trình\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Console.dll
+D:\Học Lập Trình\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+D:\Học Lập Trình\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+D:\Học Lập Trình\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\Học Lập Trình\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Globalization.Calendars.dll
+D:\Học Lập Trình\BoolDonationApp\BoolDonationApp\bin\roslyn\System.IO.Compression.dll
+D:\Học Lập Trình\BoolDonationApp\BoolDonationApp\bin\roslyn\System.IO.Compression.ZipFile.dll
+D:\Học Lập Trình\BoolDonationApp\BoolDonationApp\bin\roslyn\System.IO.FileSystem.dll
+D:\Học Lập Trình\BoolDonationApp\BoolDonationApp\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\Học Lập Trình\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Net.Http.dll
+D:\Học Lập Trình\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Net.Sockets.dll
+D:\Học Lập Trình\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Reflection.Metadata.dll
+D:\Học Lập Trình\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+D:\Học Lập Trình\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+D:\Học Lập Trình\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Security.Cryptography.Encoding.dll
+D:\Học Lập Trình\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Security.Cryptography.Primitives.dll
+D:\Học Lập Trình\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+D:\Học Lập Trình\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Text.Encoding.CodePages.dll
+D:\Học Lập Trình\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Threading.Tasks.Extensions.dll
+D:\Học Lập Trình\BoolDonationApp\BoolDonationApp\bin\roslyn\System.ValueTuple.dll
+D:\Học Lập Trình\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Xml.ReaderWriter.dll
+D:\Học Lập Trình\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Xml.XmlDocument.dll
+D:\Học Lập Trình\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Xml.XPath.dll
+D:\Học Lập Trình\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Xml.XPath.XDocument.dll
+D:\Học Lập Trình\BoolDonationApp\BoolDonationApp\bin\roslyn\vbc.exe
+D:\Học Lập Trình\BoolDonationApp\BoolDonationApp\bin\roslyn\vbc.exe.config
+D:\Học Lập Trình\BoolDonationApp\BoolDonationApp\bin\roslyn\vbc.rsp
+D:\Học Lập Trình\BoolDonationApp\BoolDonationApp\bin\roslyn\VBCSCompiler.exe
+D:\Học Lập Trình\BoolDonationApp\BoolDonationApp\bin\roslyn\VBCSCompiler.exe.config
+D:\Học Lập Trình\BoolDonationApp\BoolDonationApp\bin\Antlr3.Runtime.dll
+D:\Học Lập Trình\BoolDonationApp\BoolDonationApp\bin\EntityFramework.dll
+D:\Học Lập Trình\BoolDonationApp\BoolDonationApp\bin\EntityFramework.SqlServer.dll
+D:\Học Lập Trình\BoolDonationApp\BoolDonationApp\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\Học Lập Trình\BoolDonationApp\BoolDonationApp\bin\Microsoft.Web.Infrastructure.dll
+D:\Học Lập Trình\BoolDonationApp\BoolDonationApp\bin\Newtonsoft.Json.dll
+D:\Học Lập Trình\BoolDonationApp\BoolDonationApp\bin\System.Web.Helpers.dll
+D:\Học Lập Trình\BoolDonationApp\BoolDonationApp\bin\System.Web.Mvc.dll
+D:\Học Lập Trình\BoolDonationApp\BoolDonationApp\bin\System.Web.Optimization.dll
+D:\Học Lập Trình\BoolDonationApp\BoolDonationApp\bin\System.Web.Razor.dll
+D:\Học Lập Trình\BoolDonationApp\BoolDonationApp\bin\System.Web.WebPages.Deployment.dll
+D:\Học Lập Trình\BoolDonationApp\BoolDonationApp\bin\System.Web.WebPages.dll
+D:\Học Lập Trình\BoolDonationApp\BoolDonationApp\bin\System.Web.WebPages.Razor.dll
+D:\Học Lập Trình\BoolDonationApp\BoolDonationApp\bin\WebGrease.dll
+D:\Học Lập Trình\BoolDonationApp\BoolDonationApp\bin\EntityFramework.xml
+D:\Học Lập Trình\BoolDonationApp\BoolDonationApp\bin\EntityFramework.SqlServer.xml
+D:\Học Lập Trình\BoolDonationApp\BoolDonationApp\bin\System.Web.Helpers.xml
+D:\Học Lập Trình\BoolDonationApp\BoolDonationApp\bin\System.Web.Mvc.xml
+D:\Học Lập Trình\BoolDonationApp\BoolDonationApp\bin\System.Web.Optimization.xml
+D:\Học Lập Trình\BoolDonationApp\BoolDonationApp\bin\System.Web.Razor.xml
+D:\Học Lập Trình\BoolDonationApp\BoolDonationApp\bin\System.Web.WebPages.xml
+D:\Học Lập Trình\BoolDonationApp\BoolDonationApp\bin\System.Web.WebPages.Deployment.xml
+D:\Học Lập Trình\BoolDonationApp\BoolDonationApp\bin\System.Web.WebPages.Razor.xml
+D:\Học Lập Trình\BoolDonationApp\BoolDonationApp\bin\Newtonsoft.Json.xml
+D:\Học Lập Trình\BoolDonationApp\BoolDonationApp\bin\Antlr3.Runtime.pdb
+D:\Học Lập Trình\BoolDonationApp\BoolDonationApp\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\Học Lập Trình\BoolDonationApp\BoolDonationApp\obj\Debug\BoolDonationApp.csproj.AssemblyReference.cache
+D:\Học Lập Trình\BoolDonationApp\BoolDonationApp\obj\Debug\BoolDonationApp.csproj.CoreCompileInputs.cache
+D:\Học Lập Trình\BoolDonationApp\BoolDonationApp\obj\Debug\BoolDonationApp.csproj.CopyComplete
+D:\Học Lập Trình\BoolDonationApp\BoolDonationApp\obj\Debug\BoolDonationApp.dll
+D:\Học Lập Trình\BoolDonationApp\BoolDonationApp\obj\Debug\BoolDonationApp.pdb
+D:\Bộ cài Win\BoolDonationApp\BoolDonationApp\bin\BoolDonationApp.dll.config
+D:\Bộ cài Win\BoolDonationApp\BoolDonationApp\bin\BoolDonationApp.dll
+D:\Bộ cài Win\BoolDonationApp\BoolDonationApp\bin\BoolDonationApp.pdb
+D:\Bộ cài Win\BoolDonationApp\BoolDonationApp\bin\roslyn\csc.exe
+D:\Bộ cài Win\BoolDonationApp\BoolDonationApp\bin\roslyn\csc.exe.config
+D:\Bộ cài Win\BoolDonationApp\BoolDonationApp\bin\roslyn\csc.rsp
+D:\Bộ cài Win\BoolDonationApp\BoolDonationApp\bin\roslyn\csi.exe
+D:\Bộ cài Win\BoolDonationApp\BoolDonationApp\bin\roslyn\csi.exe.config
+D:\Bộ cài Win\BoolDonationApp\BoolDonationApp\bin\roslyn\csi.rsp
+D:\Bộ cài Win\BoolDonationApp\BoolDonationApp\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\Bộ cài Win\BoolDonationApp\BoolDonationApp\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\Bộ cài Win\BoolDonationApp\BoolDonationApp\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\Bộ cài Win\BoolDonationApp\BoolDonationApp\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\Bộ cài Win\BoolDonationApp\BoolDonationApp\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\Bộ cài Win\BoolDonationApp\BoolDonationApp\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\Bộ cài Win\BoolDonationApp\BoolDonationApp\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\Bộ cài Win\BoolDonationApp\BoolDonationApp\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\Bộ cài Win\BoolDonationApp\BoolDonationApp\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\Bộ cài Win\BoolDonationApp\BoolDonationApp\bin\roslyn\Microsoft.Managed.Core.targets
+D:\Bộ cài Win\BoolDonationApp\BoolDonationApp\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\Bộ cài Win\BoolDonationApp\BoolDonationApp\bin\roslyn\Microsoft.Win32.Primitives.dll
+D:\Bộ cài Win\BoolDonationApp\BoolDonationApp\bin\roslyn\System.AppContext.dll
+D:\Bộ cài Win\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Collections.Immutable.dll
+D:\Bộ cài Win\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Console.dll
+D:\Bộ cài Win\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+D:\Bộ cài Win\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+D:\Bộ cài Win\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\Bộ cài Win\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Globalization.Calendars.dll
+D:\Bộ cài Win\BoolDonationApp\BoolDonationApp\bin\roslyn\System.IO.Compression.dll
+D:\Bộ cài Win\BoolDonationApp\BoolDonationApp\bin\roslyn\System.IO.Compression.ZipFile.dll
+D:\Bộ cài Win\BoolDonationApp\BoolDonationApp\bin\roslyn\System.IO.FileSystem.dll
+D:\Bộ cài Win\BoolDonationApp\BoolDonationApp\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\Bộ cài Win\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Net.Http.dll
+D:\Bộ cài Win\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Net.Sockets.dll
+D:\Bộ cài Win\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Reflection.Metadata.dll
+D:\Bộ cài Win\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+D:\Bộ cài Win\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+D:\Bộ cài Win\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Security.Cryptography.Encoding.dll
+D:\Bộ cài Win\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Security.Cryptography.Primitives.dll
+D:\Bộ cài Win\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+D:\Bộ cài Win\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Text.Encoding.CodePages.dll
+D:\Bộ cài Win\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Threading.Tasks.Extensions.dll
+D:\Bộ cài Win\BoolDonationApp\BoolDonationApp\bin\roslyn\System.ValueTuple.dll
+D:\Bộ cài Win\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Xml.ReaderWriter.dll
+D:\Bộ cài Win\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Xml.XmlDocument.dll
+D:\Bộ cài Win\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Xml.XPath.dll
+D:\Bộ cài Win\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Xml.XPath.XDocument.dll
+D:\Bộ cài Win\BoolDonationApp\BoolDonationApp\bin\roslyn\vbc.exe
+D:\Bộ cài Win\BoolDonationApp\BoolDonationApp\bin\roslyn\vbc.exe.config
+D:\Bộ cài Win\BoolDonationApp\BoolDonationApp\bin\roslyn\vbc.rsp
+D:\Bộ cài Win\BoolDonationApp\BoolDonationApp\bin\roslyn\VBCSCompiler.exe
+D:\Bộ cài Win\BoolDonationApp\BoolDonationApp\bin\roslyn\VBCSCompiler.exe.config
+D:\Bộ cài Win\BoolDonationApp\BoolDonationApp\bin\Antlr3.Runtime.dll
+D:\Bộ cài Win\BoolDonationApp\BoolDonationApp\bin\EntityFramework.dll
+D:\Bộ cài Win\BoolDonationApp\BoolDonationApp\bin\EntityFramework.SqlServer.dll
+D:\Bộ cài Win\BoolDonationApp\BoolDonationApp\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\Bộ cài Win\BoolDonationApp\BoolDonationApp\bin\Microsoft.Web.Infrastructure.dll
+D:\Bộ cài Win\BoolDonationApp\BoolDonationApp\bin\Newtonsoft.Json.dll
+D:\Bộ cài Win\BoolDonationApp\BoolDonationApp\bin\System.Web.Helpers.dll
+D:\Bộ cài Win\BoolDonationApp\BoolDonationApp\bin\System.Web.Mvc.dll
+D:\Bộ cài Win\BoolDonationApp\BoolDonationApp\bin\System.Web.Optimization.dll
+D:\Bộ cài Win\BoolDonationApp\BoolDonationApp\bin\System.Web.Razor.dll
+D:\Bộ cài Win\BoolDonationApp\BoolDonationApp\bin\System.Web.WebPages.Deployment.dll
+D:\Bộ cài Win\BoolDonationApp\BoolDonationApp\bin\System.Web.WebPages.dll
+D:\Bộ cài Win\BoolDonationApp\BoolDonationApp\bin\System.Web.WebPages.Razor.dll
+D:\Bộ cài Win\BoolDonationApp\BoolDonationApp\bin\WebGrease.dll
+D:\Bộ cài Win\BoolDonationApp\BoolDonationApp\bin\EntityFramework.xml
+D:\Bộ cài Win\BoolDonationApp\BoolDonationApp\bin\EntityFramework.SqlServer.xml
+D:\Bộ cài Win\BoolDonationApp\BoolDonationApp\bin\System.Web.Helpers.xml
+D:\Bộ cài Win\BoolDonationApp\BoolDonationApp\bin\System.Web.Mvc.xml
+D:\Bộ cài Win\BoolDonationApp\BoolDonationApp\bin\System.Web.Optimization.xml
+D:\Bộ cài Win\BoolDonationApp\BoolDonationApp\bin\System.Web.Razor.xml
+D:\Bộ cài Win\BoolDonationApp\BoolDonationApp\bin\System.Web.WebPages.xml
+D:\Bộ cài Win\BoolDonationApp\BoolDonationApp\bin\System.Web.WebPages.Deployment.xml
+D:\Bộ cài Win\BoolDonationApp\BoolDonationApp\bin\System.Web.WebPages.Razor.xml
+D:\Bộ cài Win\BoolDonationApp\BoolDonationApp\bin\Newtonsoft.Json.xml
+D:\Bộ cài Win\BoolDonationApp\BoolDonationApp\bin\Antlr3.Runtime.pdb
+D:\Bộ cài Win\BoolDonationApp\BoolDonationApp\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\Bộ cài Win\BoolDonationApp\BoolDonationApp\obj\Debug\BoolDonationApp.csproj.AssemblyReference.cache
+D:\Bộ cài Win\BoolDonationApp\BoolDonationApp\obj\Debug\BoolDonationApp.csproj.CoreCompileInputs.cache
+D:\Bộ cài Win\BoolDonationApp\BoolDonationApp\obj\Debug\BoolDonationApp.csproj.CopyComplete
+D:\Bộ cài Win\BoolDonationApp\BoolDonationApp\obj\Debug\BoolDonationApp.dll
+D:\Bộ cài Win\BoolDonationApp\BoolDonationApp\obj\Debug\BoolDonationApp.pdb
+D:\code BV\BoolDonationApp\BoolDonationApp\bin\PagedList.dll
+D:\code BV\BoolDonationApp\BoolDonationApp\bin\PagedList.Mvc.dll
+D:\code BV\BoolDonationApp\BoolDonationApp\bin\PagedList.xml
+D:\code BV\BoolDonationApp\BoolDonationApp\bin\PagedList.Mvc.xml
+D:\Bệnh viện đà nẵng\code BV\BoolDonationApp\BoolDonationApp\bin\BoolDonationApp.dll.config
+D:\Bệnh viện đà nẵng\code BV\BoolDonationApp\BoolDonationApp\bin\BoolDonationApp.dll
+D:\Bệnh viện đà nẵng\code BV\BoolDonationApp\BoolDonationApp\bin\BoolDonationApp.pdb
+D:\Bệnh viện đà nẵng\code BV\BoolDonationApp\BoolDonationApp\bin\roslyn\csc.exe
+D:\Bệnh viện đà nẵng\code BV\BoolDonationApp\BoolDonationApp\bin\roslyn\csc.exe.config
+D:\Bệnh viện đà nẵng\code BV\BoolDonationApp\BoolDonationApp\bin\roslyn\csc.rsp
+D:\Bệnh viện đà nẵng\code BV\BoolDonationApp\BoolDonationApp\bin\roslyn\csi.exe
+D:\Bệnh viện đà nẵng\code BV\BoolDonationApp\BoolDonationApp\bin\roslyn\csi.exe.config
+D:\Bệnh viện đà nẵng\code BV\BoolDonationApp\BoolDonationApp\bin\roslyn\csi.rsp
+D:\Bệnh viện đà nẵng\code BV\BoolDonationApp\BoolDonationApp\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\Bệnh viện đà nẵng\code BV\BoolDonationApp\BoolDonationApp\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\Bệnh viện đà nẵng\code BV\BoolDonationApp\BoolDonationApp\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\Bệnh viện đà nẵng\code BV\BoolDonationApp\BoolDonationApp\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\Bệnh viện đà nẵng\code BV\BoolDonationApp\BoolDonationApp\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\Bệnh viện đà nẵng\code BV\BoolDonationApp\BoolDonationApp\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\Bệnh viện đà nẵng\code BV\BoolDonationApp\BoolDonationApp\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\Bệnh viện đà nẵng\code BV\BoolDonationApp\BoolDonationApp\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\Bệnh viện đà nẵng\code BV\BoolDonationApp\BoolDonationApp\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\Bệnh viện đà nẵng\code BV\BoolDonationApp\BoolDonationApp\bin\roslyn\Microsoft.Managed.Core.targets
+D:\Bệnh viện đà nẵng\code BV\BoolDonationApp\BoolDonationApp\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\Bệnh viện đà nẵng\code BV\BoolDonationApp\BoolDonationApp\bin\roslyn\Microsoft.Win32.Primitives.dll
+D:\Bệnh viện đà nẵng\code BV\BoolDonationApp\BoolDonationApp\bin\roslyn\System.AppContext.dll
+D:\Bệnh viện đà nẵng\code BV\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Collections.Immutable.dll
+D:\Bệnh viện đà nẵng\code BV\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Console.dll
+D:\Bệnh viện đà nẵng\code BV\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+D:\Bệnh viện đà nẵng\code BV\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+D:\Bệnh viện đà nẵng\code BV\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\Bệnh viện đà nẵng\code BV\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Globalization.Calendars.dll
+D:\Bệnh viện đà nẵng\code BV\BoolDonationApp\BoolDonationApp\bin\roslyn\System.IO.Compression.dll
+D:\Bệnh viện đà nẵng\code BV\BoolDonationApp\BoolDonationApp\bin\roslyn\System.IO.Compression.ZipFile.dll
+D:\Bệnh viện đà nẵng\code BV\BoolDonationApp\BoolDonationApp\bin\roslyn\System.IO.FileSystem.dll
+D:\Bệnh viện đà nẵng\code BV\BoolDonationApp\BoolDonationApp\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\Bệnh viện đà nẵng\code BV\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Net.Http.dll
+D:\Bệnh viện đà nẵng\code BV\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Net.Sockets.dll
+D:\Bệnh viện đà nẵng\code BV\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Reflection.Metadata.dll
+D:\Bệnh viện đà nẵng\code BV\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+D:\Bệnh viện đà nẵng\code BV\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+D:\Bệnh viện đà nẵng\code BV\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Security.Cryptography.Encoding.dll
+D:\Bệnh viện đà nẵng\code BV\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Security.Cryptography.Primitives.dll
+D:\Bệnh viện đà nẵng\code BV\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+D:\Bệnh viện đà nẵng\code BV\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Text.Encoding.CodePages.dll
+D:\Bệnh viện đà nẵng\code BV\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Threading.Tasks.Extensions.dll
+D:\Bệnh viện đà nẵng\code BV\BoolDonationApp\BoolDonationApp\bin\roslyn\System.ValueTuple.dll
+D:\Bệnh viện đà nẵng\code BV\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Xml.ReaderWriter.dll
+D:\Bệnh viện đà nẵng\code BV\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Xml.XmlDocument.dll
+D:\Bệnh viện đà nẵng\code BV\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Xml.XPath.dll
+D:\Bệnh viện đà nẵng\code BV\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Xml.XPath.XDocument.dll
+D:\Bệnh viện đà nẵng\code BV\BoolDonationApp\BoolDonationApp\bin\roslyn\vbc.exe
+D:\Bệnh viện đà nẵng\code BV\BoolDonationApp\BoolDonationApp\bin\roslyn\vbc.exe.config
+D:\Bệnh viện đà nẵng\code BV\BoolDonationApp\BoolDonationApp\bin\roslyn\vbc.rsp
+D:\Bệnh viện đà nẵng\code BV\BoolDonationApp\BoolDonationApp\bin\roslyn\VBCSCompiler.exe
+D:\Bệnh viện đà nẵng\code BV\BoolDonationApp\BoolDonationApp\bin\roslyn\VBCSCompiler.exe.config
+D:\Bệnh viện đà nẵng\code BV\BoolDonationApp\BoolDonationApp\bin\Antlr3.Runtime.dll
+D:\Bệnh viện đà nẵng\code BV\BoolDonationApp\BoolDonationApp\bin\EntityFramework.dll
+D:\Bệnh viện đà nẵng\code BV\BoolDonationApp\BoolDonationApp\bin\EntityFramework.SqlServer.dll
+D:\Bệnh viện đà nẵng\code BV\BoolDonationApp\BoolDonationApp\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\Bệnh viện đà nẵng\code BV\BoolDonationApp\BoolDonationApp\bin\Microsoft.Web.Infrastructure.dll
+D:\Bệnh viện đà nẵng\code BV\BoolDonationApp\BoolDonationApp\bin\Newtonsoft.Json.dll
+D:\Bệnh viện đà nẵng\code BV\BoolDonationApp\BoolDonationApp\bin\PagedList.dll
+D:\Bệnh viện đà nẵng\code BV\BoolDonationApp\BoolDonationApp\bin\PagedList.Mvc.dll
+D:\Bệnh viện đà nẵng\code BV\BoolDonationApp\BoolDonationApp\bin\System.Web.Helpers.dll
+D:\Bệnh viện đà nẵng\code BV\BoolDonationApp\BoolDonationApp\bin\System.Web.Mvc.dll
+D:\Bệnh viện đà nẵng\code BV\BoolDonationApp\BoolDonationApp\bin\System.Web.Optimization.dll
+D:\Bệnh viện đà nẵng\code BV\BoolDonationApp\BoolDonationApp\bin\System.Web.Razor.dll
+D:\Bệnh viện đà nẵng\code BV\BoolDonationApp\BoolDonationApp\bin\System.Web.WebPages.Deployment.dll
+D:\Bệnh viện đà nẵng\code BV\BoolDonationApp\BoolDonationApp\bin\System.Web.WebPages.dll
+D:\Bệnh viện đà nẵng\code BV\BoolDonationApp\BoolDonationApp\bin\System.Web.WebPages.Razor.dll
+D:\Bệnh viện đà nẵng\code BV\BoolDonationApp\BoolDonationApp\bin\WebGrease.dll
+D:\Bệnh viện đà nẵng\code BV\BoolDonationApp\BoolDonationApp\bin\EntityFramework.xml
+D:\Bệnh viện đà nẵng\code BV\BoolDonationApp\BoolDonationApp\bin\EntityFramework.SqlServer.xml
+D:\Bệnh viện đà nẵng\code BV\BoolDonationApp\BoolDonationApp\bin\PagedList.xml
+D:\Bệnh viện đà nẵng\code BV\BoolDonationApp\BoolDonationApp\bin\PagedList.Mvc.xml
+D:\Bệnh viện đà nẵng\code BV\BoolDonationApp\BoolDonationApp\bin\System.Web.Helpers.xml
+D:\Bệnh viện đà nẵng\code BV\BoolDonationApp\BoolDonationApp\bin\System.Web.Mvc.xml
+D:\Bệnh viện đà nẵng\code BV\BoolDonationApp\BoolDonationApp\bin\System.Web.Optimization.xml
+D:\Bệnh viện đà nẵng\code BV\BoolDonationApp\BoolDonationApp\bin\System.Web.Razor.xml
+D:\Bệnh viện đà nẵng\code BV\BoolDonationApp\BoolDonationApp\bin\System.Web.WebPages.xml
+D:\Bệnh viện đà nẵng\code BV\BoolDonationApp\BoolDonationApp\bin\System.Web.WebPages.Deployment.xml
+D:\Bệnh viện đà nẵng\code BV\BoolDonationApp\BoolDonationApp\bin\System.Web.WebPages.Razor.xml
+D:\Bệnh viện đà nẵng\code BV\BoolDonationApp\BoolDonationApp\bin\Newtonsoft.Json.xml
+D:\Bệnh viện đà nẵng\code BV\BoolDonationApp\BoolDonationApp\bin\Antlr3.Runtime.pdb
+D:\Bệnh viện đà nẵng\code BV\BoolDonationApp\BoolDonationApp\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\Bệnh viện đà nẵng\code BV\BoolDonationApp\BoolDonationApp\obj\Debug\BoolDonationApp.csproj.AssemblyReference.cache
+D:\Bệnh viện đà nẵng\code BV\BoolDonationApp\BoolDonationApp\obj\Debug\BoolDonationApp.csproj.CoreCompileInputs.cache
+D:\Bệnh viện đà nẵng\code BV\BoolDonationApp\BoolDonationApp\obj\Debug\BoolDonationApp.csproj.CopyComplete
+D:\Bệnh viện đà nẵng\code BV\BoolDonationApp\BoolDonationApp\obj\Debug\BoolDonationApp.dll
+D:\Bệnh viện đà nẵng\code BV\BoolDonationApp\BoolDonationApp\obj\Debug\BoolDonationApp.pdb
+D:\Bệnh viện đà nẵng\code BV\BoolDonationApp\BoolDonationApp\bin\Microsoft.IO.RecyclableMemoryStream.dll
+D:\Bệnh viện đà nẵng\code BV\BoolDonationApp\BoolDonationApp\bin\System.ComponentModel.Annotations.dll
+D:\Bệnh viện đà nẵng\code BV\BoolDonationApp\BoolDonationApp\bin\Microsoft.IO.RecyclableMemoryStream.xml
+D:\Bệnh viện đà nẵng\code BV\BoolDonationApp\BoolDonationApp\bin\EPPlus.dll
+D:\Bệnh viện đà nẵng\code BV\BoolDonationApp\BoolDonationApp\bin\EPPlus.xml
+D:\Bệnh viện đà nẵng\codeBV\BoolDonationApp\BoolDonationApp\bin\BoolDonationApp.dll.config
+D:\Bệnh viện đà nẵng\codeBV\BoolDonationApp\BoolDonationApp\bin\BoolDonationApp.dll
+D:\Bệnh viện đà nẵng\codeBV\BoolDonationApp\BoolDonationApp\bin\BoolDonationApp.pdb
+D:\Bệnh viện đà nẵng\codeBV\BoolDonationApp\BoolDonationApp\bin\roslyn\csc.exe
+D:\Bệnh viện đà nẵng\codeBV\BoolDonationApp\BoolDonationApp\bin\roslyn\csc.exe.config
+D:\Bệnh viện đà nẵng\codeBV\BoolDonationApp\BoolDonationApp\bin\roslyn\csc.rsp
+D:\Bệnh viện đà nẵng\codeBV\BoolDonationApp\BoolDonationApp\bin\roslyn\csi.exe
+D:\Bệnh viện đà nẵng\codeBV\BoolDonationApp\BoolDonationApp\bin\roslyn\csi.exe.config
+D:\Bệnh viện đà nẵng\codeBV\BoolDonationApp\BoolDonationApp\bin\roslyn\csi.rsp
+D:\Bệnh viện đà nẵng\codeBV\BoolDonationApp\BoolDonationApp\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\Bệnh viện đà nẵng\codeBV\BoolDonationApp\BoolDonationApp\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\Bệnh viện đà nẵng\codeBV\BoolDonationApp\BoolDonationApp\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\Bệnh viện đà nẵng\codeBV\BoolDonationApp\BoolDonationApp\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\Bệnh viện đà nẵng\codeBV\BoolDonationApp\BoolDonationApp\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\Bệnh viện đà nẵng\codeBV\BoolDonationApp\BoolDonationApp\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\Bệnh viện đà nẵng\codeBV\BoolDonationApp\BoolDonationApp\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\Bệnh viện đà nẵng\codeBV\BoolDonationApp\BoolDonationApp\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\Bệnh viện đà nẵng\codeBV\BoolDonationApp\BoolDonationApp\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\Bệnh viện đà nẵng\codeBV\BoolDonationApp\BoolDonationApp\bin\roslyn\Microsoft.Managed.Core.targets
+D:\Bệnh viện đà nẵng\codeBV\BoolDonationApp\BoolDonationApp\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\Bệnh viện đà nẵng\codeBV\BoolDonationApp\BoolDonationApp\bin\roslyn\Microsoft.Win32.Primitives.dll
+D:\Bệnh viện đà nẵng\codeBV\BoolDonationApp\BoolDonationApp\bin\roslyn\System.AppContext.dll
+D:\Bệnh viện đà nẵng\codeBV\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Collections.Immutable.dll
+D:\Bệnh viện đà nẵng\codeBV\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Console.dll
+D:\Bệnh viện đà nẵng\codeBV\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+D:\Bệnh viện đà nẵng\codeBV\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+D:\Bệnh viện đà nẵng\codeBV\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\Bệnh viện đà nẵng\codeBV\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Globalization.Calendars.dll
+D:\Bệnh viện đà nẵng\codeBV\BoolDonationApp\BoolDonationApp\bin\roslyn\System.IO.Compression.dll
+D:\Bệnh viện đà nẵng\codeBV\BoolDonationApp\BoolDonationApp\bin\roslyn\System.IO.Compression.ZipFile.dll
+D:\Bệnh viện đà nẵng\codeBV\BoolDonationApp\BoolDonationApp\bin\roslyn\System.IO.FileSystem.dll
+D:\Bệnh viện đà nẵng\codeBV\BoolDonationApp\BoolDonationApp\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\Bệnh viện đà nẵng\codeBV\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Net.Http.dll
+D:\Bệnh viện đà nẵng\codeBV\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Net.Sockets.dll
+D:\Bệnh viện đà nẵng\codeBV\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Reflection.Metadata.dll
+D:\Bệnh viện đà nẵng\codeBV\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+D:\Bệnh viện đà nẵng\codeBV\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+D:\Bệnh viện đà nẵng\codeBV\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Security.Cryptography.Encoding.dll
+D:\Bệnh viện đà nẵng\codeBV\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Security.Cryptography.Primitives.dll
+D:\Bệnh viện đà nẵng\codeBV\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+D:\Bệnh viện đà nẵng\codeBV\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Text.Encoding.CodePages.dll
+D:\Bệnh viện đà nẵng\codeBV\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Threading.Tasks.Extensions.dll
+D:\Bệnh viện đà nẵng\codeBV\BoolDonationApp\BoolDonationApp\bin\roslyn\System.ValueTuple.dll
+D:\Bệnh viện đà nẵng\codeBV\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Xml.ReaderWriter.dll
+D:\Bệnh viện đà nẵng\codeBV\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Xml.XmlDocument.dll
+D:\Bệnh viện đà nẵng\codeBV\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Xml.XPath.dll
+D:\Bệnh viện đà nẵng\codeBV\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Xml.XPath.XDocument.dll
+D:\Bệnh viện đà nẵng\codeBV\BoolDonationApp\BoolDonationApp\bin\roslyn\vbc.exe
+D:\Bệnh viện đà nẵng\codeBV\BoolDonationApp\BoolDonationApp\bin\roslyn\vbc.exe.config
+D:\Bệnh viện đà nẵng\codeBV\BoolDonationApp\BoolDonationApp\bin\roslyn\vbc.rsp
+D:\Bệnh viện đà nẵng\codeBV\BoolDonationApp\BoolDonationApp\bin\roslyn\VBCSCompiler.exe
+D:\Bệnh viện đà nẵng\codeBV\BoolDonationApp\BoolDonationApp\bin\roslyn\VBCSCompiler.exe.config
+D:\Bệnh viện đà nẵng\codeBV\BoolDonationApp\BoolDonationApp\bin\Antlr3.Runtime.dll
+D:\Bệnh viện đà nẵng\codeBV\BoolDonationApp\BoolDonationApp\bin\EntityFramework.dll
+D:\Bệnh viện đà nẵng\codeBV\BoolDonationApp\BoolDonationApp\bin\EntityFramework.SqlServer.dll
+D:\Bệnh viện đà nẵng\codeBV\BoolDonationApp\BoolDonationApp\bin\EPPlus.dll
+D:\Bệnh viện đà nẵng\codeBV\BoolDonationApp\BoolDonationApp\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\Bệnh viện đà nẵng\codeBV\BoolDonationApp\BoolDonationApp\bin\Microsoft.IO.RecyclableMemoryStream.dll
+D:\Bệnh viện đà nẵng\codeBV\BoolDonationApp\BoolDonationApp\bin\Microsoft.Web.Infrastructure.dll
+D:\Bệnh viện đà nẵng\codeBV\BoolDonationApp\BoolDonationApp\bin\Newtonsoft.Json.dll
+D:\Bệnh viện đà nẵng\codeBV\BoolDonationApp\BoolDonationApp\bin\PagedList.dll
+D:\Bệnh viện đà nẵng\codeBV\BoolDonationApp\BoolDonationApp\bin\PagedList.Mvc.dll
+D:\Bệnh viện đà nẵng\codeBV\BoolDonationApp\BoolDonationApp\bin\System.ComponentModel.Annotations.dll
+D:\Bệnh viện đà nẵng\codeBV\BoolDonationApp\BoolDonationApp\bin\System.Web.Helpers.dll
+D:\Bệnh viện đà nẵng\codeBV\BoolDonationApp\BoolDonationApp\bin\System.Web.Mvc.dll
+D:\Bệnh viện đà nẵng\codeBV\BoolDonationApp\BoolDonationApp\bin\System.Web.Optimization.dll
+D:\Bệnh viện đà nẵng\codeBV\BoolDonationApp\BoolDonationApp\bin\System.Web.Razor.dll
+D:\Bệnh viện đà nẵng\codeBV\BoolDonationApp\BoolDonationApp\bin\System.Web.WebPages.Deployment.dll
+D:\Bệnh viện đà nẵng\codeBV\BoolDonationApp\BoolDonationApp\bin\System.Web.WebPages.dll
+D:\Bệnh viện đà nẵng\codeBV\BoolDonationApp\BoolDonationApp\bin\System.Web.WebPages.Razor.dll
+D:\Bệnh viện đà nẵng\codeBV\BoolDonationApp\BoolDonationApp\bin\WebGrease.dll
+D:\Bệnh viện đà nẵng\codeBV\BoolDonationApp\BoolDonationApp\bin\EntityFramework.xml
+D:\Bệnh viện đà nẵng\codeBV\BoolDonationApp\BoolDonationApp\bin\EntityFramework.SqlServer.xml
+D:\Bệnh viện đà nẵng\codeBV\BoolDonationApp\BoolDonationApp\bin\EPPlus.xml
+D:\Bệnh viện đà nẵng\codeBV\BoolDonationApp\BoolDonationApp\bin\Microsoft.IO.RecyclableMemoryStream.xml
+D:\Bệnh viện đà nẵng\codeBV\BoolDonationApp\BoolDonationApp\bin\PagedList.xml
+D:\Bệnh viện đà nẵng\codeBV\BoolDonationApp\BoolDonationApp\bin\PagedList.Mvc.xml
+D:\Bệnh viện đà nẵng\codeBV\BoolDonationApp\BoolDonationApp\bin\System.Web.Helpers.xml
+D:\Bệnh viện đà nẵng\codeBV\BoolDonationApp\BoolDonationApp\bin\System.Web.Mvc.xml
+D:\Bệnh viện đà nẵng\codeBV\BoolDonationApp\BoolDonationApp\bin\System.Web.Optimization.xml
+D:\Bệnh viện đà nẵng\codeBV\BoolDonationApp\BoolDonationApp\bin\System.Web.Razor.xml
+D:\Bệnh viện đà nẵng\codeBV\BoolDonationApp\BoolDonationApp\bin\System.Web.WebPages.xml
+D:\Bệnh viện đà nẵng\codeBV\BoolDonationApp\BoolDonationApp\bin\System.Web.WebPages.Deployment.xml
+D:\Bệnh viện đà nẵng\codeBV\BoolDonationApp\BoolDonationApp\bin\System.Web.WebPages.Razor.xml
+D:\Bệnh viện đà nẵng\codeBV\BoolDonationApp\BoolDonationApp\bin\Newtonsoft.Json.xml
+D:\Bệnh viện đà nẵng\codeBV\BoolDonationApp\BoolDonationApp\bin\Antlr3.Runtime.pdb
+D:\Bệnh viện đà nẵng\codeBV\BoolDonationApp\BoolDonationApp\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\Bệnh viện đà nẵng\codeBV\BoolDonationApp\BoolDonationApp\obj\Debug\BoolDonationApp.csproj.AssemblyReference.cache
+D:\Bệnh viện đà nẵng\codeBV\BoolDonationApp\BoolDonationApp\obj\Debug\BoolDonationApp.csproj.CoreCompileInputs.cache
+D:\Bệnh viện đà nẵng\codeBV\BoolDonationApp\BoolDonationApp\obj\Debug\BoolDonationApp.csproj.CopyComplete
+D:\Bệnh viện đà nẵng\codeBV\BoolDonationApp\BoolDonationApp\obj\Debug\BoolDonationApp.dll
+D:\Bệnh viện đà nẵng\codeBV\BoolDonationApp\BoolDonationApp\obj\Debug\BoolDonationApp.pdb
+E:\Tan\codeBV\BoolDonationApp\BoolDonationApp\bin\BoolDonationApp.dll.config
+E:\Tan\codeBV\BoolDonationApp\BoolDonationApp\bin\BoolDonationApp.dll
+E:\Tan\codeBV\BoolDonationApp\BoolDonationApp\bin\BoolDonationApp.pdb
+E:\Tan\codeBV\BoolDonationApp\BoolDonationApp\bin\roslyn\csc.exe
+E:\Tan\codeBV\BoolDonationApp\BoolDonationApp\bin\roslyn\csc.exe.config
+E:\Tan\codeBV\BoolDonationApp\BoolDonationApp\bin\roslyn\csc.rsp
+E:\Tan\codeBV\BoolDonationApp\BoolDonationApp\bin\roslyn\csi.exe
+E:\Tan\codeBV\BoolDonationApp\BoolDonationApp\bin\roslyn\csi.exe.config
+E:\Tan\codeBV\BoolDonationApp\BoolDonationApp\bin\roslyn\csi.rsp
+E:\Tan\codeBV\BoolDonationApp\BoolDonationApp\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+E:\Tan\codeBV\BoolDonationApp\BoolDonationApp\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+E:\Tan\codeBV\BoolDonationApp\BoolDonationApp\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+E:\Tan\codeBV\BoolDonationApp\BoolDonationApp\bin\roslyn\Microsoft.CodeAnalysis.dll
+E:\Tan\codeBV\BoolDonationApp\BoolDonationApp\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+E:\Tan\codeBV\BoolDonationApp\BoolDonationApp\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+E:\Tan\codeBV\BoolDonationApp\BoolDonationApp\bin\roslyn\Microsoft.CSharp.Core.targets
+E:\Tan\codeBV\BoolDonationApp\BoolDonationApp\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+E:\Tan\codeBV\BoolDonationApp\BoolDonationApp\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+E:\Tan\codeBV\BoolDonationApp\BoolDonationApp\bin\roslyn\Microsoft.Managed.Core.targets
+E:\Tan\codeBV\BoolDonationApp\BoolDonationApp\bin\roslyn\Microsoft.VisualBasic.Core.targets
+E:\Tan\codeBV\BoolDonationApp\BoolDonationApp\bin\roslyn\Microsoft.Win32.Primitives.dll
+E:\Tan\codeBV\BoolDonationApp\BoolDonationApp\bin\roslyn\System.AppContext.dll
+E:\Tan\codeBV\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Collections.Immutable.dll
+E:\Tan\codeBV\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Console.dll
+E:\Tan\codeBV\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+E:\Tan\codeBV\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+E:\Tan\codeBV\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Diagnostics.StackTrace.dll
+E:\Tan\codeBV\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Globalization.Calendars.dll
+E:\Tan\codeBV\BoolDonationApp\BoolDonationApp\bin\roslyn\System.IO.Compression.dll
+E:\Tan\codeBV\BoolDonationApp\BoolDonationApp\bin\roslyn\System.IO.Compression.ZipFile.dll
+E:\Tan\codeBV\BoolDonationApp\BoolDonationApp\bin\roslyn\System.IO.FileSystem.dll
+E:\Tan\codeBV\BoolDonationApp\BoolDonationApp\bin\roslyn\System.IO.FileSystem.Primitives.dll
+E:\Tan\codeBV\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Net.Http.dll
+E:\Tan\codeBV\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Net.Sockets.dll
+E:\Tan\codeBV\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Reflection.Metadata.dll
+E:\Tan\codeBV\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+E:\Tan\codeBV\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+E:\Tan\codeBV\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Security.Cryptography.Encoding.dll
+E:\Tan\codeBV\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Security.Cryptography.Primitives.dll
+E:\Tan\codeBV\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+E:\Tan\codeBV\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Text.Encoding.CodePages.dll
+E:\Tan\codeBV\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Threading.Tasks.Extensions.dll
+E:\Tan\codeBV\BoolDonationApp\BoolDonationApp\bin\roslyn\System.ValueTuple.dll
+E:\Tan\codeBV\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Xml.ReaderWriter.dll
+E:\Tan\codeBV\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Xml.XmlDocument.dll
+E:\Tan\codeBV\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Xml.XPath.dll
+E:\Tan\codeBV\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Xml.XPath.XDocument.dll
+E:\Tan\codeBV\BoolDonationApp\BoolDonationApp\bin\roslyn\vbc.exe
+E:\Tan\codeBV\BoolDonationApp\BoolDonationApp\bin\roslyn\vbc.exe.config
+E:\Tan\codeBV\BoolDonationApp\BoolDonationApp\bin\roslyn\vbc.rsp
+E:\Tan\codeBV\BoolDonationApp\BoolDonationApp\bin\roslyn\VBCSCompiler.exe
+E:\Tan\codeBV\BoolDonationApp\BoolDonationApp\bin\roslyn\VBCSCompiler.exe.config
+E:\Tan\codeBV\BoolDonationApp\BoolDonationApp\bin\Antlr3.Runtime.dll
+E:\Tan\codeBV\BoolDonationApp\BoolDonationApp\bin\EntityFramework.dll
+E:\Tan\codeBV\BoolDonationApp\BoolDonationApp\bin\EntityFramework.SqlServer.dll
+E:\Tan\codeBV\BoolDonationApp\BoolDonationApp\bin\EPPlus.dll
+E:\Tan\codeBV\BoolDonationApp\BoolDonationApp\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+E:\Tan\codeBV\BoolDonationApp\BoolDonationApp\bin\Microsoft.IO.RecyclableMemoryStream.dll
+E:\Tan\codeBV\BoolDonationApp\BoolDonationApp\bin\Microsoft.Web.Infrastructure.dll
+E:\Tan\codeBV\BoolDonationApp\BoolDonationApp\bin\Newtonsoft.Json.dll
+E:\Tan\codeBV\BoolDonationApp\BoolDonationApp\bin\PagedList.dll
+E:\Tan\codeBV\BoolDonationApp\BoolDonationApp\bin\PagedList.Mvc.dll
+E:\Tan\codeBV\BoolDonationApp\BoolDonationApp\bin\System.ComponentModel.Annotations.dll
+E:\Tan\codeBV\BoolDonationApp\BoolDonationApp\bin\System.Web.Helpers.dll
+E:\Tan\codeBV\BoolDonationApp\BoolDonationApp\bin\System.Web.Mvc.dll
+E:\Tan\codeBV\BoolDonationApp\BoolDonationApp\bin\System.Web.Optimization.dll
+E:\Tan\codeBV\BoolDonationApp\BoolDonationApp\bin\System.Web.Razor.dll
+E:\Tan\codeBV\BoolDonationApp\BoolDonationApp\bin\System.Web.WebPages.Deployment.dll
+E:\Tan\codeBV\BoolDonationApp\BoolDonationApp\bin\System.Web.WebPages.dll
+E:\Tan\codeBV\BoolDonationApp\BoolDonationApp\bin\System.Web.WebPages.Razor.dll
+E:\Tan\codeBV\BoolDonationApp\BoolDonationApp\bin\WebGrease.dll
+E:\Tan\codeBV\BoolDonationApp\BoolDonationApp\bin\EntityFramework.xml
+E:\Tan\codeBV\BoolDonationApp\BoolDonationApp\bin\EntityFramework.SqlServer.xml
+E:\Tan\codeBV\BoolDonationApp\BoolDonationApp\bin\EPPlus.xml
+E:\Tan\codeBV\BoolDonationApp\BoolDonationApp\bin\Microsoft.IO.RecyclableMemoryStream.xml
+E:\Tan\codeBV\BoolDonationApp\BoolDonationApp\bin\PagedList.xml
+E:\Tan\codeBV\BoolDonationApp\BoolDonationApp\bin\PagedList.Mvc.xml
+E:\Tan\codeBV\BoolDonationApp\BoolDonationApp\bin\System.Web.Helpers.xml
+E:\Tan\codeBV\BoolDonationApp\BoolDonationApp\bin\System.Web.Mvc.xml
+E:\Tan\codeBV\BoolDonationApp\BoolDonationApp\bin\System.Web.Optimization.xml
+E:\Tan\codeBV\BoolDonationApp\BoolDonationApp\bin\System.Web.Razor.xml
+E:\Tan\codeBV\BoolDonationApp\BoolDonationApp\bin\System.Web.WebPages.xml
+E:\Tan\codeBV\BoolDonationApp\BoolDonationApp\bin\System.Web.WebPages.Deployment.xml
+E:\Tan\codeBV\BoolDonationApp\BoolDonationApp\bin\System.Web.WebPages.Razor.xml
+E:\Tan\codeBV\BoolDonationApp\BoolDonationApp\bin\Newtonsoft.Json.xml
+E:\Tan\codeBV\BoolDonationApp\BoolDonationApp\bin\Antlr3.Runtime.pdb
+E:\Tan\codeBV\BoolDonationApp\BoolDonationApp\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+E:\Tan\codeBV\BoolDonationApp\BoolDonationApp\obj\Debug\BoolDonationApp.csproj.AssemblyReference.cache
+E:\Tan\codeBV\BoolDonationApp\BoolDonationApp\obj\Debug\BoolDonationApp.csproj.CoreCompileInputs.cache
+E:\Tan\codeBV\BoolDonationApp\BoolDonationApp\obj\Debug\BoolDonationApp.csproj.CopyComplete
+E:\Tan\codeBV\BoolDonationApp\BoolDonationApp\obj\Debug\BoolDonationApp.dll
+E:\Tan\codeBV\BoolDonationApp\BoolDonationApp\obj\Debug\BoolDonationApp.pdb
+E:\BoolDonationApp\BoolDonationApp\bin\BoolDonationApp.dll.config
+E:\BoolDonationApp\BoolDonationApp\bin\BoolDonationApp.dll
+E:\BoolDonationApp\BoolDonationApp\bin\BoolDonationApp.pdb
+E:\BoolDonationApp\BoolDonationApp\bin\roslyn\csc.exe
+E:\BoolDonationApp\BoolDonationApp\bin\roslyn\csc.exe.config
+E:\BoolDonationApp\BoolDonationApp\bin\roslyn\csc.rsp
+E:\BoolDonationApp\BoolDonationApp\bin\roslyn\csi.exe
+E:\BoolDonationApp\BoolDonationApp\bin\roslyn\csi.exe.config
+E:\BoolDonationApp\BoolDonationApp\bin\roslyn\csi.rsp
+E:\BoolDonationApp\BoolDonationApp\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+E:\BoolDonationApp\BoolDonationApp\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+E:\BoolDonationApp\BoolDonationApp\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+E:\BoolDonationApp\BoolDonationApp\bin\roslyn\Microsoft.CodeAnalysis.dll
+E:\BoolDonationApp\BoolDonationApp\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+E:\BoolDonationApp\BoolDonationApp\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+E:\BoolDonationApp\BoolDonationApp\bin\roslyn\Microsoft.CSharp.Core.targets
+E:\BoolDonationApp\BoolDonationApp\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+E:\BoolDonationApp\BoolDonationApp\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+E:\BoolDonationApp\BoolDonationApp\bin\roslyn\Microsoft.Managed.Core.targets
+E:\BoolDonationApp\BoolDonationApp\bin\roslyn\Microsoft.VisualBasic.Core.targets
+E:\BoolDonationApp\BoolDonationApp\bin\roslyn\Microsoft.Win32.Primitives.dll
+E:\BoolDonationApp\BoolDonationApp\bin\roslyn\System.AppContext.dll
+E:\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Collections.Immutable.dll
+E:\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Console.dll
+E:\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+E:\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+E:\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Diagnostics.StackTrace.dll
+E:\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Globalization.Calendars.dll
+E:\BoolDonationApp\BoolDonationApp\bin\roslyn\System.IO.Compression.dll
+E:\BoolDonationApp\BoolDonationApp\bin\roslyn\System.IO.Compression.ZipFile.dll
+E:\BoolDonationApp\BoolDonationApp\bin\roslyn\System.IO.FileSystem.dll
+E:\BoolDonationApp\BoolDonationApp\bin\roslyn\System.IO.FileSystem.Primitives.dll
+E:\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Net.Http.dll
+E:\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Net.Sockets.dll
+E:\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Reflection.Metadata.dll
+E:\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+E:\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+E:\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Security.Cryptography.Encoding.dll
+E:\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Security.Cryptography.Primitives.dll
+E:\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+E:\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Text.Encoding.CodePages.dll
+E:\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Threading.Tasks.Extensions.dll
+E:\BoolDonationApp\BoolDonationApp\bin\roslyn\System.ValueTuple.dll
+E:\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Xml.ReaderWriter.dll
+E:\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Xml.XmlDocument.dll
+E:\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Xml.XPath.dll
+E:\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Xml.XPath.XDocument.dll
+E:\BoolDonationApp\BoolDonationApp\bin\roslyn\vbc.exe
+E:\BoolDonationApp\BoolDonationApp\bin\roslyn\vbc.exe.config
+E:\BoolDonationApp\BoolDonationApp\bin\roslyn\vbc.rsp
+E:\BoolDonationApp\BoolDonationApp\bin\roslyn\VBCSCompiler.exe
+E:\BoolDonationApp\BoolDonationApp\bin\roslyn\VBCSCompiler.exe.config
+E:\BoolDonationApp\BoolDonationApp\bin\Antlr3.Runtime.dll
+E:\BoolDonationApp\BoolDonationApp\bin\EntityFramework.dll
+E:\BoolDonationApp\BoolDonationApp\bin\EntityFramework.SqlServer.dll
+E:\BoolDonationApp\BoolDonationApp\bin\EPPlus.dll
+E:\BoolDonationApp\BoolDonationApp\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+E:\BoolDonationApp\BoolDonationApp\bin\Microsoft.IO.RecyclableMemoryStream.dll
+E:\BoolDonationApp\BoolDonationApp\bin\Microsoft.Web.Infrastructure.dll
+E:\BoolDonationApp\BoolDonationApp\bin\Newtonsoft.Json.dll
+E:\BoolDonationApp\BoolDonationApp\bin\PagedList.dll
+E:\BoolDonationApp\BoolDonationApp\bin\PagedList.Mvc.dll
+E:\BoolDonationApp\BoolDonationApp\bin\System.ComponentModel.Annotations.dll
+E:\BoolDonationApp\BoolDonationApp\bin\System.Web.Helpers.dll
+E:\BoolDonationApp\BoolDonationApp\bin\System.Web.Mvc.dll
+E:\BoolDonationApp\BoolDonationApp\bin\System.Web.Optimization.dll
+E:\BoolDonationApp\BoolDonationApp\bin\System.Web.Razor.dll
+E:\BoolDonationApp\BoolDonationApp\bin\System.Web.WebPages.Deployment.dll
+E:\BoolDonationApp\BoolDonationApp\bin\System.Web.WebPages.dll
+E:\BoolDonationApp\BoolDonationApp\bin\System.Web.WebPages.Razor.dll
+E:\BoolDonationApp\BoolDonationApp\bin\WebGrease.dll
+E:\BoolDonationApp\BoolDonationApp\bin\EntityFramework.xml
+E:\BoolDonationApp\BoolDonationApp\bin\EntityFramework.SqlServer.xml
+E:\BoolDonationApp\BoolDonationApp\bin\EPPlus.xml
+E:\BoolDonationApp\BoolDonationApp\bin\Microsoft.IO.RecyclableMemoryStream.xml
+E:\BoolDonationApp\BoolDonationApp\bin\PagedList.xml
+E:\BoolDonationApp\BoolDonationApp\bin\PagedList.Mvc.xml
+E:\BoolDonationApp\BoolDonationApp\bin\System.Web.Helpers.xml
+E:\BoolDonationApp\BoolDonationApp\bin\System.Web.Mvc.xml
+E:\BoolDonationApp\BoolDonationApp\bin\System.Web.Optimization.xml
+E:\BoolDonationApp\BoolDonationApp\bin\System.Web.Razor.xml
+E:\BoolDonationApp\BoolDonationApp\bin\System.Web.WebPages.xml
+E:\BoolDonationApp\BoolDonationApp\bin\System.Web.WebPages.Deployment.xml
+E:\BoolDonationApp\BoolDonationApp\bin\System.Web.WebPages.Razor.xml
+E:\BoolDonationApp\BoolDonationApp\bin\Newtonsoft.Json.xml
+E:\BoolDonationApp\BoolDonationApp\bin\Antlr3.Runtime.pdb
+E:\BoolDonationApp\BoolDonationApp\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+E:\BoolDonationApp\BoolDonationApp\obj\Debug\BoolDonationApp.csproj.AssemblyReference.cache
+E:\BoolDonationApp\BoolDonationApp\obj\Debug\BoolDonationApp.csproj.CoreCompileInputs.cache
+E:\BoolDonationApp\BoolDonationApp\obj\Debug\BoolDonationApp.csproj.CopyComplete
+E:\BoolDonationApp\BoolDonationApp\obj\Debug\BoolDonationApp.dll
+E:\BoolDonationApp\BoolDonationApp\obj\Debug\BoolDonationApp.pdb
+E:\Tan\codeBV\BoolDonationApp\BoolDonationApp\bin\QRCoder.dll
+E:\Tan\codeBV\BoolDonationApp\BoolDonationApp\bin\zxing.dll
+E:\Tan\codeBV\BoolDonationApp\BoolDonationApp\bin\zxing.presentation.dll
+E:\Tan\codeBV\BoolDonationApp\BoolDonationApp\bin\zxing.xml
+E:\Tan\codeBV\BoolDonationApp\BoolDonationApp\bin\zxing.presentation.xml
+D:\codebvdn\BoolDonationApp\BoolDonationApp\bin\BoolDonationApp.dll.config
+D:\codebvdn\BoolDonationApp\BoolDonationApp\bin\BoolDonationApp.dll
+D:\codebvdn\BoolDonationApp\BoolDonationApp\bin\BoolDonationApp.pdb
+D:\codebvdn\BoolDonationApp\BoolDonationApp\bin\roslyn\csc.exe
+D:\codebvdn\BoolDonationApp\BoolDonationApp\bin\roslyn\csc.exe.config
+D:\codebvdn\BoolDonationApp\BoolDonationApp\bin\roslyn\csc.rsp
+D:\codebvdn\BoolDonationApp\BoolDonationApp\bin\roslyn\csi.exe
+D:\codebvdn\BoolDonationApp\BoolDonationApp\bin\roslyn\csi.exe.config
+D:\codebvdn\BoolDonationApp\BoolDonationApp\bin\roslyn\csi.rsp
+D:\codebvdn\BoolDonationApp\BoolDonationApp\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\codebvdn\BoolDonationApp\BoolDonationApp\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\codebvdn\BoolDonationApp\BoolDonationApp\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\codebvdn\BoolDonationApp\BoolDonationApp\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\codebvdn\BoolDonationApp\BoolDonationApp\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\codebvdn\BoolDonationApp\BoolDonationApp\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\codebvdn\BoolDonationApp\BoolDonationApp\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\codebvdn\BoolDonationApp\BoolDonationApp\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\codebvdn\BoolDonationApp\BoolDonationApp\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\codebvdn\BoolDonationApp\BoolDonationApp\bin\roslyn\Microsoft.Managed.Core.targets
+D:\codebvdn\BoolDonationApp\BoolDonationApp\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\codebvdn\BoolDonationApp\BoolDonationApp\bin\roslyn\Microsoft.Win32.Primitives.dll
+D:\codebvdn\BoolDonationApp\BoolDonationApp\bin\roslyn\System.AppContext.dll
+D:\codebvdn\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Collections.Immutable.dll
+D:\codebvdn\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Console.dll
+D:\codebvdn\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+D:\codebvdn\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+D:\codebvdn\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\codebvdn\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Globalization.Calendars.dll
+D:\codebvdn\BoolDonationApp\BoolDonationApp\bin\roslyn\System.IO.Compression.dll
+D:\codebvdn\BoolDonationApp\BoolDonationApp\bin\roslyn\System.IO.Compression.ZipFile.dll
+D:\codebvdn\BoolDonationApp\BoolDonationApp\bin\roslyn\System.IO.FileSystem.dll
+D:\codebvdn\BoolDonationApp\BoolDonationApp\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\codebvdn\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Net.Http.dll
+D:\codebvdn\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Net.Sockets.dll
+D:\codebvdn\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Reflection.Metadata.dll
+D:\codebvdn\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+D:\codebvdn\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+D:\codebvdn\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Security.Cryptography.Encoding.dll
+D:\codebvdn\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Security.Cryptography.Primitives.dll
+D:\codebvdn\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+D:\codebvdn\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Text.Encoding.CodePages.dll
+D:\codebvdn\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Threading.Tasks.Extensions.dll
+D:\codebvdn\BoolDonationApp\BoolDonationApp\bin\roslyn\System.ValueTuple.dll
+D:\codebvdn\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Xml.ReaderWriter.dll
+D:\codebvdn\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Xml.XmlDocument.dll
+D:\codebvdn\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Xml.XPath.dll
+D:\codebvdn\BoolDonationApp\BoolDonationApp\bin\roslyn\System.Xml.XPath.XDocument.dll
+D:\codebvdn\BoolDonationApp\BoolDonationApp\bin\roslyn\vbc.exe
+D:\codebvdn\BoolDonationApp\BoolDonationApp\bin\roslyn\vbc.exe.config
+D:\codebvdn\BoolDonationApp\BoolDonationApp\bin\roslyn\vbc.rsp
+D:\codebvdn\BoolDonationApp\BoolDonationApp\bin\roslyn\VBCSCompiler.exe
+D:\codebvdn\BoolDonationApp\BoolDonationApp\bin\roslyn\VBCSCompiler.exe.config
+D:\codebvdn\BoolDonationApp\BoolDonationApp\bin\Antlr3.Runtime.dll
+D:\codebvdn\BoolDonationApp\BoolDonationApp\bin\EntityFramework.dll
+D:\codebvdn\BoolDonationApp\BoolDonationApp\bin\EntityFramework.SqlServer.dll
+D:\codebvdn\BoolDonationApp\BoolDonationApp\bin\EPPlus.dll
+D:\codebvdn\BoolDonationApp\BoolDonationApp\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\codebvdn\BoolDonationApp\BoolDonationApp\bin\Microsoft.IO.RecyclableMemoryStream.dll
+D:\codebvdn\BoolDonationApp\BoolDonationApp\bin\Microsoft.Web.Infrastructure.dll
+D:\codebvdn\BoolDonationApp\BoolDonationApp\bin\Newtonsoft.Json.dll
+D:\codebvdn\BoolDonationApp\BoolDonationApp\bin\PagedList.dll
+D:\codebvdn\BoolDonationApp\BoolDonationApp\bin\PagedList.Mvc.dll
+D:\codebvdn\BoolDonationApp\BoolDonationApp\bin\QRCoder.dll
+D:\codebvdn\BoolDonationApp\BoolDonationApp\bin\System.ComponentModel.Annotations.dll
+D:\codebvdn\BoolDonationApp\BoolDonationApp\bin\System.Web.Helpers.dll
+D:\codebvdn\BoolDonationApp\BoolDonationApp\bin\System.Web.Mvc.dll
+D:\codebvdn\BoolDonationApp\BoolDonationApp\bin\System.Web.Optimization.dll
+D:\codebvdn\BoolDonationApp\BoolDonationApp\bin\System.Web.Razor.dll
+D:\codebvdn\BoolDonationApp\BoolDonationApp\bin\System.Web.WebPages.Deployment.dll
+D:\codebvdn\BoolDonationApp\BoolDonationApp\bin\System.Web.WebPages.dll
+D:\codebvdn\BoolDonationApp\BoolDonationApp\bin\System.Web.WebPages.Razor.dll
+D:\codebvdn\BoolDonationApp\BoolDonationApp\bin\WebGrease.dll
+D:\codebvdn\BoolDonationApp\BoolDonationApp\bin\zxing.dll
+D:\codebvdn\BoolDonationApp\BoolDonationApp\bin\zxing.presentation.dll
+D:\codebvdn\BoolDonationApp\BoolDonationApp\bin\EntityFramework.xml
+D:\codebvdn\BoolDonationApp\BoolDonationApp\bin\EntityFramework.SqlServer.xml
+D:\codebvdn\BoolDonationApp\BoolDonationApp\bin\EPPlus.xml
+D:\codebvdn\BoolDonationApp\BoolDonationApp\bin\Microsoft.IO.RecyclableMemoryStream.xml
+D:\codebvdn\BoolDonationApp\BoolDonationApp\bin\PagedList.xml
+D:\codebvdn\BoolDonationApp\BoolDonationApp\bin\PagedList.Mvc.xml
+D:\codebvdn\BoolDonationApp\BoolDonationApp\bin\System.Web.Helpers.xml
+D:\codebvdn\BoolDonationApp\BoolDonationApp\bin\System.Web.Mvc.xml
+D:\codebvdn\BoolDonationApp\BoolDonationApp\bin\System.Web.Optimization.xml
+D:\codebvdn\BoolDonationApp\BoolDonationApp\bin\System.Web.Razor.xml
+D:\codebvdn\BoolDonationApp\BoolDonationApp\bin\System.Web.WebPages.xml
+D:\codebvdn\BoolDonationApp\BoolDonationApp\bin\System.Web.WebPages.Deployment.xml
+D:\codebvdn\BoolDonationApp\BoolDonationApp\bin\System.Web.WebPages.Razor.xml
+D:\codebvdn\BoolDonationApp\BoolDonationApp\bin\Newtonsoft.Json.xml
+D:\codebvdn\BoolDonationApp\BoolDonationApp\bin\Antlr3.Runtime.pdb
+D:\codebvdn\BoolDonationApp\BoolDonationApp\bin\zxing.xml
+D:\codebvdn\BoolDonationApp\BoolDonationApp\bin\zxing.presentation.xml
+D:\codebvdn\BoolDonationApp\BoolDonationApp\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\codebvdn\BoolDonationApp\BoolDonationApp\obj\Debug\BoolDonationApp.csproj.AssemblyReference.cache
+D:\codebvdn\BoolDonationApp\BoolDonationApp\obj\Debug\BoolDonationApp.csproj.CoreCompileInputs.cache
+D:\codebvdn\BoolDonationApp\BoolDonationApp\obj\Debug\BoolDonationApp.csproj.CopyComplete
+D:\codebvdn\BoolDonationApp\BoolDonationApp\obj\Debug\BoolDonationApp.dll
+D:\codebvdn\BoolDonationApp\BoolDonationApp\obj\Debug\BoolDonationApp.pdb

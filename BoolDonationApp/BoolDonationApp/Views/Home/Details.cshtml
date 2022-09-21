@@ -1,0 +1,882 @@
+﻿@model BoolDonationApp.Models.BloodDonation
+
+@{
+    ViewBag.Title = "Details";
+    Layout = null;
+}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/paper-css/0.3.0/paper.css">
+<style>
+    h5 {
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+        padding-top: 0.5px;
+        padding-bottom: 0.5px;
+    }
+
+    h4, h6 {
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+        padding-top: 0.5px;
+        padding-bottom: 0.5px;
+    }
+
+    h2 {
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+        padding-top: 0.5px;
+        padding-bottom: 0.5px;
+    }
+
+    p {
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+        padding-top: 0.5px;
+        padding-bottom: 0.5px;
+        font-size: 11px;
+    }
+</style>
+@*<link href="~/Content/giaychungnhan.css" rel="stylesheet" />*@
+<link href="~/Content/A4.css" rel="stylesheet" />
+<body>
+    <div class="body A4" id="A4">
+        <section class="sheet padding-10mm">
+
+            <!-- Write HTML just like a web page -->
+            <article>
+                <div class="headerview" style="display:flex;align-items:center;justify-content:space-between;">
+                    <div style="text-transform:uppercase;text-align:center">
+                        <h4>Sở y tế Thành phố đà nẵng</h4>
+                        <h4>Bệnh viện Đà nẵng</h4>
+                    </div>
+                    <div style="text-align:left">
+                        <h4>BM01-KT.HT2.87</h4>
+                        <h4>Mã số đơn vị máu: ......................</h4>
+                    </div>
+                </div>
+                <h1 style="text-transform: uppercase; text-align: center; margin-top: 0px; margin-bottom: 0px;">Phiếu đăng ký hiến máu tình nguyện</h1>
+                <div class="contentview">
+                    <div class="formcontentView">
+                        <div style="display:flex;align-items:center; justify-content:space-between">
+                            <div style="display:flex;align-items:center">
+                                <h5 style=" margin-top: 0px; margin-bottom: 0px; ">HỌ VÀ TÊN (Chữ in hoa):</h5>
+                                <h5 style="text-transform: uppercase; margin-top: 0px; margin-bottom: 0px; ">@Model.Hovaten</h5>
+                            </div>
+                            <div style="display:flex;align-items:center">
+                                <h5 style="margin-left:5px;">Ngày sinh:</h5>
+                                @Html.ValueFor(modelItem => modelItem.NgaySinh, "{0:dd/MM/yyyy}")
+                            </div>
+                            <div style="display:flex;align-items:center">
+                                <h5 style="margin-left:5px">Giới tính:</h5>
+                                @if (Model.gioitinh == 0)
+                                {
+                                    <h5>
+                                        Nữ
+                                    </h5>
+                                }
+                                else
+                                {
+                                    <h5>
+                                        Nam
+                                    </h5>
+                                }
+                            </div>
+
+                        </div>
+                        <div style="display:flex;align-items:center;">
+                            <div style="display:flex;align-items:center ;width:50%">
+                                <h5 style="">Nghề nghiệp:</h5>
+                                <h5 style="text-transform:uppercase">......................................................................................</h5>
+                            </div>
+                            <div style="display: flex; align-items: center; width: 50%">
+                                <h5 style="margin-left:5px">Cơ quan/ Trường học</h5>
+                                <h5>........................................................................</h5>
+                            </div>
+                        </div>
+                        <div style="display:flex;align-items:center;">
+                            <div style="display:flex;align-items:center;">
+                                <h5 style="">Địa chỉ thường trú (theo CMND):</h5>
+                                <h5 style="text-transform:capitalize">@Model.DiaChi</h5>
+                            </div>
+                        </div>
+                        <div style="display:flex;align-items:center;">
+                            <div style="display:flex;align-items:center;">
+                                <h5 style="">Chỗ ở hiện tại:</h5>
+                                <h5 style="text-transform:capitalize">............................................................................................................................................................................</h5>
+                            </div>
+
+                        </div>
+                        <div style="display:flex;align-items:center; ">
+                            <div style="display:flex;align-items:center;width:60%">
+                                <h5 style=" margin-top: 0px; margin-bottom: 0px; ">Điện thoại (Bắt buộc):</h5>
+                                <h5 style="text-transform: uppercase; margin-top: 0px; margin-bottom: 0px; ">@Model.Phone</h5>
+                            </div>
+                            <div style="display: flex; align-items: center; width: 40%">
+                                <h5 style="margin-left:5px;">Email:</h5>
+                                <h5 style=" margin-top: 0px; margin-bottom: 0px; ">@Model.Email</h5>
+                            </div>
+                        </div>
+
+                        <div style="display:flex;align-items:center; ">
+                            <div style="display:flex;align-items:center;width:60%">
+                                <h5 style=" margin-top: 0px; margin-bottom: 0px; ">Số CMND/CCCD (bắt buộc) :</h5>
+                                @if (Model.CMND != null)
+                                {
+                                    <h5 style="text-transform: uppercase; margin-top: 0px; margin-bottom: 0px; ">@Model.CMND</h5>
+                                }
+                                else if (Model.CCCD != null)
+                                {
+                                    <h5 style="text-transform: uppercase; margin-top: 0px; margin-bottom: 0px; ">@Model.CCCD</h5>
+                                }
+
+                            </div>
+
+                        </div>
+                        <div style="display:flex;align-items:center; ">
+                            <div style="display:flex;align-items:center;width:60%">
+                                <h5 style=" margin-top: 0px; margin-bottom: 0px; ">Quý vị hiến máu lần thứ :</h5>
+                                @if (Model.Solanhienmau == 0)
+                                {
+                                    <h5 style="text-transform: capitalize; margin-top: 0px; margin-bottom: 0px; ">Mới đăng kí hiến</h5>
+                                }
+                                else
+                                {
+                                    <h5 style="text-transform: capitalize; margin-top: 0px; margin-bottom: 0px; ">@Model.Solanhienmau</h5>
+                                }
+
+                            </div>
+                            <div style="display:flex;align-items:center;width:40%">
+                                <h5 style=" margin-top: 0px; margin-bottom: 0px; ">Nhóm máu :</h5>
+                                <h5 style="text-transform: capitalize; margin-top: 0px; margin-bottom: 0px; ">@Model.NhomMau</h5>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="formhienmau">
+                        <div class="titleformhienmau" style="border:1px solid black;text-align:center;padding:0 30px">
+                            <div style="display:flex;align-items:center;justify-content:center">
+                                <h2 style="font-size:18px">
+                                    Xin quý vị vui lòng tích dấu
+                                    ✔
+
+                                    vào ô
+                                    <input type="checkbox" disabled />
+                                    thích hợp
+                                </h2>
+                            </div>
+                            <h5>
+                                Để đảm bảo an toàn sức khỏe cho quý vị và người bệnh nhận máu ,xin quý vị trả lời trung thực và chính xác,nếu có bất cứ Nghi ngờ nào về nguy cơ mắc bệnh lây truyền .XIN QUÝ  VỊ HÃY KHÔNG HIẾN MÁU.
+                            </h5>
+                        </div>
+                    </div>
+                    <div style="display:flex">
+                        <div class="formquestion" style="width: 60%; border: 1px solid black;">
+                            <div style="padding: 10px 15px">
+                                <div style="display: flex">
+                                    <div style="width:80%; text-align:center">
+                                        <h5 style="text-transform:uppercase">dành cho người hiến máu</h5>
+                                    </div>
+                                    <div style="width:20%">
+                                        <div style="display:flex">
+                                            <div style="width:50%">
+                                                <p>Có</p>
+
+                                            </div>
+                                            <div style="width:50%">
+                                                <p>Không</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div style="display: flex;align-items:center">
+                                    <div style="width:80%; text-align:left">
+                                        <h5>1/Trước đây quí vị đã từng hiến máu chưa?</h5>
+                                    </div>
+                                    <div style="width:20%">
+                                        <div style="display:flex;align-items:center">
+                                            <div style="width:50%">
+
+                                                @if (Model.truocdayquividatunghienmauchuacau1 == true)
+                                                {
+                                                    @Html.CheckBox("yourId", true, new { value = Model.truocdayquividatunghienmauchuacau1 })
+                                                }
+                                                else
+                                                { <input id="Remember" name="cau1false" type="checkbox" disabled />
+
+                                                }
+                                            </div>
+                                            <div style="width:50%">
+                                                @if (Model.truocdayquividatunghienmauchuacau1 == false)
+                                                {
+                                                    @Html.CheckBox("yourId", false, new { value = Model.truocdayquividatunghienmauchuacau1 })
+                                                }
+                                                else
+                                                { <input id="Remember" name="cau1false" type="checkbox" disabled />
+
+                                                }
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div style="display: flex; align-items: center">
+                                    <div style="width:80%; text-align:left">
+                                        <p> <span style="font-weight: bold">2/Quý vị từng mắc các bệnh như:</span>Tâm thần kinh,hô hấp ,tiêu hóa,viêm gan/vàng da,tim mạch,huyết áp thấp/cao,bệnh thận,hen,ho kéo dài,bệnh máu,lao ung thư,Hemophilia ,vv</p>
+                                    </div>
+                                    <div style="width:20%">
+                                        <div style="display: flex; align-items: center">
+                                            <div style="width:50%">
+
+                                                @if (Model.tamthankinhcau2 == true)
+                                                {
+                                                    @Html.CheckBox("yourId", true, new { value = Model.tamthankinhcau2 })
+                                                }
+                                                else
+                                                { <input id="Remember" name="cau1false" type="checkbox" disabled />
+
+                                                }
+                                            </div>
+                                            <div style="width:50%">
+                                                @if (Model.tamthankinhcau2 == false)
+                                                {
+                                                    @Html.CheckBox("yourId", true, new { value = Model.tamthankinhcau2 })
+                                                }
+                                                else
+                                                { <input id="Remember" name="cau1false" type="checkbox" disabled />
+
+                                                }
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div style="display: flex;align-items:center">
+                                    <div style="width:80%; text-align:left">
+                                        <span style="font-weight:bold">3/Trong vòng 6 tháng gần đây,quý vị có:</span>
+                                        <p> Sút cân >= 4kg không rõ nguyên nhân</p>
+                                    </div>
+                                    <div style="width:20%">
+                                        <div style="display:flex;align-items:center">
+                                            <div style="width:50%">
+
+                                                @if (Model.noihachkeodaicau4 == true)
+                                                {
+                                                    @Html.CheckBox("yourId", true, new { value = Model.noihachkeodaicau4 })
+                                                }
+                                                else
+                                                { <input id="Remember" name="cau1false" type="checkbox" disabled />
+
+                                                }
+                                            </div>
+                                            <div style="width:50%">
+                                                @if (Model.noihachkeodaicau4 == false)
+                                                {
+                                                    @Html.CheckBox("yourId", true, new { value = Model.noihachkeodaicau4 })
+                                                }
+                                                else
+                                                { <input id="Remember" name="cau1false" type="checkbox" disabled />
+
+                                                }
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div style="display: flex; align-items: center">
+                                    <div style="width:80%; text-align:left">
+                                        <p> Nổi hạch kéo dài?</p>
+                                    </div>
+                                    <div style="width:20%">
+                                        <div style="display: flex; align-items: center">
+                                            <div style="width:50%">
+
+                                                @if (Model.sutcan4kgcau3 == true)
+                                                {
+                                                    @Html.CheckBox("yourId", true, new { value = Model.sutcan4kgcau3 });
+                                                }
+                                                else
+                                                { <input id="Remember" name="cau1false" type="checkbox" disabled />
+
+                                                }
+                                            </div>
+                                            <div style="width:50%">
+                                                @if (Model.sutcan4kgcau3 == false)
+                                                {
+                                                    @Html.CheckBox("yourId", true, new { value = Model.sutcan4kgcau3 })
+                                                }
+                                                else
+                                                { <input id="Remember" name="cau1false" type="checkbox" disabled />
+
+                                                }
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div style="display: flex;align-items:center">
+                                    <div style="width:80%; text-align:left">
+                                        <p> Phẩu thuật?</p>
+                                    </div>
+                                    <div style="width:20%">
+                                        <div style="display:flex;align-items:center">
+                                            <div style="width:50%">
+
+                                                @if (Model.phauthuatcau5 == true)
+                                                {
+                                                    @Html.CheckBox("yourId", true, new { value = Model.phauthuatcau5 })
+                                                }
+                                                else
+                                                { <input id="Remember" name="cau1false" type="checkbox" disabled />
+
+                                                }
+                                            </div>
+                                            <div style="width:50%">
+                                                @if (Model.phauthuatcau5 == false)
+                                                {
+                                                    @Html.CheckBox("yourId", true, new { value = Model.phauthuatcau5 })
+                                                }
+                                                else
+                                                { <input id="Remember" name="cau1false" type="checkbox" disabled />
+
+                                                }
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div style="display: flex;align-items:center">
+                                    <div style="width:80%; text-align:left">
+                                        <p>Xăm mình,xỏ lỗ qua da(tai,mũi,...),châm cứu</p>
+                                    </div>
+                                    <div style="width:20%">
+                                        <div style="display:flex;align-items:center">
+                                            <div style="width:50%">
+
+                                                @if (Model.xamminhxolocau6 == true)
+                                                {
+                                                    @Html.CheckBox("yourId", true, new { value = Model.xamminhxolocau6 })
+                                                }
+                                                else
+                                                { <input id="Remember" name="cau1false" type="checkbox" disabled />
+
+                                                }
+                                            </div>
+                                            <div style="width:50%">
+                                                @if (Model.xamminhxolocau6 == false)
+                                                {
+                                                    @Html.CheckBox("yourId", true, new { value = Model.xamminhxolocau6 })
+                                                }
+                                                else
+                                                { <input id="Remember" name="cau1false" type="checkbox" disabled />
+
+                                                }
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div style="display: flex;align-items:center">
+                                    <div style="width:80%; text-align:left">
+                                        <p>Được truyền máu,chế phẩm máu?</p>
+                                    </div>
+                                    <div style="width:20%">
+                                        <div style="display:flex;align-items:center">
+                                            <div style="width:50%">
+
+                                                @if (Model.duoctruyenmaucau7 == true)
+                                                {
+                                                    @Html.CheckBox("yourId", true, new { value = Model.duoctruyenmaucau7 })
+                                                }
+                                                else
+                                                { <input id="Remember" name="cau1false" type="checkbox" disabled />
+
+                                                }
+                                            </div>
+                                            <div style="width:50%">
+                                                @if (Model.duoctruyenmaucau7 == false)
+                                                {
+                                                    @Html.CheckBox("yourId", false, new { value = Model.duoctruyenmaucau7 })
+                                                }
+                                                else
+                                                { <input id="Remember" name="cau1false" type="checkbox" disabled />
+
+                                                }
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div style="display: flex;align-items:center">
+                                    <div style="width:80%; text-align:left">
+                                        <p>Sử dụng ma túy ,tiêm chích .... ?</p>
+                                    </div>
+                                    <div style="width:20%">
+                                        <div style="display:flex;align-items:center">
+                                            <div style="width:50%">
+
+                                                @if (Model.sudungmatuycau8 == true)
+                                                {
+                                                    @Html.CheckBox("yourId", true, new { value = Model.sudungmatuycau8 })
+                                                }
+                                                else
+                                                { <input id="Remember" name="cau1false" type="checkbox" disabled />
+
+                                                }
+                                            </div>
+                                            <div style="width:50%">
+                                                @if (Model.sudungmatuycau8 == false)
+                                                {
+                                                    @Html.CheckBox("yourId", true, new { value = Model.sudungmatuycau8 })
+                                                }
+                                                else
+                                                { <input id="Remember" name="cau1false" type="checkbox" disabled />
+
+                                                }
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div style="display: flex;align-items:center">
+                                    <div style="width:80%; text-align:left">
+                                        <p>Quan hệ tình dục với người nhiễm hoặc có nguy cơ lây nhiễm HIV,viêm gan?</p>
+                                    </div>
+                                    <div style="width:20%">
+                                        <div style="display:flex;align-items:center">
+                                            <div style="width:50%">
+
+                                                @if (Model.quanhetinhduccau9 == true)
+                                                {
+                                                    @Html.CheckBox("yourId", true, new { value = Model.quanhetinhduccau9 })
+                                                }
+                                                else
+                                                { <input id="Remember" name="cau1false" type="checkbox" disabled />
+
+                                                }
+                                            </div>
+                                            <div style="width:50%">
+                                                @if (Model.quanhetinhduccau9 == false)
+                                                {
+                                                    @Html.CheckBox("yourId", true, new { value = Model.quanhetinhduccau9 })
+                                                }
+                                                else
+                                                { <input id="Remember" name="cau1false" type="checkbox" disabled />
+
+                                                }
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div style="display: flex;align-items:center">
+                                    <div style="width:80%; text-align:left">
+                                        <p>Quan hệ tình dục với người cùng giới </p>
+                                    </div>
+                                    <div style="width:20%">
+                                        <div style="display:flex;align-items:center">
+                                            <div style="width:50%">
+
+                                                @if (Model.quanhetinhducvoinguoidonggioicau10 == true)
+                                                {
+                                                    @Html.CheckBox("yourId", true, new { value = Model.quanhetinhducvoinguoidonggioicau10 })
+                                                }
+                                                else
+                                                { <input id="Remember" name="cau1false" type="checkbox" disabled />
+
+                                                }
+                                            </div>
+                                            <div style="width:50%">
+                                                @if (Model.quanhetinhducvoinguoidonggioicau10 == false)
+                                                {
+                                                    @Html.CheckBox("yourId", true, new { value = Model.quanhetinhducvoinguoidonggioicau10 })
+                                                }
+                                                else
+                                                { <input id="Remember" name="cau1false" type="checkbox" disabled />
+
+                                                }
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div style="display: flex;align-items:center">
+                                    <div style="width:80%; text-align:left">
+                                        <p>Tiêm vacxin phòng bệnh Loại vacxin .....</p>
+                                    </div>
+                                    <div style="width:20%">
+                                        <div style="display:flex;align-items:center">
+                                            <div style="width:50%">
+
+                                                @if (Model.tiemvacxinphongbenhcau11 == true)
+                                                {
+                                                    @Html.CheckBox("yourId", true, new { value = Model.tiemvacxinphongbenhcau11 })
+                                                }
+                                                else
+                                                { <input id="Remember" name="cau1false" type="checkbox" disabled />
+
+                                                }
+                                            </div>
+                                            <div style="width:50%">
+                                                @if (Model.tiemvacxinphongbenhcau11 == false)
+                                                {
+                                                    @Html.CheckBox("yourId", true, new { value = Model.tiemvacxinphongbenhcau11 })
+                                                }
+                                                else
+                                                { <input id="Remember" name="cau1false" type="checkbox" disabled />
+
+                                                }
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div style="display: flex;align-items:center">
+                                    <div style="width:80%; text-align:left">
+                                        <p>Sống trong vùng có dịch lưu hành (sốt xuất huyết,sốt rét,bò điên,Ebola,Zika,Covid-19)... ?</p>
+                                    </div>
+                                    <div style="width:20%">
+                                        <div style="display:flex;align-items:center">
+                                            <div style="width:50%">
+
+                                                @if (Model.songtrongvungcodichluuhanhcau12 == true)
+                                                {
+                                                    @Html.CheckBox("yourId", true, new { value = Model.songtrongvungcodichluuhanhcau12 })
+                                                }
+                                                else
+                                                { <input id="Remember" name="cau1false" type="checkbox" disabled />
+
+                                                }
+                                            </div>
+                                            <div style="width:50%">
+                                                @if (Model.songtrongvungcodichluuhanhcau12 == false)
+                                                {
+                                                    @Html.CheckBox("yourId", true, new { value = Model.songtrongvungcodichluuhanhcau12 })
+                                                }
+                                                else
+                                                { <input id="Remember" name="cau1false" type="checkbox" disabled />
+
+                                                }
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div style="display: flex;align-items:center">
+                                    <div style="width:80%; text-align:left">
+                                        <p style="font-weight:bold">Trong vòng 1 tuần gần đây ,Quý vị có</p>
+                                        <p>Bị cúm,ho,nhức đầu,sốt</p>
+                                    </div>
+                                    <div style="width:20%">
+                                        <div style="display:flex;align-items:center">
+                                            <div style="width:50%">
+
+                                                @if (Model.bicumhonhucdausotcau13 == true)
+                                                {
+                                                    @Html.CheckBox("yourId", true, new { value = Model.bicumhonhucdausotcau13 })
+                                                }
+                                                else
+                                                { <input id="Remember" name="cau1false" type="checkbox" disabled />
+
+                                                }
+                                            </div>
+                                            <div style="width:50%">
+                                                @if (Model.bicumhonhucdausotcau13 == false)
+                                                {
+                                                    @Html.CheckBox("yourId", true, new { value = Model.bicumhonhucdausotcau13 })
+                                                }
+                                                else
+                                                { <input id="Remember" name="cau1false" type="checkbox" disabled />
+
+                                                }
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div style="display: flex;align-items:center">
+                                    <div style="width:80%; text-align:left">
+                                        <p>Dùng thuốc kháng sinh,ASPIRIN,CORTICOID ...?</p>
+                                    </div>
+                                    <div style="width:20%">
+                                        <div style="display:flex;align-items:center">
+                                            <div style="width:50%">
+
+                                                @if (Model.dungthuockhangsinhcau14 == true)
+                                                {
+                                                    @Html.CheckBox("yourId", true, new { value = Model.dungthuockhangsinhcau14 })
+                                                }
+                                                else
+                                                { <input id="Remember" name="cau1false" type="checkbox" disabled />
+
+                                                }
+                                            </div>
+                                            <div style="width:50%">
+                                                @if (Model.dungthuockhangsinhcau14 == false)
+                                                {
+                                                    @Html.CheckBox("yourId", true, new { value = Model.dungthuockhangsinhcau14 })
+                                                }
+                                                else
+                                                { <input id="Remember" name="cau1false" type="checkbox" disabled />
+
+                                                }
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div style="display: flex;align-items:center">
+                                    <div style="width:80%; text-align:left">
+                                        <p>Đến khám sức khỏe,làm xét nghiệm,chữa răng?</p>
+                                    </div>
+                                    <div style="width:20%">
+                                        <div style="display:flex;align-items:center">
+                                            <div style="width:50%">
+
+                                                @if (Model.denkhamsuckhoelamxetnghiemchuarangcau15 == true)
+                                                {
+                                                    @Html.CheckBox("yourId", true, new { value = Model.denkhamsuckhoelamxetnghiemchuarangcau15 })
+                                                }
+                                                else
+                                                { <input id="Remember" name="cau1false" type="checkbox" disabled />
+
+                                                }
+                                            </div>
+                                            <div style="width:50%">
+                                                @if (Model.denkhamsuckhoelamxetnghiemchuarangcau15 == false)
+                                                {
+                                                    @Html.CheckBox("yourId", true, new { value = Model.denkhamsuckhoelamxetnghiemchuarangcau15 })
+                                                }
+                                                else
+                                                { <input id="Remember" name="cau1false" type="checkbox" disabled />
+
+                                                }
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div style="display: flex;align-items:center">
+                                    <div style="width:80%; text-align:left">
+                                        <p>Đến khám sức khỏe,làm xét nghiệm,chữa răng?</p>
+                                    </div>
+                                    <div style="width:20%">
+                                        <div style="display:flex;align-items:center">
+                                            <div style="width:50%">
+
+                                                @if (Model.quivihienladoituongtantatcau16 == true)
+                                                {
+                                                    @Html.CheckBox("yourId", true, new { value = Model.quivihienladoituongtantatcau16 })
+                                                }
+                                                else
+                                                { <input id="Remember" name="cau1false" type="checkbox" disabled />
+
+                                                }
+                                            </div>
+                                            <div style="width:50%">
+                                                @if (Model.quivihienladoituongtantatcau16 == false)
+                                                {
+                                                    @Html.CheckBox("yourId", true, new { value = Model.quivihienladoituongtantatcau16 })
+                                                }
+                                                else
+                                                { <input id="Remember" name="cau1false" type="checkbox" disabled />
+
+                                                }
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div style="display: flex;align-items:center">
+                                    <div style="width:80%; text-align:left">
+                                        <p style="font-weight:bold">Câu hỏi dành cho phụ nữ:</p>
+                                        <p>Chị hiện đang nuôi con dưới 12 tháng tuổi/đang trong kỳ kinh nguyệt?</p>
+                                    </div>
+                                    <div style="width:20%">
+                                        <div style="display:flex;align-items:center">
+                                            <div style="width:50%">
+
+                                                @if (Model.chihiendangnuoiconduoi12thangtuoicau17 == true)
+                                                {
+                                                    @Html.CheckBox("yourId", true, new { value = Model.chihiendangnuoiconduoi12thangtuoicau17 })
+                                                }
+                                                else
+                                                { <input id="Remember" name="cau1false" type="checkbox" disabled />
+
+                                                }
+                                            </div>
+                                            <div style="width:50%">
+                                                @if (Model.chihiendangnuoiconduoi12thangtuoicau17 == false)
+                                                {
+                                                    @Html.CheckBox("yourId", true, new { value = Model.chihiendangnuoiconduoi12thangtuoicau17 })
+                                                }
+                                                else
+                                                { <input id="Remember" name="cau1false" type="checkbox" disabled />
+
+                                                }
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div style="display: flex;align-items:center">
+                                    <div style="width:80%; text-align:left">
+                                        <p>Chị đã từng có thai hoặc sinh con chưa?</p>
+                                    </div>
+                                    <div style="width:20%">
+                                        <div style="display:flex;align-items:center">
+                                            <div style="width:50%">
+
+                                                @if (Model.chidatungcothaihoacsinhconchuacau18 == true)
+                                                {
+                                                    @Html.CheckBox("yourId", true, new { value = Model.chidatungcothaihoacsinhconchuacau18 })
+                                                }
+                                                else
+                                                { <input id="Remember" name="cau1false" type="checkbox" disabled />
+
+                                                }
+                                            </div>
+                                            <div style="width:50%">
+                                                @if (Model.chidatungcothaihoacsinhconchuacau18 == false)
+                                                {
+                                                    @Html.CheckBox("yourId", true, new { value = Model.chidatungcothaihoacsinhconchuacau18 })
+                                                }
+                                                else
+                                                { <input id="Remember" name="cau1false" type="checkbox" disabled />
+
+                                                }
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div style="border-top:1px solid black;text-align:center; display:flex">
+                                <div style="text-align:left; width:70%;border-right:1px solid black;padding:10px 10px">
+                                    <p>
+                                        Tôi đã đọc ,hiểu rõ ,trả lời  trung thực và cam kết chịu trách nhiệm về các thông tin cá nhân và các câu hỏi dành cho người hiến máu .Nếu  phát hiện thấy nguy cơ mắc bệnh của bản thân ,tôi sẽ liên hệ ngay với các cơ sở tiếp nhận máu để đảm bảo an toàn cho người nhận máu của tôi.
+                                    </p>
+                                    <p>
+                                        Tôi đồng ý việc đơn vị máu của tôi được xét nghiệm sàng lọc giang mai,viêm gan B,Viêm gan C và HIV theo quy định hiện hành . Tôi đã được thông báo về những lợi ích và những phản ứng không mong muốn có thể xảy ra khi tham gia hiến máu
+                                    </p>
+                                    <p>Hôm nay tôi hoàn toàn khỏe mạnh và sẵn sàn tham gia hiến máu</p>
+                                </div>
+                                <div style="width:30%;padding:10px 10px">
+                                    <p>Người hiến máu</p>
+                                    <p>(Ký ghi rõ họ tên)</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style="border:1px solid black;text-align:center; width:40%;padding:5px 10px">
+                            <h5 style="text-transform:uppercase">Dành cho cán bộ y tế</h5>
+                            <div>
+                                <h6 style="text-decoration: underline; text-transform: uppercase">Tra cứu</h6>
+                                <div style="text-align: left">
+                                    <p>Nhóm máu tiền sử :...................</p>
+                                    <div style="display:flex;"><input type="checkbox" /> <p>Không thực hiện XN trước hiến máu</p></div>
+                                    <p>Người thực hiện:........................</p>
+                                </div>
+                            </div>
+                            <div>
+                                <h6 style="text-decoration: underline; padding-top: 5px; text-transform: uppercase">Khám lâm sàng</h6>
+                                <div style="text-align: left">
+                                    <p>Cân nặng:...................Kg</p>
+                                    <p>Mạch:........................lần/phút</p>
+                                    <p>Huyết áp :......./.......mmHg</p>
+                                    <p>Tình trạng lâm sàng:.............</p>
+                                </div>
+                            </div>
+                            <div>
+                                <h6 style="text-decoration: underline; padding-top: 5px; text-transform: uppercase ">Khám lâm sàng</h6>
+                                <div style="text-align: left">
+                                    <p>Cân nặng:...................Kg</p>
+                                    <p>Mạch:........................lần/phút</p>
+                                    <p>Huyết áp :......./.......mmHg</p>
+                                    <p>Tình trạng lâm sàng:.............</p>
+                                </div>
+                            </div>
+                            <div>
+                                <h6 style="text-decoration: underline; padding-top: 5px; text-transform: uppercase">Kết luận</h6>
+                                <div style="text-align: left">
+                                    <p>Dự kiến máu hiến:...................</p>
+                                    <div style="display:flex;align-items:center"><p>Thể tích (ml):</p><input type="checkbox" /> <p>250;</p><input type="checkbox" /> <p>350</p></div>
+                                    <p>Mạch:........................lần/phút</p>
+                                    <p>Huyết áp :......./.......mmHg</p>
+                                    <p>Tình trạng lâm sàng:.............</p>
+                                </div>
+                            </div>
+                            <div>
+                                <h6 style="text-decoration: underline; padding-top: 5px; text-transform: uppercase">Xét nghiệm trước hiến máu</h6>
+                                <div style="display:flex; justify-content:space-between;text-align:left">
+                                    <div style="width:50%">
+                                        <p style="font-weight:bold">Kết quả XN</p>
+                                        <p>Nhóm máu:..........</p>
+                                        <p>HBV test nhanh:.......</p>
+                                        <p>HST: .......</p>
+                                    </div>
+                                    <div style="width:50%;text-align:center">
+                                        <p style="font-weight:bold">Người thưc hiện</p>
+                                        <p>..........</p>
+                                        <p>.......</p>
+                                        <p> .......</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <h6 style="text-decoration: underline; padding-top: 5px; text-transform: uppercase">Lấy máu</h6>
+                                <div style="text-align:left">
+                                    <p>Giờ lấy máu :.............Giờ kết thúc:...........</p>
+                                    <div style="display:flex;align-items:center"><p>Kiếm tra thông tin NHM,túi máu</p><input type="checkbox" /> </div>
+                                    <div style="display:flex;align-items:center"><p>Lắc máu trong suốt quá trình lấy máu</p><input type="checkbox" /> </div>
+                                    <p>MSD..................</p>
+                                    <p>Lượng máu hiến:.............ml</p>
+                                    <p style="font-weight:bold">Lưu ý trong quá trình lấy máu:</p>
+                                    <p>Quá 10 phút:..........Lấy lại lần :..............</p>
+                                    <p>Xỉu:.............Khác................</p>
+                                    <p style="font-weight:bold">Người lấy máu..............</p>
+                                </div>
+                            </div>
+                            <div>
+                                <h6 style="text-decoration: underline; padding-top: 5px;text-transform:uppercase">Nhập liệu</h6>
+                                <div style="text-align:left">
+                                    <p style="font-weight:bold">Nhóm máu đơn vị máu:.................</p>
+
+                                    <p style="font-weight:bold">Người thực hiện..............</p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div style="border: none; border-top: 3px dotted black; color: #fff; background-color: #fff; height: 1px; width: 100%;margin:10px 0"></div>
+                    <div style="border:1px solid black;text-align:center;display:flex">
+                        <div style="width:60%;border-right:1px solid black;padding:10px ">
+                            <h5 style="font-weight:bold">Phần dành cho người hiến máu</h5>
+                            <div style="display:flex;">
+                                <p>Họ và tên :......................................................</p>
+                                <p>Ngày sinh: ..../...../.........</p>
+                            </div>
+                            <p style="text-align:left">Địa chỉ:.........................................................</p>
+                            <div style="display:flex;">
+                                <p>Số điện thoại :............................</p>
+                                <p>Đơn vị đăng ký hiến máu: ...................</p>
+                            </div>
+
+                        </div>
+                        <div style="text-align:center;">
+                            <div style="padding:10px; ">
+                                <h5 style="font-weight:bold">Phần dành cho cán bộ y tế</h5>
+
+                                <p style="text-align:left">Ngày lấy máu::............../.................../20........................</p>
+                                <p style="text-align:left">Thể tích máu hiến:.............</p>
+                                <p style="text-align:left">Mã số đv máu:..........</p>
+                                <p style="text-align:left">Người lấy máu :..................</p>
+                            </div>
+                        </div>
+                    </div>
+                   
+                </div>
+            </article>
+
+        </section>
+    </div>
+
+
+
+</body>
+<button onclick="printCertificate()" style="margin-top:10px">
+
+    <img src="~/Content/Images/printer.png" style="width:50px" />
+</button>
+
+
+<script>
+    function printCertificate() {
+        const printContents = document.getElementById('A4').innerHTML;
+        const originalContents = document.body.innerHTML;
+        document.body.innerHTML = printContents;
+        window.print();
+        document.body.innerHTML = originalContents;
+    }
+</script>

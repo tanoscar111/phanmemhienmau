@@ -1,0 +1,68 @@
+var userssession = Session["UserNameSS"];
+            if (userssession != null)
+            {
+                if (searchString != null)
+            {
+                page = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
+
+            ViewBag.CurrentFilter = searchString;
+            var result = (from bo in db.BloodDonations
+                          join us in db.Users on bo.IdUser equals us.IdUser
+                          join bat in db.Batches on bo.BatchID equals bat.BatchID
+                          join phuong in db.Phuongs on bo.IDPhuong equals phuong.IDPhuong
+                          join quan in  db.Quans on bo.IDQuan equals quan.IDQuan
+                          join tinh in db.Tinhs on bo.IDTinh equals tinh.IDTinh
+                          join quocgia in db.QuocGias on bo.IDQuocGia equals quocgia.IDQuocGia
+                          
+                          select new connectBoodandUserbatch
+                          {
+                              BloodID = bo.BloodID,
+                              IdUser = us.IdUser,
+                              Hovaten = bo.Hovaten,
+                              NgaySinh = bo.NgaySinh,
+                              Phone=bo.Phone,
+                              DiaChi = $"{bo.Nest} {bo.sonha} {bo.duong} {phuong.TenP} {quan.TenQ} {tinh.TenT} {quocgia.TenQG}  ",
+                              Email = bo.Email,
+                              UserName = us.UserName,
+                              NhomMau=bo.NhomMau,
+                              Solanhienmau=bo.Solanhienmau,
+                              CMND=bo.CMND,
+                              gioitinh=bo.gioitinh,
+                              IsActive=bo.IsActive,
+                              BatchName=bat.BatchName,
+                              Thoigianhien=bat.Thoigianhien,
+                              Thoigianketthuc=bat.Thoigianketthuc
+
+                          });;
+
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                result = result.Where(s => s.Hovaten.Contains(searchString) || searchString == null|| s.Email.Contains(searchString) || s.DiaChi.Contains(searchString) || s.Phone.Contains(searchString)|| s.CMND.Contains(searchString));
+
+            }
+                else if (fromDate.HasValue || toDate.HasValue)
+                {
+                    if (!fromDate.HasValue) fromDate = DateTime.Now.Date;
+                    if (!toDate.HasValue) toDate = fromDate.GetValueOrDefault(DateTime.Now.Date).Date.AddDays(1);
+                    if (toDate < fromDate) toDate = fromDate.GetValueOrDefault(DateTime.Now.Date).Date.AddDays(1);
+                    ViewBag.fromDate = fromDate;
+                    ViewBag.toDate = toDate;
+                    result = result.Where(s => s.Thoigianhien >= fromDate && s.Thoigianhien <= toDate || s.Thoigianketthuc >= fromDate && s.Thoigianketthuc <= toDate);
+                };
+                if (page == null) page = 1;
+            var links = result.OrderBy(x => x.BloodID).ToList();
+            int pageSize = 5;
+            int pageNumber = (page ?? 1);
+
+            return View(links.ToPagedList(pageNumber, pageSize));
+            }
+            else
+            {
+                return RedirectToAction("Login", "User");
+            }

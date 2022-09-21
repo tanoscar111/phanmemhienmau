@@ -1,0 +1,44 @@
+﻿
+    button, button span {
+        transition: 200ms;
+    }
+
+        button .text {
+            transform: translateX(35px);
+            color: white;
+            font-weight: bold;
+        }
+
+        button .icon {
+            position: absolute;
+            border-left: 1px solid black;
+            transform: translateX(110px);
+            height: 40px;
+            width: 40px;
+            display: flex;
+            align-items: end;
+            justify-content: center;
+        }
+
+        button box-icon {
+            width: 15px;
+            fill: #eee;
+        }
+
+        button:hover {
+            background: #428bca;
+        }
+
+            button:hover .text {
+                color: transparent;
+            }
+
+            button:hover .icon {
+                width: 150px;
+                border-left: none;
+                transform: translateX(0);
+            }
+
+        button:focus {
+            outline: none;
+        }

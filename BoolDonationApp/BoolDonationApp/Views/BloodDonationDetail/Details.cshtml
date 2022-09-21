@@ -1,0 +1,148 @@
+﻿@model BoolDonationApp.Common.connectBoodandUserbatch
+
+@{
+    ViewBag.Title = "Details";
+}
+<div>
+   
+    <dl class="dl-horizontal">
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Hovaten)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Hovaten)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NgaySinh)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NgaySinh)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Phone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Phone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DiaChi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DiaChi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NhomMau)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NhomMau)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Solanhienmau)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Solanhienmau)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CMND)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CMND)
+        </dd>
+
+        
+
+        <dt>
+            @Html.DisplayNameFor(model => model.gioitinh)
+        </dt>
+
+        @if (Model.gioitinh == 0)
+        {
+
+            <td>
+                Nữ
+            </td>
+        }
+        else
+        {
+            <td>
+                Nam
+            </td>
+        }
+        <dt>Trạng thái</dt>
+        @if (Model.IsActive == null || Model.IsActive == 0)
+        {
+
+            <td>
+                chưa  hiến máu
+            </td>
+        }
+        else if (Model.IsActive == 1)
+        {
+            <td>
+                Đã đăng kí hiến
+            </td>
+        }
+        else
+        {
+            <td>
+                đã hiến
+            </td>
+        }
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BatchName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BatchName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Thoigianhien)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Thoigianhien)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Thoigianthemluothien)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Thoigianthemluothien)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nguoitaohien)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserName)
+        </dd>
+
+    </dl>
+</div>
