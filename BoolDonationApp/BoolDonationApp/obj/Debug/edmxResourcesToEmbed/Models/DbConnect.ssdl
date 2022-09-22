@@ -81,6 +81,7 @@
     <Property Name="ResultsScreeningID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="KhamsanlocID" Type="int" />
     <Property Name="BloodID" Type="int" />
+    <Property Name="BatchID" Type="int" />
     <Property Name="Ngaylaymau" Type="datetime" />
     <Property Name="Phanung" Type="nvarchar(max)" />
     <Property Name="Matuimau1" Type="nvarchar(max)" />
@@ -110,6 +111,7 @@
     </Key>
     <Property Name="KhamsanlocID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="BloodID" Type="int" />
+    <Property Name="BatchID" Type="int" />
     <Property Name="Blood_DetalID" Type="int" />
     <Property Name="doituonghienmau" Type="nvarchar(max)" />
     <Property Name="hinhthuchienmau" Type="nvarchar(max)" />
@@ -128,9 +130,10 @@
     <Property Name="HCV" Type="bit" />
     <Property Name="HIV" Type="bit" />
     <Property Name="Giangmai" Type="bit" />
-    <Property Name="HBsAg" Type="bit" />
+    <Property Name="HBsAg" Type="nvarchar(max)" />
     <Property Name="huyettuongduc" Type="bit" />
     <Property Name="username" Type="nvarchar(max)" />
+    <Property Name="Luongmau" Type="int" />
   </EntityType>
   <EntityType Name="Location">
     <Key>
@@ -286,6 +289,30 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_Ketquakham_Batch">
+    <End Role="Batch" Type="Self.Batch" Multiplicity="0..1" />
+    <End Role="Ketquakham" Type="Self.Ketquakham" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Batch">
+        <PropertyRef Name="BatchID" />
+      </Principal>
+      <Dependent Role="Ketquakham">
+        <PropertyRef Name="BatchID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Ketquakham_BloodDonation">
+    <End Role="BloodDonation" Type="Self.BloodDonation" Multiplicity="0..1" />
+    <End Role="Ketquakham" Type="Self.Ketquakham" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BloodDonation">
+        <PropertyRef Name="BloodID" />
+      </Principal>
+      <Dependent Role="Ketquakham">
+        <PropertyRef Name="BloodID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_Ketquakham_Khamsanloc">
     <End Role="Khamsanloc" Type="Self.Khamsanloc" Multiplicity="0..1" />
     <End Role="Ketquakham" Type="Self.Ketquakham" Multiplicity="*" />
@@ -384,6 +411,14 @@
     <AssociationSet Name="FK_BloodDonation_User" Association="Self.FK_BloodDonation_User">
       <End Role="User" EntitySet="User" />
       <End Role="BloodDonation" EntitySet="BloodDonation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Ketquakham_Batch" Association="Self.FK_Ketquakham_Batch">
+      <End Role="Batch" EntitySet="Batch" />
+      <End Role="Ketquakham" EntitySet="Ketquakham" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Ketquakham_BloodDonation" Association="Self.FK_Ketquakham_BloodDonation">
+      <End Role="BloodDonation" EntitySet="BloodDonation" />
+      <End Role="Ketquakham" EntitySet="Ketquakham" />
     </AssociationSet>
     <AssociationSet Name="FK_Ketquakham_Khamsanloc" Association="Self.FK_Ketquakham_Khamsanloc">
       <End Role="Khamsanloc" EntitySet="Khamsanloc" />

@@ -84,6 +84,7 @@
           <ScalarProperty Name="ResultsScreeningID" ColumnName="ResultsScreeningID" />
           <ScalarProperty Name="KhamsanlocID" ColumnName="KhamsanlocID" />
           <ScalarProperty Name="BloodID" ColumnName="BloodID" />
+          <ScalarProperty Name="BatchID" ColumnName="BatchID" />
           <ScalarProperty Name="Ngaylaymau" ColumnName="Ngaylaymau" />
           <ScalarProperty Name="Phanung" ColumnName="Phanung" />
           <ScalarProperty Name="Matuimau1" ColumnName="Matuimau1" />
@@ -114,6 +115,7 @@
         <MappingFragment StoreEntitySet="Khamsanloc">
           <ScalarProperty Name="KhamsanlocID" ColumnName="KhamsanlocID" />
           <ScalarProperty Name="BloodID" ColumnName="BloodID" />
+          <ScalarProperty Name="BatchID" ColumnName="BatchID" />
           <ScalarProperty Name="Blood_DetalID" ColumnName="Blood_DetalID" />
           <ScalarProperty Name="doituonghienmau" ColumnName="doituonghienmau" />
           <ScalarProperty Name="hinhthuchienmau" ColumnName="hinhthuchienmau" />
@@ -135,6 +137,7 @@
           <ScalarProperty Name="HBsAg" ColumnName="HBsAg" />
           <ScalarProperty Name="huyettuongduc" ColumnName="huyettuongduc" />
           <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="Luongmau" ColumnName="Luongmau" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

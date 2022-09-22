@@ -62,7 +62,7 @@ namespace BoolDonationApp.Controllers
                                   BatchName = bat.BatchName,
                                   Thoigianhien = bat.Thoigianhien,
                                   Thoigianketthuc = bat.Thoigianketthuc,
-                                  BatchID=bat.BatchID
+                                  BatchID = bat.BatchID
                               });
 
 
@@ -239,487 +239,486 @@ namespace BoolDonationApp.Controllers
             try
             {
                 var result = (from bo in db.BloodDonations
-                          join us in db.Users
-                          on bo.IdUser equals us.IdUser
-                          join bat in db.Batches
-                          on bo.BatchID equals bat.BatchID
-                          select new connectBoodandUserbatch
-                          {
-                              BloodID = bo.BloodID,
-                              IdUser = us.IdUser,
-                              Hovaten = bo.Hovaten,
-                              NgaySinh = bo.NgaySinh,
-                              Phone = bo.Phone,
-                              DiaChi = bo.DiaChi,
-                              Email = bo.Email,
-                              UserName = us.UserName,
-                              NhomMau = bo.NhomMau,
-                              Solanhienmau = bo.Solanhienmau,
-                              CMND = bo.CMND,
-                              gioitinh = bo.gioitinh,
-                              IsActive = bo.IsActive,
-                              BatchName = bat.BatchName,
-                              Thoigianhien = bat.Thoigianhien,
-                              Thoigianketthuc = bat.Thoigianketthuc,
-                              BatchID = bat.BatchID
+                              join us in db.Users
+                              on bo.IdUser equals us.IdUser
+                              join bat in db.Batches
+                              on bo.BatchID equals bat.BatchID
+                              select new connectBoodandUserbatch
+                              {
+                                  BloodID = bo.BloodID,
+                                  IdUser = us.IdUser,
+                                  Hovaten = bo.Hovaten,
+                                  NgaySinh = bo.NgaySinh,
+                                  Phone = bo.Phone,
+                                  DiaChi = bo.DiaChi,
+                                  Email = bo.Email,
+                                  UserName = us.UserName,
+                                  NhomMau = bo.NhomMau,
+                                  Solanhienmau = bo.Solanhienmau,
+                                  CMND = bo.CMND,
+                                  gioitinh = bo.gioitinh,
+                                  IsActive = bo.IsActive,
+                                  BatchName = bat.BatchName,
+                                  Thoigianhien = bat.Thoigianhien,
+                                  Thoigianketthuc = bat.Thoigianketthuc,
+                                  BatchID = bat.BatchID
 
-                          }).Where(x => x.BatchID == dbBlood.BatchID).Count();
+                              }).Where(x => x.BatchID == dbBlood.BatchID).Count();
 
-            SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["hienmauConnectionString"].ConnectionString);//conect DB
-            con.Open();
-            int soluongdemfinish = 0;
-            
-
-            string sqlsoluongdem = "select Soluongdukien from Batch where BatchID= '" + dbBlood.BatchID + "' ";
-
-            SqlCommand cmdsoluongdem = new SqlCommand(sqlsoluongdem, con);//connect
-
-            SqlDataReader drsoluongdem = cmdsoluongdem.ExecuteReader();
+                SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["hienmauConnectionString"].ConnectionString);//conect DB
+                con.Open();
+                int soluongdemfinish = 0;
 
 
-            while (drsoluongdem.Read())
-            {
-                soluongdemfinish = drsoluongdem.GetInt32(0);//đọc từng dòng vị trí thứ 0
+                string sqlsoluongdem = "select Soluongdukien from Batch where BatchID= '" + dbBlood.BatchID + "' ";
 
-            }
+                SqlCommand cmdsoluongdem = new SqlCommand(sqlsoluongdem, con);//connect
 
-            drsoluongdem.Dispose(); drsoluongdem.Close();
-            cmdsoluongdem.Dispose(); cmdsoluongdem.Clone();
+                SqlDataReader drsoluongdem = cmdsoluongdem.ExecuteReader();
 
-            var list = db.BloodDonations.ToList();
-            if (list.Any(m => m.BatchID == dbBlood.BatchID) && result >= soluongdemfinish)
-            {
 
-                ViewBag.Danger = "Đợt hiến máu đã đủ vui lòng chọn đợt hiến khác";
-                return View(dbBlood);
-            }
-            var listSelector = list.Any(m => m.Hovaten == dbBlood.Hovaten);
+                while (drsoluongdem.Read())
+                {
+                    soluongdemfinish = drsoluongdem.GetInt32(0);//đọc từng dòng vị trí thứ 0
 
-            if (listSelector)
-            {
-                if (list.Any(m => m.BatchID == dbBlood.BatchID))
+                }
+
+                drsoluongdem.Dispose(); drsoluongdem.Close();
+                cmdsoluongdem.Dispose(); cmdsoluongdem.Clone();
+
+                var list = db.BloodDonations.ToList();
+                if (list.Any(m => m.BatchID == dbBlood.BatchID) && result >= soluongdemfinish)
                 {
 
-                    ViewBag.Danger = "Tài khoản đã tồn tại hoặc  vui lòng chọn đợt khác";
+                    ViewBag.Danger = "Đợt hiến máu đã đủ vui lòng chọn đợt hiến khác";
                     return View(dbBlood);
                 }
-               
+                var listSelector = list.Any(m => m.Hovaten == dbBlood.Hovaten);
 
-            }
-            BloodDonation BD = new BloodDonation();
-            BD.Hovaten = dbBlood.Hovaten;
-            DateTime startTime = DateTime.Parse(dbBlood.NgaySinh.ToString());
-            DateTime endTime = DateTime.Today;
-            TimeSpan timespan = endTime.Subtract(startTime);
-            var totalDays = timespan.TotalDays;
-            var totalYears = Math.Truncate(totalDays / 365);
-            var totalMonths = Math.Truncate((totalDays % 365) / 30);
-            var remainingDays = Math.Truncate((totalDays % 365) % 30);
-            if (Gioitinhform != null)
-            {
-                BD.gioitinh = Convert.ToInt32(Gioitinhform);
-            }
-            else
-            {
-                ViewBag.Danger = "Vui lòng chọn giới tính";
-                return View(dbBlood);
-            }
-            var gioitinhs = Convert.ToInt32(Gioitinhform);
-            if ((gioitinhs == 1 && ((18 <= Convert.ToInt32(totalYears)) && (Convert.ToInt32(totalYears) <= 60))) || gioitinhs == 0 && ((18 <= Convert.ToInt32(totalYears)) && (Convert.ToInt32(totalYears) <= 55)))
-            {
-                BD.NgaySinh = dbBlood.NgaySinh;
-            }
-            else
-            {
-                ViewBag.Danger = "Bạn đã chưa đủ tuổi hoặc quá tuổi đăng kí hiến máu";
-                return View(dbBlood);
-            }
-            BD.Phone = dbBlood.Phone;
+                if (listSelector)
+                {
+                    if (list.Any(m => m.BatchID == dbBlood.BatchID))
+                    {
 
-            string BaID = dbBlood.BatchID.ToString();
-            DateTime gFinish = Convert.ToDateTime("1900-01-01");
-            DateTime thoigianhiens = Convert.ToDateTime("1900-01-01");
-            String tenphuongs = "";
-            String tentinhs = "";
-            String tenquans = "";
-            //DateTime timeBlood = Convert.ToDateTime("1900-01-01");
-            // mở dB
-            string sql = "select Thoigianketthuc from Batch where BatchID= '" + dbBlood.BatchID + "' ";
-            string sqls = "select Thoigianhien from Batch where BatchID= '" + dbBlood.BatchID + "'";
-            string tenphuong = "select TenP from Phuong where IDPhuong= '" + dbBlood.IDPhuong + "'";
-            string tenquan = "select TenQ from Quan where IDQuan= '" + dbBlood.IDQuan + "'";
-            string tentinh = "select TenT from Tinh where IDTinh= '" + dbBlood.IDTinh + "'";
-            string tenqg = "select TenQG from QuocGia where IDQuocGia= '" + dbBlood.IDQuocGia + "'";
-            SqlCommand cmd = new SqlCommand(sql, con);//connect
-
-            SqlDataReader dr = cmd.ExecuteReader();
+                        ViewBag.Danger = "Tài khoản đã tồn tại hoặc  vui lòng chọn đợt khác";
+                        return View(dbBlood);
+                    }
 
 
-            while (dr.Read())
-            {
-                gFinish = dr.GetDateTime(0);//đọc từng dòng vị trí thứ 0
+                }
+                BloodDonation BD = new BloodDonation();
+                BD.Hovaten = dbBlood.Hovaten;
+                DateTime startTime = DateTime.Parse(dbBlood.NgaySinh.ToString());
+                DateTime endTime = DateTime.Today;
+                TimeSpan timespan = endTime.Subtract(startTime);
+                var totalDays = timespan.TotalDays;
+                var totalYears = Math.Truncate(totalDays / 365);
+                var totalMonths = Math.Truncate((totalDays % 365) / 30);
+                var remainingDays = Math.Truncate((totalDays % 365) % 30);
+                if (Gioitinhform != null)
+                {
+                    BD.gioitinh = Convert.ToInt32(Gioitinhform);
+                }
+                else
+                {
+                    ViewBag.Danger = "Vui lòng chọn giới tính";
+                    return View(dbBlood);
+                }
+                var gioitinhs = Convert.ToInt32(Gioitinhform);
+                if ((gioitinhs == 1 && ((18 <= Convert.ToInt32(totalYears)) && (Convert.ToInt32(totalYears) <= 60))) || gioitinhs == 0 && ((18 <= Convert.ToInt32(totalYears)) && (Convert.ToInt32(totalYears) <= 55)))
+                {
+                    BD.NgaySinh = dbBlood.NgaySinh;
+                }
+                else
+                {
+                    ViewBag.Danger = "Bạn đã chưa đủ tuổi hoặc quá tuổi đăng kí hiến máu";
+                    return View(dbBlood);
+                }
+                BD.Phone = dbBlood.Phone;
 
-            }
+                string BaID = dbBlood.BatchID.ToString();
+                DateTime gFinish = Convert.ToDateTime("1900-01-01");
+                DateTime thoigianhiens = Convert.ToDateTime("1900-01-01");
+                String tenphuongs = "";
+                String tentinhs = "";
+                String tenquans = "";
+                //DateTime timeBlood = Convert.ToDateTime("1900-01-01");
+                // mở dB
+                string sql = "select Thoigianketthuc from Batch where BatchID= '" + dbBlood.BatchID + "' ";
+                string sqls = "select Thoigianhien from Batch where BatchID= '" + dbBlood.BatchID + "'";
+                string tenphuong = "select TenP from Phuong where IDPhuong= '" + dbBlood.IDPhuong + "'";
+                string tenquan = "select TenQ from Quan where IDQuan= '" + dbBlood.IDQuan + "'";
+                string tentinh = "select TenT from Tinh where IDTinh= '" + dbBlood.IDTinh + "'";
+                string tenqg = "select TenQG from QuocGia where IDQuocGia= '" + dbBlood.IDQuocGia + "'";
+                SqlCommand cmd = new SqlCommand(sql, con);//connect
 
-            dr.Dispose(); dr.Close();
-            cmd.Dispose(); cmd.Clone();
-
-
-            SqlCommand cmdthoigianhien = new SqlCommand(sqls, con);
-            SqlDataReader drthoigianhien = cmd.ExecuteReader();
-            while (drthoigianhien.Read())
-            {
-                thoigianhiens = drthoigianhien.GetDateTime(0);//đọc từng dòng vị trí thứ 0
-
-            }
-
-            drthoigianhien.Dispose(); drthoigianhien.Close();
-            cmdthoigianhien.Dispose(); cmdthoigianhien.Clone();
-
-
-            SqlCommand cmdtenphuong = new SqlCommand(tenphuong, con);
-            SqlDataReader drtenphuong = cmdtenphuong.ExecuteReader();
-            while (drtenphuong.Read())
-            {
-
-                tenphuongs = drtenphuong.GetString(0);
-            }
-            drtenphuong.Dispose(); drtenphuong.Close();
-            cmdtenphuong.Dispose(); cmdtenphuong.Clone();
-
-
-            SqlCommand cmdtinh = new SqlCommand(tentinh, con);
-            SqlDataReader drtentinh = cmdtinh.ExecuteReader();
-            while (drtentinh.Read())
-            {
-
-                tentinhs = drtentinh.GetString(0);
-            }
-            drtentinh.Dispose(); drtentinh.Close();
-            cmdtinh.Dispose(); cmdtinh.Clone();
-
-
-            SqlCommand cmdtenquan = new SqlCommand(tenquan, con);
-            SqlDataReader drtenquan = cmdtenquan.ExecuteReader();
-            while (drtenquan.Read())
-            {
-
-                tenquans = drtenquan.GetString(0);
-            }
-            drtenquan.Dispose(); drtenquan.Close();
-            cmdtenquan.Dispose(); cmdtenquan.Clone();
-
-            int compare = DateTime.Compare(DateTime.Now.ToLocalTime(), gFinish);
-            if (compare > 0)
-            {
-                ViewBag.Danger = "Đã hết thời gian hiến máu vui lòng chọn đợt hiến máu khác";
-                return View(dbBlood);
-            }
-            BD.BatchID = dbBlood.BatchID;
-
-            BD.Nest = dbBlood.Nest;
-            BD.sonha = dbBlood.sonha;
-            BD.duong = dbBlood.duong;
-            BD.IDPhuong = dbBlood.IDPhuong;
-            BD.IDQuan = dbBlood.IDQuan;
-            BD.IDTinh = dbBlood.IDTinh;
-            BD.IDQuocGia = dbBlood.IDQuocGia;
-            BD.DiaChi = "Tổ" + dbBlood.Nest + "," + "Số nhà" + dbBlood.sonha + "," + "Đường" + dbBlood.duong + "," + tenphuongs + "," + tenquans + "," + tentinhs + "," + "Việt Nam";
-            BD.Email = dbBlood.Email;
-            BD.CMND = dbBlood.CMND;
-            BD.NhomMau = dbBlood.NhomMau;
-            BD.IsActive = 1;
-            BD.Solanhienmau = 0;
-            BD.IdUser = 1;
-            BloodDonation_Detail bldt = new BloodDonation_Detail();
-          
-            bldt.BatchID = dbBlood.BatchID;
-            bldt.CMND = dbBlood.CMND;
-            bldt.Thoigianhien = thoigianhiens;
-            db.BloodDonation_Detail.Add(bldt);
-            db.SaveChanges();
-                Session["BloodID"] = dbBlood.BloodID;
-                Session["BatchID"] = dbBlood.BatchID;
-            if (truecau1 != null)
-            {
-                BD.truocdayquividatunghienmauchuacau1 = true;
-
-            }
-            else if (falsecau1 != null)
-            {
-                BD.truocdayquividatunghienmauchuacau1 = false;
-            }
-            else if (truecau1 == null && falsecau1 == null)
-            {
-                ViewBag.Danger = "Vui lòng trả lời câu hỏi ";
-                return View(dbBlood);
-            }
-            if (truecau2 != null)
-            {
-                BD.tamthankinhcau2 = true;
-
-            }
-            else if (falsecau2 != null)
-            {
-                BD.tamthankinhcau2 = false;
-            }
-            else if (truecau2 == null && falsecau2 == null)
-            {
-                ViewBag.Danger = "Vui lòng trả lời câu hỏi ";
-                return View(dbBlood);
-            }
-            if (truecau2 != null)
-            {
-                BD.tamthankinhcau2 = true;
-
-            }
-            else if (falsecau2 != null)
-            {
-                BD.tamthankinhcau2 = false;
-            }
-            else if (truecau2 == null && falsecau2 == null)
-            {
-                ViewBag.Danger = "Vui lòng trả lời câu hỏi ";
-                return View(dbBlood);
-            }
-            if (truecau3 != null)
-            {
-                BD.sutcan4kgcau3 = true;
-
-            }
-            else if (falsecau3 != null)
-            {
-                BD.sutcan4kgcau3 = false;
-            }
-            else if (truecau3 == null && falsecau3 == null)
-            {
-                ViewBag.Danger = "Vui lòng trả lời câu hỏi ";
-                return View(dbBlood);
-            }
-            if (truecau4 != null)
-            {
-                BD.noihachkeodaicau4 = true;
-
-            }
-            else if (falsecau3 != null)
-            {
-                BD.noihachkeodaicau4 = false;
-            }
-            else if (truecau4 == null && falsecau4 == null)
-            {
-                ViewBag.Danger = "Vui lòng trả lời câu hỏi ";
-                return View(dbBlood);
-            }
-            if (truecau5 != null)
-            {
-                BD.sutcan4kgcau3 = true;
-
-            }
-            else if (falsecau5 != null)
-            {
-                BD.phauthuatcau5 = false;
-            }
-            else if (truecau5 == null && falsecau5 == null)
-            {
-                ViewBag.Danger = "Vui lòng trả lời câu hỏi ";
-                return View(dbBlood);
-            }
-            if (truecau6 != null)
-            {
-                BD.sutcan4kgcau3 = true;
-
-            }
-            else if (falsecau6 != null)
-            {
-                BD.xamminhxolocau6 = false;
-            }
-            else if (truecau6 == null && falsecau6 == null)
-            {
-                ViewBag.Danger = "Vui lòng trả lời câu hỏi ";
-                return View(dbBlood);
-            }
-            if (truecau7 != null)
-            {
-                BD.duoctruyenmaucau7 = true;
-
-            }
-            else if (falsecau7 != null)
-            {
-                BD.duoctruyenmaucau7 = false;
-            }
-            else if (truecau7 == null && falsecau7 == null)
-            {
-                ViewBag.Danger = "Vui lòng trả lời câu hỏi ";
-                return View(dbBlood);
-            }
-            if (truecau8 != null)
-            {
-                BD.sudungmatuycau8 = true;
-
-            }
-            else if (falsecau8 != null)
-            {
-                BD.sudungmatuycau8 = false;
-            }
-            else if (truecau8 == null && falsecau8 == null)
-            {
-                ViewBag.Danger = "Vui lòng trả lời câu hỏi ";
-                return View(dbBlood);
-            }
-            if (truecau9 != null)
-            {
-                BD.quanhetinhduccau9 = true;
-
-            }
-            else if (falsecau9 != null)
-            {
-                BD.quanhetinhduccau9 = false;
-            }
-            else if (truecau9 == null && falsecau9 == null)
-            {
-                ViewBag.Danger = "Vui lòng trả lời câu hỏi ";
-                return View(dbBlood);
-            }
-            if (truecau10 != null)
-            {
-                BD.quanhetinhducvoinguoidonggioicau10 = true;
-
-            }
-            else if (falsecau10 != null)
-            {
-                BD.quanhetinhducvoinguoidonggioicau10 = false;
-            }
-            else if (truecau10 == null && falsecau10 == null)
-            {
-                ViewBag.Danger = "Vui lòng trả lời câu hỏi ";
-                return View(dbBlood);
-            }
-            if (truecau11 != null)
-            {
-                BD.tiemvacxinphongbenhcau11 = true;
-
-            }
-            else if (falsecau11 != null)
-            {
-                BD.tiemvacxinphongbenhcau11 = false;
-            }
-            else if (truecau11 == null && falsecau11 == null)
-            {
-                ViewBag.Danger = "Vui lòng trả lời câu hỏi ";
-                return View(dbBlood);
-            }
-            if (truecau12 != null)
-            {
-                BD.songtrongvungcodichluuhanhcau12 = true;
-
-            }
-            else if (falsecau12 != null)
-            {
-                BD.songtrongvungcodichluuhanhcau12 = false;
-            }
-            else if (truecau12 == null && falsecau12 == null)
-            {
-                ViewBag.Danger = "Vui lòng trả lời câu hỏi ";
-                return View(dbBlood);
-            }
-            if (truecau3 != null)
-            {
-                BD.sutcan4kgcau3 = true;
-
-            }
-            else if (falsecau12 != null)
-            {
-                BD.bicumhonhucdausotcau13 = false;
-            }
-            else if (truecau13 == null && falsecau13 == null)
-            {
-                ViewBag.Danger = "Vui lòng trả lời câu hỏi ";
-                return View(dbBlood);
-            }
-            if (truecau14 != null)
-            {
-                BD.dungthuockhangsinhcau14 = true;
-
-            }
-            else if (falsecau14 != null)
-            {
-                BD.dungthuockhangsinhcau14 = false;
-            }
-            else if (truecau14 == null && falsecau14 == null)
-            {
-                ViewBag.Danger = "Vui lòng trả lời câu hỏi ";
-                return View(dbBlood);
-            }
-            if (truecau15 != null)
-            {
-                BD.denkhamsuckhoelamxetnghiemchuarangcau15 = true;
-
-            }
-            else if (falsecau15 != null)
-            {
-                BD.denkhamsuckhoelamxetnghiemchuarangcau15 = false;
-            }
-            else if (truecau15 == null && falsecau15 == null)
-            {
-                ViewBag.Danger = "Vui lòng trả lời câu hỏi ";
-                return View(dbBlood);
-            }
-            if (truecau16 != null)
-            {
-                BD.quivihienladoituongtantatcau16 = true;
-
-            }
-            else if (falsecau16 != null)
-            {
-                BD.quivihienladoituongtantatcau16 = false;
-            }
-            else if (truecau16 == null && falsecau16 == null)
-            {
-                ViewBag.Danger = "Vui lòng trả lời câu hỏi ";
-                return View(dbBlood);
-            }
-            if (truecau17 != null)
-            {
-                BD.chihiendangnuoiconduoi12thangtuoicau17 = true;
-
-            }
-            else if (falsecau17 != null)
-            {
-                BD.chihiendangnuoiconduoi12thangtuoicau17 = false;
-            }
-            else if (truecau17 == null && falsecau17 == null)
-            {
-                ViewBag.Danger = "Vui lòng trả lời câu hỏi ";
-                return View(dbBlood);
-            }
-            if (truecau18 != null)
-            {
-                BD.chidatungcothaihoacsinhconchuacau18 = true;
-
-            }
-            else if (falsecau18 != null)
-            {
-                BD.chidatungcothaihoacsinhconchuacau18 = false;
-            }
-            else if (truecau18 == null && falsecau18 == null)
-            {
-                ViewBag.Danger = "Vui lòng trả lời câu hỏi ";
-                return View(dbBlood);
-            }
-
-            db.BloodDonations.Add(BD);
-            db.SaveChanges();
-            //return RedirectToAction("Index", "Home");
-            var codecheck = dbBlood.BatchID + "|" + dbBlood.CMND;
-            return (RedirectToAction("Qrcode", "Home", new { codecheck = codecheck }));
+                SqlDataReader dr = cmd.ExecuteReader();
 
 
-        }
+                while (dr.Read())
+                {
+                    gFinish = dr.GetDateTime(0);//đọc từng dòng vị trí thứ 0
+
+                }
+
+                dr.Dispose(); dr.Close();
+                cmd.Dispose(); cmd.Clone();
+
+
+                SqlCommand cmdthoigianhien = new SqlCommand(sqls, con);
+                SqlDataReader drthoigianhien = cmd.ExecuteReader();
+                while (drthoigianhien.Read())
+                {
+                    thoigianhiens = drthoigianhien.GetDateTime(0);//đọc từng dòng vị trí thứ 0
+
+                }
+
+                drthoigianhien.Dispose(); drthoigianhien.Close();
+                cmdthoigianhien.Dispose(); cmdthoigianhien.Clone();
+
+
+                SqlCommand cmdtenphuong = new SqlCommand(tenphuong, con);
+                SqlDataReader drtenphuong = cmdtenphuong.ExecuteReader();
+                while (drtenphuong.Read())
+                {
+
+                    tenphuongs = drtenphuong.GetString(0);
+                }
+                drtenphuong.Dispose(); drtenphuong.Close();
+                cmdtenphuong.Dispose(); cmdtenphuong.Clone();
+
+
+                SqlCommand cmdtinh = new SqlCommand(tentinh, con);
+                SqlDataReader drtentinh = cmdtinh.ExecuteReader();
+                while (drtentinh.Read())
+                {
+
+                    tentinhs = drtentinh.GetString(0);
+                }
+                drtentinh.Dispose(); drtentinh.Close();
+                cmdtinh.Dispose(); cmdtinh.Clone();
+
+
+                SqlCommand cmdtenquan = new SqlCommand(tenquan, con);
+                SqlDataReader drtenquan = cmdtenquan.ExecuteReader();
+                while (drtenquan.Read())
+                {
+
+                    tenquans = drtenquan.GetString(0);
+                }
+                drtenquan.Dispose(); drtenquan.Close();
+                cmdtenquan.Dispose(); cmdtenquan.Clone();
+
+                int compare = DateTime.Compare(DateTime.Now.ToLocalTime(), gFinish);
+                if (compare > 0)
+                {
+                    ViewBag.Danger = "Đã hết thời gian hiến máu vui lòng chọn đợt hiến máu khác";
+                    return View(dbBlood);
+                }
+                BD.BatchID = dbBlood.BatchID;
+
+                BD.Nest = dbBlood.Nest;
+                BD.sonha = dbBlood.sonha;
+                BD.duong = dbBlood.duong;
+                BD.IDPhuong = dbBlood.IDPhuong;
+                BD.IDQuan = dbBlood.IDQuan;
+                BD.IDTinh = dbBlood.IDTinh;
+                BD.IDQuocGia = dbBlood.IDQuocGia;
+                BD.DiaChi = "Tổ" + dbBlood.Nest + "," + "Số nhà" + dbBlood.sonha + "," + "Đường" + dbBlood.duong + "," + tenphuongs + "," + tenquans + "," + tentinhs + "," + "Việt Nam";
+                BD.Email = dbBlood.Email;
+                BD.CMND = dbBlood.CMND;
+                BD.NhomMau = dbBlood.NhomMau;
+                BD.IsActive = 1;
+                BD.Solanhienmau = 0;
+                BD.IdUser = 1;
+                BloodDonation_Detail bldt = new BloodDonation_Detail();
+
+                bldt.BatchID = dbBlood.BatchID;
+                bldt.CMND = dbBlood.CMND;
+                bldt.Thoigianhien = thoigianhiens;
+                db.BloodDonation_Detail.Add(bldt);
+                db.SaveChanges();
+
+                if (truecau1 != null)
+                {
+                    BD.truocdayquividatunghienmauchuacau1 = true;
+
+                }
+                else if (falsecau1 != null)
+                {
+                    BD.truocdayquividatunghienmauchuacau1 = false;
+                }
+                else if (truecau1 == null && falsecau1 == null)
+                {
+                    ViewBag.Danger = "Vui lòng trả lời câu hỏi ";
+                    return View(dbBlood);
+                }
+                if (truecau2 != null)
+                {
+                    BD.tamthankinhcau2 = true;
+
+                }
+                else if (falsecau2 != null)
+                {
+                    BD.tamthankinhcau2 = false;
+                }
+                else if (truecau2 == null && falsecau2 == null)
+                {
+                    ViewBag.Danger = "Vui lòng trả lời câu hỏi ";
+                    return View(dbBlood);
+                }
+                if (truecau2 != null)
+                {
+                    BD.tamthankinhcau2 = true;
+
+                }
+                else if (falsecau2 != null)
+                {
+                    BD.tamthankinhcau2 = false;
+                }
+                else if (truecau2 == null && falsecau2 == null)
+                {
+                    ViewBag.Danger = "Vui lòng trả lời câu hỏi ";
+                    return View(dbBlood);
+                }
+                if (truecau3 != null)
+                {
+                    BD.sutcan4kgcau3 = true;
+
+                }
+                else if (falsecau3 != null)
+                {
+                    BD.sutcan4kgcau3 = false;
+                }
+                else if (truecau3 == null && falsecau3 == null)
+                {
+                    ViewBag.Danger = "Vui lòng trả lời câu hỏi ";
+                    return View(dbBlood);
+                }
+                if (truecau4 != null)
+                {
+                    BD.noihachkeodaicau4 = true;
+
+                }
+                else if (falsecau3 != null)
+                {
+                    BD.noihachkeodaicau4 = false;
+                }
+                else if (truecau4 == null && falsecau4 == null)
+                {
+                    ViewBag.Danger = "Vui lòng trả lời câu hỏi ";
+                    return View(dbBlood);
+                }
+                if (truecau5 != null)
+                {
+                    BD.sutcan4kgcau3 = true;
+
+                }
+                else if (falsecau5 != null)
+                {
+                    BD.phauthuatcau5 = false;
+                }
+                else if (truecau5 == null && falsecau5 == null)
+                {
+                    ViewBag.Danger = "Vui lòng trả lời câu hỏi ";
+                    return View(dbBlood);
+                }
+                if (truecau6 != null)
+                {
+                    BD.sutcan4kgcau3 = true;
+
+                }
+                else if (falsecau6 != null)
+                {
+                    BD.xamminhxolocau6 = false;
+                }
+                else if (truecau6 == null && falsecau6 == null)
+                {
+                    ViewBag.Danger = "Vui lòng trả lời câu hỏi ";
+                    return View(dbBlood);
+                }
+                if (truecau7 != null)
+                {
+                    BD.duoctruyenmaucau7 = true;
+
+                }
+                else if (falsecau7 != null)
+                {
+                    BD.duoctruyenmaucau7 = false;
+                }
+                else if (truecau7 == null && falsecau7 == null)
+                {
+                    ViewBag.Danger = "Vui lòng trả lời câu hỏi ";
+                    return View(dbBlood);
+                }
+                if (truecau8 != null)
+                {
+                    BD.sudungmatuycau8 = true;
+
+                }
+                else if (falsecau8 != null)
+                {
+                    BD.sudungmatuycau8 = false;
+                }
+                else if (truecau8 == null && falsecau8 == null)
+                {
+                    ViewBag.Danger = "Vui lòng trả lời câu hỏi ";
+                    return View(dbBlood);
+                }
+                if (truecau9 != null)
+                {
+                    BD.quanhetinhduccau9 = true;
+
+                }
+                else if (falsecau9 != null)
+                {
+                    BD.quanhetinhduccau9 = false;
+                }
+                else if (truecau9 == null && falsecau9 == null)
+                {
+                    ViewBag.Danger = "Vui lòng trả lời câu hỏi ";
+                    return View(dbBlood);
+                }
+                if (truecau10 != null)
+                {
+                    BD.quanhetinhducvoinguoidonggioicau10 = true;
+
+                }
+                else if (falsecau10 != null)
+                {
+                    BD.quanhetinhducvoinguoidonggioicau10 = false;
+                }
+                else if (truecau10 == null && falsecau10 == null)
+                {
+                    ViewBag.Danger = "Vui lòng trả lời câu hỏi ";
+                    return View(dbBlood);
+                }
+                if (truecau11 != null)
+                {
+                    BD.tiemvacxinphongbenhcau11 = true;
+
+                }
+                else if (falsecau11 != null)
+                {
+                    BD.tiemvacxinphongbenhcau11 = false;
+                }
+                else if (truecau11 == null && falsecau11 == null)
+                {
+                    ViewBag.Danger = "Vui lòng trả lời câu hỏi ";
+                    return View(dbBlood);
+                }
+                if (truecau12 != null)
+                {
+                    BD.songtrongvungcodichluuhanhcau12 = true;
+
+                }
+                else if (falsecau12 != null)
+                {
+                    BD.songtrongvungcodichluuhanhcau12 = false;
+                }
+                else if (truecau12 == null && falsecau12 == null)
+                {
+                    ViewBag.Danger = "Vui lòng trả lời câu hỏi ";
+                    return View(dbBlood);
+                }
+                if (truecau3 != null)
+                {
+                    BD.sutcan4kgcau3 = true;
+
+                }
+                else if (falsecau12 != null)
+                {
+                    BD.bicumhonhucdausotcau13 = false;
+                }
+                else if (truecau13 == null && falsecau13 == null)
+                {
+                    ViewBag.Danger = "Vui lòng trả lời câu hỏi ";
+                    return View(dbBlood);
+                }
+                if (truecau14 != null)
+                {
+                    BD.dungthuockhangsinhcau14 = true;
+
+                }
+                else if (falsecau14 != null)
+                {
+                    BD.dungthuockhangsinhcau14 = false;
+                }
+                else if (truecau14 == null && falsecau14 == null)
+                {
+                    ViewBag.Danger = "Vui lòng trả lời câu hỏi ";
+                    return View(dbBlood);
+                }
+                if (truecau15 != null)
+                {
+                    BD.denkhamsuckhoelamxetnghiemchuarangcau15 = true;
+
+                }
+                else if (falsecau15 != null)
+                {
+                    BD.denkhamsuckhoelamxetnghiemchuarangcau15 = false;
+                }
+                else if (truecau15 == null && falsecau15 == null)
+                {
+                    ViewBag.Danger = "Vui lòng trả lời câu hỏi ";
+                    return View(dbBlood);
+                }
+                if (truecau16 != null)
+                {
+                    BD.quivihienladoituongtantatcau16 = true;
+
+                }
+                else if (falsecau16 != null)
+                {
+                    BD.quivihienladoituongtantatcau16 = false;
+                }
+                else if (truecau16 == null && falsecau16 == null)
+                {
+                    ViewBag.Danger = "Vui lòng trả lời câu hỏi ";
+                    return View(dbBlood);
+                }
+                if (truecau17 != null)
+                {
+                    BD.chihiendangnuoiconduoi12thangtuoicau17 = true;
+
+                }
+                else if (falsecau17 != null)
+                {
+                    BD.chihiendangnuoiconduoi12thangtuoicau17 = false;
+                }
+                else if (truecau17 == null && falsecau17 == null)
+                {
+                    ViewBag.Danger = "Vui lòng trả lời câu hỏi ";
+                    return View(dbBlood);
+                }
+                if (truecau18 != null)
+                {
+                    BD.chidatungcothaihoacsinhconchuacau18 = true;
+
+                }
+                else if (falsecau18 != null)
+                {
+                    BD.chidatungcothaihoacsinhconchuacau18 = false;
+                }
+                else if (truecau18 == null && falsecau18 == null)
+                {
+                    ViewBag.Danger = "Vui lòng trả lời câu hỏi ";
+                    return View(dbBlood);
+                }
+
+                db.BloodDonations.Add(BD);
+                db.SaveChanges();
+                //return RedirectToAction("Index", "Home");
+                var codecheck = dbBlood.BatchID + "|" + dbBlood.CMND;
+                return (RedirectToAction("Qrcode", "Home", new { codecheck = codecheck }));
+
+
+            }
             catch
             {
                 return View(dbBlood);
-    }
-}
+            }
+        }
 
         [HttpGet]
         public ActionResult Qrcode(string codecheck)
@@ -748,32 +747,32 @@ namespace BoolDonationApp.Controllers
         [HttpGet]
         public ActionResult Khamsanloc(int id, int idBatch, string CMND)
         {
-           
-                var result = (from bo in db.BloodDonations
-                              join us in db.Users
-                              on bo.IdUser equals us.IdUser
-                              join bat in db.Batches
-                              on bo.BatchID equals bat.BatchID
-                              select new connectBoodandUserbatch
-                              {
-                                  BloodID = bo.BloodID,
-                                  IdUser = us.IdUser,
-                                  Hovaten = bo.Hovaten,
-                                  NgaySinh = bo.NgaySinh,
-                                  Phone = bo.Phone,
-                                  DiaChi = bo.DiaChi,
-                                  Email = bo.Email,
-                                  UserName = us.UserName,
-                                  NhomMau = bo.NhomMau,
-                                  Solanhienmau = bo.Solanhienmau,
-                                  CMND = bo.CMND,
-                                  gioitinh = bo.gioitinh,
-                                  IsActive = bo.IsActive,
-                                  BatchName = bat.BatchName,
-                                  Thoigianhien = bat.Thoigianhien,
-                                  Thoigianketthuc = bat.Thoigianketthuc
 
-                              });
+            var result = (from bo in db.BloodDonations
+                          join us in db.Users
+                          on bo.IdUser equals us.IdUser
+                          join bat in db.Batches
+                          on bo.BatchID equals bat.BatchID
+                          select new connectBoodandUserbatch
+                          {
+                              BloodID = bo.BloodID,
+                              IdUser = us.IdUser,
+                              Hovaten = bo.Hovaten,
+                              NgaySinh = bo.NgaySinh,
+                              Phone = bo.Phone,
+                              DiaChi = bo.DiaChi,
+                              Email = bo.Email,
+                              UserName = us.UserName,
+                              NhomMau = bo.NhomMau,
+                              Solanhienmau = bo.Solanhienmau,
+                              CMND = bo.CMND,
+                              gioitinh = bo.gioitinh,
+                              IsActive = bo.IsActive,
+                              BatchName = bat.BatchName,
+                              Thoigianhien = bat.Thoigianhien,
+                              Thoigianketthuc = bat.Thoigianketthuc
+
+                          });
             ViewBag.datimeBlood = db.BloodDonation_Detail.Where(x => x.BatchID == idBatch && x.CMND == CMND).ToList();
 
             var locationResult = (from bat in db.Batches
@@ -781,16 +780,80 @@ namespace BoolDonationApp.Controllers
                                   on bat.idLocaltion equals lo.idLocaltion
                                   select new conectbatchLocaltion
                                   {
-                                      BatchID=bat.BatchID,
+                                      BatchID = bat.BatchID,
                                       TenDiachi = lo.TenDiachi
                                   });
             ViewBag.BloodLocation = locationResult.Where(x => x.BatchID == idBatch).ToList();
-
+            Session["BloodID"] = id;
+            Session["BatchID"] = idBatch;
+            Session["cmnd"] = CMND;
             return View(result.Where(x => x.BloodID == id).FirstOrDefault());
         }
         [HttpPost]
-        public ActionResult Khamsanloc(string Doituongform, string Hinhthucform, int? huyetsacto, int? tieucau, bool? veinkhongdat, string Hsabgform, int? cannang ,string ketluan)
+        public ActionResult Khamsanloc(string Doituongform, string Hinhthucform, int? huyetsacto, int? tieucau, string luongmau350, string luongmau250, string veinkhongdat,string huyettuongdung, string Hsabgform, int? cannang, string ketluan,string lido)
         {
+            SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["hienmauConnectionString"].ConnectionString);//conect DB
+            con.Open();
+            int idBloodDetail = 0;
+            string sql = "select Blood_DetalID from BloodDonation_Detail where BatchID= '" + Convert.ToInt32(Session["BatchID"]) + "'and CMND= '" + Session["cmnd"] + "' ";
+            SqlCommand cmd = new SqlCommand(sql, con);//connect
+
+            SqlDataReader dr = cmd.ExecuteReader();
+
+
+            while (dr.Read())
+            {
+                idBloodDetail = dr.GetInt32(0);//đọc từng dòng vị trí thứ 0
+
+            }
+
+            dr.Dispose(); dr.Close();
+            cmd.Dispose(); cmd.Clone();
+
+            Khamsanloc ksl = new Khamsanloc();
+            ksl.BloodID = Convert.ToInt32(Session["BloodID"]);
+            ksl.BatchID = Convert.ToInt32(Session["BatchID"]);
+            ksl.Blood_DetalID = idBloodDetail;
+            ksl.doituonghienmau = Doituongform;
+            ksl.hinhthuchienmau = Hinhthucform;
+            if (luongmau350 == "on" && Hinhthucform == "Toàn phần")
+            {
+                if (Hinhthucform == "Toàn phần")
+                {
+                    ksl.Luongmau = 350;
+                }
+            }
+            else
+            {
+                ksl.Luongmau = 0;
+            }
+            if (luongmau250 == "on")
+            {
+                if (Hinhthucform == "Toàn phần")
+                {
+                    ksl.Luongmau = 250;
+                }
+            }
+            else
+            {
+                ksl.Luongmau = 0;
+            }
+            ksl.huyetsacto = huyetsacto;
+            ksl.tieucau = tieucau;
+            if (veinkhongdat == "on")
+            {
+                ksl.veinkhongdat = true;
+                ksl.ketluan = ketluan;
+            }
+            if(huyettuongdung== "on")
+            {
+                ksl.huyettuongduc = true;
+
+                ksl.ketluan = ketluan;
+            }
+            ksl.HBsAg = Hsabgform;
+            
+
             var asdasd = "";
             return View();
         }

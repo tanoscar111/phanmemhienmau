@@ -19,6 +19,7 @@ namespace BoolDonationApp.Models
         public BloodDonation()
         {
             this.BloodDonation_Detail = new HashSet<BloodDonation_Detail>();
+            this.Ketquakhams = new HashSet<Ketquakham>();
             this.Khamsanlocs = new HashSet<Khamsanloc>();
             this.Logs = new HashSet<Log>();
         }
@@ -93,6 +94,8 @@ namespace BoolDonationApp.Models
         public virtual ICollection<BloodDonation_Detail> BloodDonation_Detail { get; set; }
         public virtual Tinh Tinh { get; set; }
         public virtual User User { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Ketquakham> Ketquakhams { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Khamsanloc> Khamsanlocs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

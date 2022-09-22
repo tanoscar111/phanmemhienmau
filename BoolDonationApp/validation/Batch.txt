@@ -1,4 +1,4 @@
- public int BatchID { get; set; }
+public int BatchID { get; set; }
         [Display(Name = "Tên đợt hiến")]
         public string BatchName { get; set; }
 

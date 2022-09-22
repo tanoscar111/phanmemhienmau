@@ -1,4 +1,4 @@
-public int BloodID { get; set; }
+  public int BloodID { get; set; }
         [Display(Name = "Họ và Tên")]
         [Required(ErrorMessage = "Vui lòng nhập Họ và Tên")]
         public string Hovaten { get; set; }
@@ -17,7 +17,7 @@ public int BloodID { get; set; }
         [Display(Name = "Email ")]
 
         public string Email { get; set; }
-        public int BatchID { get; set; }
+        public Nullable<int> BatchID { get; set; }
         [Display(Name = "Nhóm máu ")]
         [Required(ErrorMessage = "Vui lòng nhập nhóm máu ")]
         public string NhomMau { get; set; }

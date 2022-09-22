@@ -22,6 +22,7 @@ namespace BoolDonationApp.Models
     
         public int KhamsanlocID { get; set; }
         public Nullable<int> BloodID { get; set; }
+        public Nullable<int> BatchID { get; set; }
         public Nullable<int> Blood_DetalID { get; set; }
         public string doituonghienmau { get; set; }
         public string hinhthuchienmau { get; set; }
@@ -40,9 +41,10 @@ namespace BoolDonationApp.Models
         public Nullable<bool> HCV { get; set; }
         public Nullable<bool> HIV { get; set; }
         public Nullable<bool> Giangmai { get; set; }
-        public Nullable<bool> HBsAg { get; set; }
+        public string HBsAg { get; set; }
         public Nullable<bool> huyettuongduc { get; set; }
         public string username { get; set; }
+        public Nullable<int> Luongmau { get; set; }
     
         public virtual BloodDonation BloodDonation { get; set; }
         public virtual BloodDonation_Detail BloodDonation_Detail { get; set; }

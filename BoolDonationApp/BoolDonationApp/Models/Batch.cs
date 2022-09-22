@@ -20,6 +20,7 @@ namespace BoolDonationApp.Models
         {
             this.BloodDonations = new HashSet<BloodDonation>();
             this.BloodDonation_Detail = new HashSet<BloodDonation_Detail>();
+            this.Ketquakhams = new HashSet<Ketquakham>();
         }
 
         public int BatchID { get; set; }
@@ -45,11 +46,12 @@ namespace BoolDonationApp.Models
         public Nullable<int> Soluongdukien { get; set; }
         public Nullable<int> Soluongdem { get; set; }
         public Nullable<int> idLocaltion { get; set; }
-
         public virtual Location Location { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<BloodDonation> BloodDonations { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<BloodDonation_Detail> BloodDonation_Detail { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Ketquakham> Ketquakhams { get; set; }
     }
 }

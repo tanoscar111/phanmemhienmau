@@ -17,6 +17,7 @@ namespace BoolDonationApp.Models
         public int ResultsScreeningID { get; set; }
         public Nullable<int> KhamsanlocID { get; set; }
         public Nullable<int> BloodID { get; set; }
+        public Nullable<int> BatchID { get; set; }
         public Nullable<System.DateTime> Ngaylaymau { get; set; }
         public string Phanung { get; set; }
         public string Matuimau1 { get; set; }
@@ -40,6 +41,8 @@ namespace BoolDonationApp.Models
         public string username { get; set; }
         public Nullable<int> songaycothehienlai { get; set; }
     
+        public virtual Batch Batch { get; set; }
+        public virtual BloodDonation BloodDonation { get; set; }
         public virtual Khamsanloc Khamsanloc { get; set; }
     }
 }
