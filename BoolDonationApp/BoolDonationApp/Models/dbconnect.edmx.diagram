@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="90882ee990d041f3bc0614ca34a2fe8b" Name="Diagram1">
+        <EntityTypeShape EntityType="BoodDonationAppModel.Batch" Width="1.5" PointX="3" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BoodDonationAppModel.BloodDonation" Width="1.5" PointX="5.25" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BoodDonationAppModel.BloodDonation_Detail" Width="1.5" PointX="7.5" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BoodDonationAppModel.Ketquakham" Width="1.5" PointX="12" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BoodDonationAppModel.Khamsanloc" Width="1.5" PointX="9.75" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BoodDonationAppModel.Location" Width="1.5" PointX="0.75" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BoodDonationAppModel.Log" Width="1.5" PointX="7.5" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="BoodDonationAppModel.Phuong" Width="1.5" PointX="9.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BoodDonationAppModel.Quan" Width="1.5" PointX="11.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BoodDonationAppModel.QuocGia" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BoodDonationAppModel.Role" Width="1.5" PointX="0.75" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BoodDonationAppModel.sysdiagram" Width="1.5" PointX="0.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BoodDonationAppModel.Tinh" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BoodDonationAppModel.User" Width="1.5" PointX="3" PointY="9.625" IsExpanded="true" />
+        <AssociationConnector Association="BoodDonationAppModel.FK_Batch_Location" ManuallyRouted="false" />
+        <AssociationConnector Association="BoodDonationAppModel.FK_BloodDonation_Batch1" ManuallyRouted="false" />
+        <AssociationConnector Association="BoodDonationAppModel.FK_BloodDonation_Detail_Batch" ManuallyRouted="false" />
+        <AssociationConnector Association="BoodDonationAppModel.FK_BloodDonation_Detail_BloodDonation" ManuallyRouted="false" />
+        <AssociationConnector Association="BoodDonationAppModel.FK_BloodDonation_Tinh" ManuallyRouted="false" />
+        <AssociationConnector Association="BoodDonationAppModel.FK_BloodDonation_User" ManuallyRouted="false" />
+        <AssociationConnector Association="BoodDonationAppModel.FK_Khamsanloc_BloodDonation" ManuallyRouted="false" />
+        <AssociationConnector Association="BoodDonationAppModel.FK_Log_BloodDonation" ManuallyRouted="false" />
+        <AssociationConnector Association="BoodDonationAppModel.FK_Khamsanloc_BloodDonation_Detail" ManuallyRouted="false" />
+        <AssociationConnector Association="BoodDonationAppModel.FK_Ketquakham_Khamsanloc" ManuallyRouted="false" />
+        <AssociationConnector Association="BoodDonationAppModel.FK_User_Role" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

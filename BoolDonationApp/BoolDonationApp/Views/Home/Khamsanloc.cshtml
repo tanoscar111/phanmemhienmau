@@ -83,7 +83,7 @@
                 </div>
                 <div>
                     <div style="width: 100%; padding-top:10px; box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;margin-top:30px;text-align:center">
-                        @foreach (BoolDonationApp.Common.connectBoodandUserbatch bloodDonation in ViewBag.datimeBlood)
+                        @foreach (BoolDonationApp.Models.BloodDonation_Detail bloodDonation in ViewBag.datimeBlood)
                         {
                             <p>@Convert.ToDateTime(@bloodDonation.Thoigianhien).ToString("dd/MM/yyyy")</p>
 
@@ -134,7 +134,17 @@
                                     </select>
                                 </div>
                             </div>
-                            <div id="hidden"style="display:none ">
+                            <div class="d-flex" style="align-items:center ;margin-top:15px">
+                                <p style="margin-bottom: 0 !important; padding-left: 0px !important; padding-right: 0px!important; " class="col-md-4">Điểm hiến máu :</p>
+                                <div class="col-md-8" style="margin-bottom: 0 !important; padding-right: 0px !important; padding-left: 0px !important;">
+                                    @foreach (BoolDonationApp.Common.conectbatchLocaltion bloodDonation in ViewBag.BloodLocation)
+                                    {
+                                        <p style="margin-bottom:0 !important;font-weight:bold">@bloodDonation.TenDiachi</p>
+
+                                    }
+                                </div>
+                            </div>
+                            <div id="hidden" style="display:none ">
                                 <b>Lượng máu:</b>
                                 <div style=" border: 1px solid rgb(0 0 0 / 15%); padding: 15px 10px;margin-top:10px">
                                     <div class="d-flex" style="padding-left: 0px!important;padding-right: 0px !important; align-items:center;justify-content:center">
@@ -155,19 +165,19 @@
                             <b>Xét nghiệm trước:</b>
                             <div style="border: 1px solid rgb(0 0 0 / 15%); padding: 15px 10px; ">
                                 <div class="col-md-12 d-flex" style="padding-left: 0px!important;padding-right: 0px !important; align-items:center">
-                                    <div class="col-md-4" style="padding-left: 0px!important;padding-right: 0px !important;">
+                                    <div class="col-md-3" style="padding-left: 0px!important;padding-right: 0px !important;">
                                         <div class="d-flex" style="justify-content:center;align-items:center">
-                                            <p style="margin-bottom: 0 !important; margin-right: 10px; width: 347px;">Huyết sắc tố</p>
+                                            <p style="margin-bottom: 0 !important; margin-right: 10px; width: 100px; font-size:12px">HST</p>
                                             <input type="number" class="form-control" name="huyetsacto" id="huyetsacto" onchange="showErorrhst()">
 
                                         </div>
-                                        <div id="huuyetsac" style="display: none; " >
+                                        <div id="huuyetsac" style="display: none; ">
                                             <p class="text-danger">Huyết sắc tố không đạt</p>
                                         </div>
-                                        </div>
-                                    <div class="col-md-4" style="padding-left: 0px!important;padding-right: 0px !important;">
+                                    </div>
+                                    <div class="col-md-3" style="padding-left: 0px!important;padding-right: 0px !important;">
                                         <div class="d-flex" style="justify-content:center;align-items:center">
-                                            <p style="margin-bottom: 0 !important; margin-right: 10px; width: 157px; padding-left: 10px; ">Tiểu cầu</p>
+                                            <p style="margin-bottom: 0 !important; margin-right: 10px; width: 157px; padding-left: 10px; font-size: 12px ">Tiểu cầu</p>
                                             <input type="number" class="form-control" name="tieucau" id="tieucau" onchange="showErorrtieucau()">
 
                                         </div>
@@ -176,19 +186,23 @@
                                         </div>
                                     </div>
 
-                                        <div class="col-md-4">
-                                            <input type="checkbox" onchange="Vienkhongdat(event)" class="form-check-input" name="veinkhongdat" id="veinkhongdat" style=" margin-left: 7px;">
-                                            <p class="form-check-label"  for="exampleCheck1" style=" margin-left: 24px;">Vein không Đạt</p>
-                                        </div>
-
+                                    <div class="col-md-3" style=" padding-right: 0px; padding-left: 6px;">
+                                        <input type="checkbox" onchange="Vienkhongdat(event)" class="form-check-input" name="veinkhongdat" id="veinkhongdat" style=" margin-left: 7px;">
+                                        <p class="form-check-label" for="exampleCheck1" style=" margin-left: 24px; font-size:12px">Vein không Đạt</p>
                                     </div>
+                                    <div class="col-md-3"style=" padding-right: 0px; padding-left: 6px;">
+                                        <input type="checkbox" onchange="Huyettuongduc(event)" class="form-check-input" name="huyettuongdung" id="huyettuongduc" style=" margin-left: 7px;">
+                                        <p class="form-check-label" for="exampleCheck1" style=" margin-left: 24px; font-size: 12px">Huyết tương đục</p>
+                                    </div>
+
+                                </div>
                                 <div class="d-flex " style="align-items:center">
                                     <div class="d-flex col-mod-6" style="align-items:center;margin-top: 0px;padding-left: 0px;padding-right: 0px;margin-bottom: 0px;">
                                         <p style="margin-bottom: 0 !important; padding-left: 0px !important; padding-right: 0px!important; " class="col-md-4">HBsAG :</p>
                                         <div class="col-md-8" style="margin-bottom: 0 !important; padding-right: 0px !important; padding-left: 0px !important;">
                                             <select id="hsbg" class="form-control" aria-label="Default select example" name="Hsabgform" onchange="hsbgform()">
-                                                <option selected>HBsAG</option>
-                                                <option  value="Âm tính" >Âm Tính</option>
+                                                
+                                                <option  selected value="Âm tính">Âm Tính</option>
                                                 <option value="Dương Tính">Dương Tính</option>
 
                                             </select>
@@ -239,7 +253,7 @@
 
                             <div class="d-flex " style=" align-items:center;margin-top:10px">
                                 <p class="col-md-4" style="margin-bottom:0px !important">Mạch :</p>
-                                <input type="number" class="form-control" id="mach" placeholder="Mạch"  onchange="showErorrmach()">
+                                <input type="number" class="form-control" id="mach" placeholder="Mạch" onchange="showErorrmach()">
                             </div>
                             <div class="d-flex " style=" align-items:center">
                                 <p class="col-md-4" style="margin-bottom:0px !important"></p>
@@ -273,7 +287,7 @@
                             <div style="border: 1px solid rgb(0 0 0 / 15%); padding: 15px 10px; ">
                                 <div class="d-flex" style="align-items:center ;margin-top:15px">
                                     <p style="margin-bottom: 0 !important; padding-left: 0px !important; padding-right: 0px!important; " class="col-md-4">Kết luận :</p>
-                                    <input type="text" class="form-control" id="ketluan" disabled>
+                                    <input type="text" class="form-control" id="ketluan" name="ketluan"readonly >
                                 </div>
                                 <div class="d-flex" style="align-items:center ;margin-top:15px">
                                     <p style="margin-bottom: 0 !important; padding-left: 0px !important; padding-right: 0px!important; " class="col-md-4">Lý do :</p>
@@ -281,11 +295,11 @@
                                 </div>
                                 <div class="d-flex" style="align-items:center ;margin-top:15px">
                                     <p style="margin-bottom: 0 !important; padding-left: 0px !important; padding-right: 0px!important; " class="col-md-4">KTV xét nghiệm :</p>
-                                    <input type="text" class="form-control" id="ketluan">
+                                    <input type="text" class="form-control" id="ktvxetnghiem">
                                 </div>
                                 <div class="d-flex" style="align-items:center ;margin-top:15px">
                                     <p style="margin-bottom: 0 !important; padding-left: 0px !important; padding-right: 0px!important; " class="col-md-4">Bác sỹ kết luận :</p>
-                                    <input type="text" class="form-control" id="ketluan">
+                                    <input type="text" class="form-control" id="bacyketluan">
                                 </div>
 
                             </div>
@@ -293,7 +307,7 @@
 
 
                     </div>
-                   @*<button>Xác nhận</button>*@
+                    <button>Xác nhận</button>
                 }
             </div>
 
@@ -321,7 +335,7 @@
     var styleError = "";
     var totalErros = "";
     var tieycauErrors = "";
-   
+
     var ketluan = "";
     var cannangError = "";
 
@@ -336,7 +350,7 @@
             document.getElementById("hidden").style.display = "block";
             document.getElementById("hidden_div").style.display = "none";
         }
-        
+
     }
     function showErorrhst() {
         getSelectValue = document.getElementById("huyetsacto").value;
@@ -345,7 +359,7 @@
             document.getElementById("huuyetsac").style.display = "block";
             document.getElementById("ketluan").value = "Tạm ngừng";
             totalErros = styleError + "Huyết sắc tố";
-            document.getElementById("lido").value  = totalErros+styleError;
+            document.getElementById("lido").value = totalErros + styleError;
             styleError = document.getElementById("lido").value;
         } else {
             document.getElementById("huuyetsac").style.display = "none";
@@ -353,7 +367,7 @@
             ketluan = document.getElementById("ketluan").value = "Bình thường";
             document.getElementById("lido").value = ""
         }
-        if (!getSelectValue ) {
+        if (!getSelectValue) {
             document.getElementById("lido").value = ""
             document.getElementById("ketluan").value = "";
             totalErros = ""
@@ -363,31 +377,31 @@
     function showErorrtieucau() {
         tieycauErrors = "";
         getSelectValue = document.getElementById("tieucau").value;
-       
+
         if (getSelectValue < 120 && getSelectValue) {
 
             document.getElementById("tieucauerr").style.display = "block";
             document.getElementById("ketluan").value = "Tạm ngừng";
             ketluan = document.getElementById("ketluan").value = "Tạm ngừng";
-            
+
             tieycauErrors = "Thiếu máu";
             if (document.getElementById("lido").value === "Thiếu máu") {
                 document.getElementById("lido").value = totalErros;
             } else {
                 document.getElementById("lido").value = totalErros + "," + tieycauErrors;
                 totalErros = totalErros + "," + tieycauErrors;
-              
+
             }
             if (totalErros.includes("Thiếu máu")) {
-                document.getElementById("lido").value = "Huyết sắc tố " + "," +"Thiếu máu"
+                document.getElementById("lido").value = "Huyết sắc tố " + "," + "Thiếu máu"
             }
             if (!document.getElementById("huyetsacto").value) {
-                document.getElementById("lido").value =  "Thiếu máu"
+                document.getElementById("lido").value = "Thiếu máu"
             }
         } else {
             document.getElementById("tieucauerr").style.display = "none";
             document.getElementById("ketluan").value = "Bình thường";
-            document.getElementById("lido").value = "Huyết sắc tố " ;
+            document.getElementById("lido").value = "Huyết sắc tố ";
         } if (!getSelectValue) {
             document.getElementById("lido").value = ""
             document.getElementById("ketluan").value = "";
@@ -397,7 +411,7 @@
     }
     function Vienkhongdat(e) {
         const { checked } = e.target;
-        
+
         if (checked) {
 
             document.getElementById("ketluan").value = "Ngừng vĩnh viễn";
@@ -405,8 +419,23 @@
         } else {
             if (ketluan) {
                 document.getElementById("ketluan").value = ketluan;
-            }else
-            document.getElementById("ketluan").value = "Bình thường";
+            } else
+                document.getElementById("ketluan").value = "";
+        }
+
+    }
+    function Huyettuongduc(e) {
+        const { checked } = e.target;
+
+        if (checked) {
+
+            document.getElementById("ketluan").value = "Ngừng vĩnh viễn";
+
+        } else {
+            if (ketluan) {
+                document.getElementById("ketluan").value = ketluan;
+            } else
+                document.getElementById("ketluan").value = "";
         }
 
     }
@@ -426,13 +455,13 @@
 
             }
             if (totalErros.includes("cân nặng")) {
-                document.getElementById("lido").value = "Huyết sắc tố " + "," + "Thiếu máu"+","+"cân nặng"
+                document.getElementById("lido").value = "Huyết sắc tố " + "," + "Thiếu máu" + "," + "cân nặng"
             }
             if (!document.getElementById("huyetsacto").value && !document.getElementById("tieucau").value) {
                 document.getElementById("lido").value = "cân nặng"
             }
-            
-             } else {
+
+        } else {
             document.getElementById("cannangerr").style.display = "none";
             document.getElementById("ketluan").value = "Bình thường";
             document.getElementById("lido").value = "Huyết sắc tố " + "," + "Thiếu máu";
@@ -478,7 +507,7 @@
     };
     function showErorrhuyettamthu() {
         getSelectValue = document.getElementById("huyetamthu").value;
-        if (getSelectValue >140 || getSelectValue < 100) {
+        if (getSelectValue > 140 || getSelectValue < 100) {
             document.getElementById("huyetamthuerr").style.display = "block";
             document.getElementById("ketluan").value = "Tạm ngừng";
             machError = "Huyết áp";
@@ -489,11 +518,11 @@
                 totalErros = totalErros + "," + machError;
 
             }
-            
+
             if (totalErros.includes("Huyết áp")) {
                 document.getElementById("lido").value = "Huyết sắc tố " + "," + "Thiếu máu" + "," + "cân nặng" + "," + "Huyết áp"
             }
-            if (!document.getElementById("huyetsacto").value && !document.getElementById("tieucau").value && !document.getElementById("cannang").value  && !document.getElementById("mach").value) {
+            if (!document.getElementById("huyetsacto").value && !document.getElementById("tieucau").value && !document.getElementById("cannang").value && !document.getElementById("mach").value) {
                 document.getElementById("lido").value = "Huyết áp"
             }
         } else {
@@ -508,7 +537,7 @@
         }
 
     };
-   
+
     function showErorrhuyettamtruong() {
         getSelectValue = document.getElementById("huyettamtruong").value;
         if (getSelectValue > 90 || getSelectValue < 60) {
@@ -540,8 +569,8 @@
         }
 
     };
-  
-  
+
+
     function hsbgform() {
 
         getSelectValue = document.getElementById("hsbg").value;

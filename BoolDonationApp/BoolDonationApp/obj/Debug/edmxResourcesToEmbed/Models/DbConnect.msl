@@ -62,6 +62,59 @@
           <ScalarProperty Name="chihiendangnuoiconduoi12thangtuoicau17" ColumnName="chihiendangnuoiconduoi12thangtuoicau17" />
           <ScalarProperty Name="chidatungcothaihoacsinhconchuacau18" ColumnName="chidatungcothaihoacsinhconchuacau18" />
           <ScalarProperty Name="ngayhienmaugannhat" ColumnName="ngayhienmaugannhat" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BloodDonation_Detail">
+      <EntityTypeMapping TypeName="BoodDonationAppModel.BloodDonation_Detail">
+        <MappingFragment StoreEntitySet="BloodDonation_Detail">
+          <ScalarProperty Name="Blood_DetalID" ColumnName="Blood_DetalID" />
+          <ScalarProperty Name="BatchID" ColumnName="BatchID" />
+          <ScalarProperty Name="BloodID" ColumnName="BloodID" />
+          <ScalarProperty Name="Thoigianhien" ColumnName="Thoigianhien" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="songaycothehienlai" ColumnName="songaycothehienlai" />
+          <ScalarProperty Name="CMND" ColumnName="CMND" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Ketquakhams">
+      <EntityTypeMapping TypeName="BoodDonationAppModel.Ketquakham">
+        <MappingFragment StoreEntitySet="Ketquakham">
+          <ScalarProperty Name="ResultsScreeningID" ColumnName="ResultsScreeningID" />
+          <ScalarProperty Name="KhamsanlocID" ColumnName="KhamsanlocID" />
+          <ScalarProperty Name="BloodID" ColumnName="BloodID" />
+          <ScalarProperty Name="Ngaylaymau" ColumnName="Ngaylaymau" />
+          <ScalarProperty Name="Phanung" ColumnName="Phanung" />
+          <ScalarProperty Name="Matuimau1" ColumnName="Matuimau1" />
+          <ScalarProperty Name="MatuiPooltieucau" ColumnName="MatuiPooltieucau" />
+          <ScalarProperty Name="Maday" ColumnName="Maday" />
+          <ScalarProperty Name="Luongmau" ColumnName="Luongmau" />
+          <ScalarProperty Name="Thetich" ColumnName="Thetich" />
+          <ScalarProperty Name="Xutri" ColumnName="Xutri" />
+          <ScalarProperty Name="MatuiPoolTualanh" ColumnName="MatuiPoolTualanh" />
+          <ScalarProperty Name="MatuiPoolHuyettuong" ColumnName="MatuiPoolHuyettuong" />
+          <ScalarProperty Name="KTVlaymau" ColumnName="KTVlaymau" />
+          <ScalarProperty Name="HBSAG" ColumnName="HBSAG" />
+          <ScalarProperty Name="AntiHCV" ColumnName="AntiHCV" />
+          <ScalarProperty Name="AntiHIV" ColumnName="AntiHIV" />
+          <ScalarProperty Name="AntiHBV" ColumnName="AntiHBV" />
+          <ScalarProperty Name="NATHCV" ColumnName="NATHCV" />
+          <ScalarProperty Name="NATHIV" ColumnName="NATHIV" />
+          <ScalarProperty Name="NATHBV" ColumnName="NATHBV" />
+          <ScalarProperty Name="SLKTBT" ColumnName="SLKTBT" />
+          <ScalarProperty Name="Combstructiep" ColumnName="Combstructiep" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="songaycothehienlai" ColumnName="songaycothehienlai" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Khamsanlocs">
+      <EntityTypeMapping TypeName="BoodDonationAppModel.Khamsanloc">
+        <MappingFragment StoreEntitySet="Khamsanloc">
+          <ScalarProperty Name="KhamsanlocID" ColumnName="KhamsanlocID" />
+          <ScalarProperty Name="BloodID" ColumnName="BloodID" />
+          <ScalarProperty Name="Blood_DetalID" ColumnName="Blood_DetalID" />
           <ScalarProperty Name="doituonghienmau" ColumnName="doituonghienmau" />
           <ScalarProperty Name="hinhthuchienmau" ColumnName="hinhthuchienmau" />
           <ScalarProperty Name="huyetsacto" ColumnName="huyetsacto" />
@@ -80,17 +133,8 @@
           <ScalarProperty Name="HIV" ColumnName="HIV" />
           <ScalarProperty Name="Giangmai" ColumnName="Giangmai" />
           <ScalarProperty Name="HBsAg" ColumnName="HBsAg" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="BloodDonation_Detail">
-      <EntityTypeMapping TypeName="BoodDonationAppModel.BloodDonation_Detail">
-        <MappingFragment StoreEntitySet="BloodDonation_Detail">
-          <ScalarProperty Name="Blood_DetalID" ColumnName="Blood_DetalID" />
-          <ScalarProperty Name="BatchID" ColumnName="BatchID" />
-          <ScalarProperty Name="BloodID" ColumnName="BloodID" />
-          <ScalarProperty Name="Thoigianhien" ColumnName="Thoigianhien" />
-          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="huyettuongduc" ColumnName="huyettuongduc" />
+          <ScalarProperty Name="username" ColumnName="username" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

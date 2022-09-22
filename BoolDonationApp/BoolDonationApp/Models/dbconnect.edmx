@@ -1,0 +1,1104 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="BoodDonationAppModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Batch">
+          <Key>
+            <PropertyRef Name="BatchID" />
+          </Key>
+          <Property Name="BatchID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BatchName" Type="nvarchar" MaxLength="255" />
+          <Property Name="Thoigianhien" Type="datetime" />
+          <Property Name="Nguoitaohien" Type="nvarchar" MaxLength="50" />
+          <Property Name="StatusDothien" Type="int" />
+          <Property Name="Thoigianthemluothien" Type="datetime" />
+          <Property Name="Thoigianbatdau" Type="datetime" />
+          <Property Name="Thoigianketthuc" Type="datetime" />
+          <Property Name="Soluongdukien" Type="int" />
+          <Property Name="Soluongdem" Type="int" />
+          <Property Name="idLocaltion" Type="int" />
+        </EntityType>
+        <EntityType Name="BloodDonation">
+          <Key>
+            <PropertyRef Name="BloodID" />
+          </Key>
+          <Property Name="BloodID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Hovaten" Type="nvarchar" MaxLength="100" />
+          <Property Name="NgaySinh" Type="date" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="13" />
+          <Property Name="DiaChi" Type="nvarchar" MaxLength="100" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="BatchID" Type="int" />
+          <Property Name="NhomMau" Type="nvarchar" MaxLength="50" />
+          <Property Name="Solanhienmau" Type="int" />
+          <Property Name="CMND" Type="nvarchar" MaxLength="50" />
+          <Property Name="gioitinh" Type="int" />
+          <Property Name="IsActive" Type="int" />
+          <Property Name="IdUser" Type="int" Nullable="false" />
+          <Property Name="CCCD" Type="nvarchar" MaxLength="50" />
+          <Property Name="Donvicongtac" Type="nvarchar" MaxLength="100" />
+          <Property Name="IDPhuong" Type="int" />
+          <Property Name="IDQuan" Type="int" />
+          <Property Name="IDTinh" Type="int" />
+          <Property Name="IDQuocGia" Type="int" />
+          <Property Name="Nest" Type="nvarchar" MaxLength="50" />
+          <Property Name="sonha" Type="nvarchar" MaxLength="50" />
+          <Property Name="duong" Type="nvarchar" MaxLength="50" />
+          <Property Name="truocdayquividatunghienmauchuacau1" Type="bit" />
+          <Property Name="tamthankinhcau2" Type="bit" />
+          <Property Name="sutcan4kgcau3" Type="bit" />
+          <Property Name="noihachkeodaicau4" Type="bit" />
+          <Property Name="phauthuatcau5" Type="bit" />
+          <Property Name="xamminhxolocau6" Type="bit" />
+          <Property Name="duoctruyenmaucau7" Type="bit" />
+          <Property Name="sudungmatuycau8" Type="bit" />
+          <Property Name="quanhetinhduccau9" Type="bit" />
+          <Property Name="quanhetinhducvoinguoidonggioicau10" Type="bit" />
+          <Property Name="tiemvacxinphongbenhcau11" Type="bit" />
+          <Property Name="songtrongvungcodichluuhanhcau12" Type="bit" />
+          <Property Name="bicumhonhucdausotcau13" Type="bit" />
+          <Property Name="dungthuockhangsinhcau14" Type="bit" />
+          <Property Name="denkhamsuckhoelamxetnghiemchuarangcau15" Type="bit" />
+          <Property Name="quivihienladoituongtantatcau16" Type="bit" />
+          <Property Name="chihiendangnuoiconduoi12thangtuoicau17" Type="bit" />
+          <Property Name="chidatungcothaihoacsinhconchuacau18" Type="bit" />
+          <Property Name="ngayhienmaugannhat" Type="datetime" />
+        </EntityType>
+        <EntityType Name="BloodDonation_Detail">
+          <Key>
+            <PropertyRef Name="Blood_DetalID" />
+          </Key>
+          <Property Name="Blood_DetalID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BatchID" Type="int" />
+          <Property Name="BloodID" Type="int" />
+          <Property Name="Thoigianhien" Type="datetime" />
+          <Property Name="IsActive" Type="int" />
+          <Property Name="songaycothehienlai" Type="int" />
+          <Property Name="CMND" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Ketquakham">
+          <Key>
+            <PropertyRef Name="ResultsScreeningID" />
+          </Key>
+          <Property Name="ResultsScreeningID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KhamsanlocID" Type="int" />
+          <Property Name="BloodID" Type="int" />
+          <Property Name="Ngaylaymau" Type="datetime" />
+          <Property Name="Phanung" Type="nvarchar(max)" />
+          <Property Name="Matuimau1" Type="nvarchar(max)" />
+          <Property Name="MatuiPooltieucau" Type="nvarchar(max)" />
+          <Property Name="Maday" Type="nvarchar(max)" />
+          <Property Name="Luongmau" Type="int" />
+          <Property Name="Thetich" Type="int" />
+          <Property Name="Xutri" Type="int" />
+          <Property Name="MatuiPoolTualanh" Type="nvarchar(max)" />
+          <Property Name="MatuiPoolHuyettuong" Type="nvarchar(max)" />
+          <Property Name="KTVlaymau" Type="nvarchar(max)" />
+          <Property Name="HBSAG" Type="nvarchar(max)" />
+          <Property Name="AntiHCV" Type="nvarchar(max)" />
+          <Property Name="AntiHIV" Type="nvarchar(max)" />
+          <Property Name="AntiHBV" Type="nvarchar(max)" />
+          <Property Name="NATHCV" Type="nvarchar(max)" />
+          <Property Name="NATHIV" Type="nvarchar(max)" />
+          <Property Name="NATHBV" Type="nvarchar(max)" />
+          <Property Name="SLKTBT" Type="nvarchar(max)" />
+          <Property Name="Combstructiep" Type="nvarchar(max)" />
+          <Property Name="username" Type="nvarchar(max)" />
+          <Property Name="songaycothehienlai" Type="int" />
+        </EntityType>
+        <EntityType Name="Khamsanloc">
+          <Key>
+            <PropertyRef Name="KhamsanlocID" />
+          </Key>
+          <Property Name="KhamsanlocID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BloodID" Type="int" />
+          <Property Name="Blood_DetalID" Type="int" />
+          <Property Name="doituonghienmau" Type="nvarchar(max)" />
+          <Property Name="hinhthuchienmau" Type="nvarchar(max)" />
+          <Property Name="huyetsacto" Type="int" />
+          <Property Name="tieucau" Type="int" />
+          <Property Name="veinkhongdat" Type="bit" />
+          <Property Name="cannang" Type="int" />
+          <Property Name="mach" Type="int" />
+          <Property Name="huyetaptamtruong" Type="int" />
+          <Property Name="huyetaptamthu" Type="int" />
+          <Property Name="tinhtranglamsan" Type="nvarchar(max)" />
+          <Property Name="ketluan" Type="nvarchar(max)" />
+          <Property Name="Lydo" Type="nvarchar(max)" />
+          <Property Name="ktvketluan" Type="nvarchar(max)" />
+          <Property Name="HBV" Type="bit" />
+          <Property Name="HCV" Type="bit" />
+          <Property Name="HIV" Type="bit" />
+          <Property Name="Giangmai" Type="bit" />
+          <Property Name="HBsAg" Type="bit" />
+          <Property Name="huyettuongduc" Type="bit" />
+          <Property Name="username" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Location">
+          <Key>
+            <PropertyRef Name="idLocaltion" />
+          </Key>
+          <Property Name="idLocaltion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TenDiachi" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Log">
+          <Key>
+            <PropertyRef Name="LogID" />
+          </Key>
+          <Property Name="LogID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Log_Time" Type="datetime" />
+          <Property Name="BloodID" Type="int" />
+          <Property Name="action" Type="nvarchar" MaxLength="50" />
+          <Property Name="nguoithaotac" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Phuong">
+          <Key>
+            <PropertyRef Name="IDPhuong" />
+          </Key>
+          <Property Name="IDPhuong" Type="int" Nullable="false" />
+          <Property Name="IDQuan" Type="int" />
+          <Property Name="IDTinh" Type="int" />
+          <Property Name="MaPhuong" Type="char" MaxLength="10" />
+          <Property Name="TenP" Type="nvarchar" MaxLength="50" />
+          <Property Name="active" Type="bit" />
+        </EntityType>
+        <EntityType Name="Quan">
+          <Key>
+            <PropertyRef Name="IDQuan" />
+          </Key>
+          <Property Name="IDQuan" Type="int" Nullable="false" />
+          <Property Name="IDTinh" Type="int" />
+          <Property Name="MaQuan" Type="char" MaxLength="10" />
+          <Property Name="TenQ" Type="nvarchar" MaxLength="50" />
+          <Property Name="ACTIVE" Type="bit" />
+        </EntityType>
+        <EntityType Name="QuocGia">
+          <Key>
+            <PropertyRef Name="IDQuocGia" />
+          </Key>
+          <Property Name="IDQuocGia" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MaQG" Type="char" MaxLength="50" />
+          <Property Name="TenQG" Type="nvarchar" MaxLength="200" />
+          <Property Name="active" Type="bit" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="RoleID" />
+          </Key>
+          <Property Name="RoleID" Type="int" Nullable="false" />
+          <Property Name="NameRole" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Tinh">
+          <Key>
+            <PropertyRef Name="IDTinh" />
+          </Key>
+          <Property Name="IDTinh" Type="int" Nullable="false" />
+          <Property Name="MaT" Type="char" MaxLength="10" />
+          <Property Name="TenT" Type="nvarchar" MaxLength="50" />
+          <Property Name="ACTIVE" Type="bit" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="IdUser" />
+          </Key>
+          <Property Name="IdUser" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Password" Type="nvarchar" MaxLength="255" />
+          <Property Name="RoleID" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Batch_Location">
+          <End Role="Location" Type="Self.Location" Multiplicity="0..1" />
+          <End Role="Batch" Type="Self.Batch" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Location">
+              <PropertyRef Name="idLocaltion" />
+            </Principal>
+            <Dependent Role="Batch">
+              <PropertyRef Name="idLocaltion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BloodDonation_Batch1">
+          <End Role="Batch" Type="Self.Batch" Multiplicity="0..1" />
+          <End Role="BloodDonation" Type="Self.BloodDonation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Batch">
+              <PropertyRef Name="BatchID" />
+            </Principal>
+            <Dependent Role="BloodDonation">
+              <PropertyRef Name="BatchID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BloodDonation_Detail_Batch">
+          <End Role="Batch" Type="Self.Batch" Multiplicity="0..1" />
+          <End Role="BloodDonation_Detail" Type="Self.BloodDonation_Detail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Batch">
+              <PropertyRef Name="BatchID" />
+            </Principal>
+            <Dependent Role="BloodDonation_Detail">
+              <PropertyRef Name="BatchID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BloodDonation_Detail_BloodDonation">
+          <End Role="BloodDonation" Type="Self.BloodDonation" Multiplicity="0..1" />
+          <End Role="BloodDonation_Detail" Type="Self.BloodDonation_Detail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BloodDonation">
+              <PropertyRef Name="BloodID" />
+            </Principal>
+            <Dependent Role="BloodDonation_Detail">
+              <PropertyRef Name="BloodID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BloodDonation_Tinh">
+          <End Role="Tinh" Type="Self.Tinh" Multiplicity="0..1" />
+          <End Role="BloodDonation" Type="Self.BloodDonation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tinh">
+              <PropertyRef Name="IDTinh" />
+            </Principal>
+            <Dependent Role="BloodDonation">
+              <PropertyRef Name="IDTinh" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BloodDonation_User">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="BloodDonation" Type="Self.BloodDonation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="IdUser" />
+            </Principal>
+            <Dependent Role="BloodDonation">
+              <PropertyRef Name="IdUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ketquakham_Khamsanloc">
+          <End Role="Khamsanloc" Type="Self.Khamsanloc" Multiplicity="0..1" />
+          <End Role="Ketquakham" Type="Self.Ketquakham" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Khamsanloc">
+              <PropertyRef Name="KhamsanlocID" />
+            </Principal>
+            <Dependent Role="Ketquakham">
+              <PropertyRef Name="KhamsanlocID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Khamsanloc_BloodDonation">
+          <End Role="BloodDonation" Type="Self.BloodDonation" Multiplicity="0..1" />
+          <End Role="Khamsanloc" Type="Self.Khamsanloc" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BloodDonation">
+              <PropertyRef Name="BloodID" />
+            </Principal>
+            <Dependent Role="Khamsanloc">
+              <PropertyRef Name="BloodID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Khamsanloc_BloodDonation_Detail">
+          <End Role="BloodDonation_Detail" Type="Self.BloodDonation_Detail" Multiplicity="0..1" />
+          <End Role="Khamsanloc" Type="Self.Khamsanloc" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BloodDonation_Detail">
+              <PropertyRef Name="Blood_DetalID" />
+            </Principal>
+            <Dependent Role="Khamsanloc">
+              <PropertyRef Name="Blood_DetalID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Log_BloodDonation">
+          <End Role="BloodDonation" Type="Self.BloodDonation" Multiplicity="0..1" />
+          <End Role="Log" Type="Self.Log" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BloodDonation">
+              <PropertyRef Name="BloodID" />
+            </Principal>
+            <Dependent Role="Log">
+              <PropertyRef Name="BloodID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_Role">
+          <End Role="Role" Type="Self.Role" Multiplicity="1" />
+          <End Role="User" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="RoleID" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="RoleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="BoodDonationAppModelStoreContainer">
+          <EntitySet Name="Batch" EntityType="Self.Batch" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BloodDonation" EntityType="Self.BloodDonation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BloodDonation_Detail" EntityType="Self.BloodDonation_Detail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ketquakham" EntityType="Self.Ketquakham" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Khamsanloc" EntityType="Self.Khamsanloc" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Location" EntityType="Self.Location" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Log" EntityType="Self.Log" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Phuong" EntityType="Self.Phuong" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Quan" EntityType="Self.Quan" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="QuocGia" EntityType="Self.QuocGia" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tinh" EntityType="Self.Tinh" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Batch_Location" Association="Self.FK_Batch_Location">
+            <End Role="Location" EntitySet="Location" />
+            <End Role="Batch" EntitySet="Batch" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BloodDonation_Batch1" Association="Self.FK_BloodDonation_Batch1">
+            <End Role="Batch" EntitySet="Batch" />
+            <End Role="BloodDonation" EntitySet="BloodDonation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BloodDonation_Detail_Batch" Association="Self.FK_BloodDonation_Detail_Batch">
+            <End Role="Batch" EntitySet="Batch" />
+            <End Role="BloodDonation_Detail" EntitySet="BloodDonation_Detail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BloodDonation_Detail_BloodDonation" Association="Self.FK_BloodDonation_Detail_BloodDonation">
+            <End Role="BloodDonation" EntitySet="BloodDonation" />
+            <End Role="BloodDonation_Detail" EntitySet="BloodDonation_Detail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BloodDonation_Tinh" Association="Self.FK_BloodDonation_Tinh">
+            <End Role="Tinh" EntitySet="Tinh" />
+            <End Role="BloodDonation" EntitySet="BloodDonation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BloodDonation_User" Association="Self.FK_BloodDonation_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="BloodDonation" EntitySet="BloodDonation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ketquakham_Khamsanloc" Association="Self.FK_Ketquakham_Khamsanloc">
+            <End Role="Khamsanloc" EntitySet="Khamsanloc" />
+            <End Role="Ketquakham" EntitySet="Ketquakham" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Khamsanloc_BloodDonation" Association="Self.FK_Khamsanloc_BloodDonation">
+            <End Role="BloodDonation" EntitySet="BloodDonation" />
+            <End Role="Khamsanloc" EntitySet="Khamsanloc" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Khamsanloc_BloodDonation_Detail" Association="Self.FK_Khamsanloc_BloodDonation_Detail">
+            <End Role="BloodDonation_Detail" EntitySet="BloodDonation_Detail" />
+            <End Role="Khamsanloc" EntitySet="Khamsanloc" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Log_BloodDonation" Association="Self.FK_Log_BloodDonation">
+            <End Role="BloodDonation" EntitySet="BloodDonation" />
+            <End Role="Log" EntitySet="Log" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_Role" Association="Self.FK_User_Role">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="BoodDonationAppModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Batch">
+          <Key>
+            <PropertyRef Name="BatchID" />
+          </Key>
+          <Property Name="BatchID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BatchName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Thoigianhien" Type="DateTime" Precision="3" />
+          <Property Name="Nguoitaohien" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StatusDothien" Type="Int32" />
+          <Property Name="Thoigianthemluothien" Type="DateTime" Precision="3" />
+          <Property Name="Thoigianbatdau" Type="DateTime" Precision="3" />
+          <Property Name="Thoigianketthuc" Type="DateTime" Precision="3" />
+          <Property Name="Soluongdukien" Type="Int32" />
+          <Property Name="Soluongdem" Type="Int32" />
+          <Property Name="idLocaltion" Type="Int32" />
+          <NavigationProperty Name="Location" Relationship="Self.FK_Batch_Location" FromRole="Batch" ToRole="Location" />
+          <NavigationProperty Name="BloodDonations" Relationship="Self.FK_BloodDonation_Batch1" FromRole="Batch" ToRole="BloodDonation" />
+          <NavigationProperty Name="BloodDonation_Detail" Relationship="Self.FK_BloodDonation_Detail_Batch" FromRole="Batch" ToRole="BloodDonation_Detail" />
+        </EntityType>
+        <EntityType Name="BloodDonation">
+          <Key>
+            <PropertyRef Name="BloodID" />
+          </Key>
+          <Property Name="BloodID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Hovaten" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="NgaySinh" Type="DateTime" Precision="0" />
+          <Property Name="Phone" Type="String" MaxLength="13" FixedLength="false" Unicode="true" />
+          <Property Name="DiaChi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BatchID" Type="Int32" />
+          <Property Name="NhomMau" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Solanhienmau" Type="Int32" />
+          <Property Name="CMND" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="gioitinh" Type="Int32" />
+          <Property Name="IsActive" Type="Int32" />
+          <Property Name="IdUser" Type="Int32" Nullable="false" />
+          <Property Name="CCCD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Donvicongtac" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="IDPhuong" Type="Int32" />
+          <Property Name="IDQuan" Type="Int32" />
+          <Property Name="IDTinh" Type="Int32" />
+          <Property Name="IDQuocGia" Type="Int32" />
+          <Property Name="Nest" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="sonha" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="duong" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="truocdayquividatunghienmauchuacau1" Type="Boolean" />
+          <Property Name="tamthankinhcau2" Type="Boolean" />
+          <Property Name="sutcan4kgcau3" Type="Boolean" />
+          <Property Name="noihachkeodaicau4" Type="Boolean" />
+          <Property Name="phauthuatcau5" Type="Boolean" />
+          <Property Name="xamminhxolocau6" Type="Boolean" />
+          <Property Name="duoctruyenmaucau7" Type="Boolean" />
+          <Property Name="sudungmatuycau8" Type="Boolean" />
+          <Property Name="quanhetinhduccau9" Type="Boolean" />
+          <Property Name="quanhetinhducvoinguoidonggioicau10" Type="Boolean" />
+          <Property Name="tiemvacxinphongbenhcau11" Type="Boolean" />
+          <Property Name="songtrongvungcodichluuhanhcau12" Type="Boolean" />
+          <Property Name="bicumhonhucdausotcau13" Type="Boolean" />
+          <Property Name="dungthuockhangsinhcau14" Type="Boolean" />
+          <Property Name="denkhamsuckhoelamxetnghiemchuarangcau15" Type="Boolean" />
+          <Property Name="quivihienladoituongtantatcau16" Type="Boolean" />
+          <Property Name="chihiendangnuoiconduoi12thangtuoicau17" Type="Boolean" />
+          <Property Name="chidatungcothaihoacsinhconchuacau18" Type="Boolean" />
+          <Property Name="ngayhienmaugannhat" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Batch" Relationship="Self.FK_BloodDonation_Batch1" FromRole="BloodDonation" ToRole="Batch" />
+          <NavigationProperty Name="BloodDonation_Detail" Relationship="Self.FK_BloodDonation_Detail_BloodDonation" FromRole="BloodDonation" ToRole="BloodDonation_Detail" />
+          <NavigationProperty Name="Tinh" Relationship="Self.FK_BloodDonation_Tinh" FromRole="BloodDonation" ToRole="Tinh" />
+          <NavigationProperty Name="User" Relationship="Self.FK_BloodDonation_User" FromRole="BloodDonation" ToRole="User" />
+          <NavigationProperty Name="Khamsanlocs" Relationship="Self.FK_Khamsanloc_BloodDonation" FromRole="BloodDonation" ToRole="Khamsanloc" />
+          <NavigationProperty Name="Logs" Relationship="Self.FK_Log_BloodDonation" FromRole="BloodDonation" ToRole="Log" />
+        </EntityType>
+        <EntityType Name="BloodDonation_Detail">
+          <Key>
+            <PropertyRef Name="Blood_DetalID" />
+          </Key>
+          <Property Name="Blood_DetalID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BatchID" Type="Int32" />
+          <Property Name="BloodID" Type="Int32" />
+          <Property Name="Thoigianhien" Type="DateTime" Precision="3" />
+          <Property Name="IsActive" Type="Int32" />
+          <Property Name="songaycothehienlai" Type="Int32" />
+          <Property Name="CMND" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Batch" Relationship="Self.FK_BloodDonation_Detail_Batch" FromRole="BloodDonation_Detail" ToRole="Batch" />
+          <NavigationProperty Name="BloodDonation" Relationship="Self.FK_BloodDonation_Detail_BloodDonation" FromRole="BloodDonation_Detail" ToRole="BloodDonation" />
+          <NavigationProperty Name="Khamsanlocs" Relationship="Self.FK_Khamsanloc_BloodDonation_Detail" FromRole="BloodDonation_Detail" ToRole="Khamsanloc" />
+        </EntityType>
+        <EntityType Name="Ketquakham">
+          <Key>
+            <PropertyRef Name="ResultsScreeningID" />
+          </Key>
+          <Property Name="ResultsScreeningID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KhamsanlocID" Type="Int32" />
+          <Property Name="BloodID" Type="Int32" />
+          <Property Name="Ngaylaymau" Type="DateTime" Precision="3" />
+          <Property Name="Phanung" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Matuimau1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="MatuiPooltieucau" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Maday" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Luongmau" Type="Int32" />
+          <Property Name="Thetich" Type="Int32" />
+          <Property Name="Xutri" Type="Int32" />
+          <Property Name="MatuiPoolTualanh" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="MatuiPoolHuyettuong" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="KTVlaymau" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="HBSAG" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AntiHCV" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AntiHIV" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AntiHBV" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NATHCV" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NATHIV" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NATHBV" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SLKTBT" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Combstructiep" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="username" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="songaycothehienlai" Type="Int32" />
+          <NavigationProperty Name="Khamsanloc" Relationship="Self.FK_Ketquakham_Khamsanloc" FromRole="Ketquakham" ToRole="Khamsanloc" />
+        </EntityType>
+        <EntityType Name="Khamsanloc">
+          <Key>
+            <PropertyRef Name="KhamsanlocID" />
+          </Key>
+          <Property Name="KhamsanlocID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BloodID" Type="Int32" />
+          <Property Name="Blood_DetalID" Type="Int32" />
+          <Property Name="doituonghienmau" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="hinhthuchienmau" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="huyetsacto" Type="Int32" />
+          <Property Name="tieucau" Type="Int32" />
+          <Property Name="veinkhongdat" Type="Boolean" />
+          <Property Name="cannang" Type="Int32" />
+          <Property Name="mach" Type="Int32" />
+          <Property Name="huyetaptamtruong" Type="Int32" />
+          <Property Name="huyetaptamthu" Type="Int32" />
+          <Property Name="tinhtranglamsan" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ketluan" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Lydo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ktvketluan" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="HBV" Type="Boolean" />
+          <Property Name="HCV" Type="Boolean" />
+          <Property Name="HIV" Type="Boolean" />
+          <Property Name="Giangmai" Type="Boolean" />
+          <Property Name="HBsAg" Type="Boolean" />
+          <Property Name="huyettuongduc" Type="Boolean" />
+          <Property Name="username" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="BloodDonation" Relationship="Self.FK_Khamsanloc_BloodDonation" FromRole="Khamsanloc" ToRole="BloodDonation" />
+          <NavigationProperty Name="BloodDonation_Detail" Relationship="Self.FK_Khamsanloc_BloodDonation_Detail" FromRole="Khamsanloc" ToRole="BloodDonation_Detail" />
+          <NavigationProperty Name="Ketquakhams" Relationship="Self.FK_Ketquakham_Khamsanloc" FromRole="Khamsanloc" ToRole="Ketquakham" />
+        </EntityType>
+        <EntityType Name="Location">
+          <Key>
+            <PropertyRef Name="idLocaltion" />
+          </Key>
+          <Property Name="idLocaltion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TenDiachi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Batches" Relationship="Self.FK_Batch_Location" FromRole="Location" ToRole="Batch" />
+        </EntityType>
+        <EntityType Name="Log">
+          <Key>
+            <PropertyRef Name="LogID" />
+          </Key>
+          <Property Name="LogID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Log_Time" Type="DateTime" Precision="3" />
+          <Property Name="BloodID" Type="Int32" />
+          <Property Name="action" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="nguoithaotac" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="BloodDonation" Relationship="Self.FK_Log_BloodDonation" FromRole="Log" ToRole="BloodDonation" />
+        </EntityType>
+        <EntityType Name="Phuong">
+          <Key>
+            <PropertyRef Name="IDPhuong" />
+          </Key>
+          <Property Name="IDPhuong" Type="Int32" Nullable="false" />
+          <Property Name="IDQuan" Type="Int32" />
+          <Property Name="IDTinh" Type="Int32" />
+          <Property Name="MaPhuong" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="TenP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="active" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Quan">
+          <Key>
+            <PropertyRef Name="IDQuan" />
+          </Key>
+          <Property Name="IDQuan" Type="Int32" Nullable="false" />
+          <Property Name="IDTinh" Type="Int32" />
+          <Property Name="MaQuan" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="TenQ" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ACTIVE" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="QuocGia">
+          <Key>
+            <PropertyRef Name="IDQuocGia" />
+          </Key>
+          <Property Name="IDQuocGia" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MaQG" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+          <Property Name="TenQG" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="active" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="RoleID" />
+          </Key>
+          <Property Name="RoleID" Type="Int32" Nullable="false" />
+          <Property Name="NameRole" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Users" Relationship="Self.FK_User_Role" FromRole="Role" ToRole="User" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Tinh">
+          <Key>
+            <PropertyRef Name="IDTinh" />
+          </Key>
+          <Property Name="IDTinh" Type="Int32" Nullable="false" />
+          <Property Name="MaT" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="TenT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ACTIVE" Type="Boolean" />
+          <NavigationProperty Name="BloodDonations" Relationship="Self.FK_BloodDonation_Tinh" FromRole="Tinh" ToRole="BloodDonation" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="IdUser" />
+          </Key>
+          <Property Name="IdUser" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="RoleID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="BloodDonations" Relationship="Self.FK_BloodDonation_User" FromRole="User" ToRole="BloodDonation" />
+          <NavigationProperty Name="Role" Relationship="Self.FK_User_Role" FromRole="User" ToRole="Role" />
+        </EntityType>
+        <Association Name="FK_Batch_Location">
+          <End Role="Location" Type="Self.Location" Multiplicity="0..1" />
+          <End Role="Batch" Type="Self.Batch" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Location">
+              <PropertyRef Name="idLocaltion" />
+            </Principal>
+            <Dependent Role="Batch">
+              <PropertyRef Name="idLocaltion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BloodDonation_Batch1">
+          <End Role="Batch" Type="Self.Batch" Multiplicity="0..1" />
+          <End Role="BloodDonation" Type="Self.BloodDonation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Batch">
+              <PropertyRef Name="BatchID" />
+            </Principal>
+            <Dependent Role="BloodDonation">
+              <PropertyRef Name="BatchID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BloodDonation_Detail_Batch">
+          <End Role="Batch" Type="Self.Batch" Multiplicity="0..1" />
+          <End Role="BloodDonation_Detail" Type="Self.BloodDonation_Detail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Batch">
+              <PropertyRef Name="BatchID" />
+            </Principal>
+            <Dependent Role="BloodDonation_Detail">
+              <PropertyRef Name="BatchID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BloodDonation_Detail_BloodDonation">
+          <End Role="BloodDonation" Type="Self.BloodDonation" Multiplicity="0..1" />
+          <End Role="BloodDonation_Detail" Type="Self.BloodDonation_Detail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BloodDonation">
+              <PropertyRef Name="BloodID" />
+            </Principal>
+            <Dependent Role="BloodDonation_Detail">
+              <PropertyRef Name="BloodID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BloodDonation_Tinh">
+          <End Role="Tinh" Type="Self.Tinh" Multiplicity="0..1" />
+          <End Role="BloodDonation" Type="Self.BloodDonation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tinh">
+              <PropertyRef Name="IDTinh" />
+            </Principal>
+            <Dependent Role="BloodDonation">
+              <PropertyRef Name="IDTinh" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BloodDonation_User">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="BloodDonation" Type="Self.BloodDonation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="IdUser" />
+            </Principal>
+            <Dependent Role="BloodDonation">
+              <PropertyRef Name="IdUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Khamsanloc_BloodDonation">
+          <End Role="BloodDonation" Type="Self.BloodDonation" Multiplicity="0..1" />
+          <End Role="Khamsanloc" Type="Self.Khamsanloc" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BloodDonation">
+              <PropertyRef Name="BloodID" />
+            </Principal>
+            <Dependent Role="Khamsanloc">
+              <PropertyRef Name="BloodID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Log_BloodDonation">
+          <End Role="BloodDonation" Type="Self.BloodDonation" Multiplicity="0..1" />
+          <End Role="Log" Type="Self.Log" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BloodDonation">
+              <PropertyRef Name="BloodID" />
+            </Principal>
+            <Dependent Role="Log">
+              <PropertyRef Name="BloodID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Khamsanloc_BloodDonation_Detail">
+          <End Role="BloodDonation_Detail" Type="Self.BloodDonation_Detail" Multiplicity="0..1" />
+          <End Role="Khamsanloc" Type="Self.Khamsanloc" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BloodDonation_Detail">
+              <PropertyRef Name="Blood_DetalID" />
+            </Principal>
+            <Dependent Role="Khamsanloc">
+              <PropertyRef Name="Blood_DetalID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ketquakham_Khamsanloc">
+          <End Role="Khamsanloc" Type="Self.Khamsanloc" Multiplicity="0..1" />
+          <End Role="Ketquakham" Type="Self.Ketquakham" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Khamsanloc">
+              <PropertyRef Name="KhamsanlocID" />
+            </Principal>
+            <Dependent Role="Ketquakham">
+              <PropertyRef Name="KhamsanlocID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_Role">
+          <End Role="Role" Type="Self.Role" Multiplicity="1" />
+          <End Role="User" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="RoleID" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="RoleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="BoodDonationAppEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Batches" EntityType="Self.Batch" />
+          <EntitySet Name="BloodDonations" EntityType="Self.BloodDonation" />
+          <EntitySet Name="BloodDonation_Detail" EntityType="Self.BloodDonation_Detail" />
+          <EntitySet Name="Ketquakhams" EntityType="Self.Ketquakham" />
+          <EntitySet Name="Khamsanlocs" EntityType="Self.Khamsanloc" />
+          <EntitySet Name="Locations" EntityType="Self.Location" />
+          <EntitySet Name="Logs" EntityType="Self.Log" />
+          <EntitySet Name="Phuongs" EntityType="Self.Phuong" />
+          <EntitySet Name="Quans" EntityType="Self.Quan" />
+          <EntitySet Name="QuocGias" EntityType="Self.QuocGia" />
+          <EntitySet Name="Roles" EntityType="Self.Role" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="Tinhs" EntityType="Self.Tinh" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <AssociationSet Name="FK_Batch_Location" Association="Self.FK_Batch_Location">
+            <End Role="Location" EntitySet="Locations" />
+            <End Role="Batch" EntitySet="Batches" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BloodDonation_Batch1" Association="Self.FK_BloodDonation_Batch1">
+            <End Role="Batch" EntitySet="Batches" />
+            <End Role="BloodDonation" EntitySet="BloodDonations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BloodDonation_Detail_Batch" Association="Self.FK_BloodDonation_Detail_Batch">
+            <End Role="Batch" EntitySet="Batches" />
+            <End Role="BloodDonation_Detail" EntitySet="BloodDonation_Detail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BloodDonation_Detail_BloodDonation" Association="Self.FK_BloodDonation_Detail_BloodDonation">
+            <End Role="BloodDonation" EntitySet="BloodDonations" />
+            <End Role="BloodDonation_Detail" EntitySet="BloodDonation_Detail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BloodDonation_Tinh" Association="Self.FK_BloodDonation_Tinh">
+            <End Role="Tinh" EntitySet="Tinhs" />
+            <End Role="BloodDonation" EntitySet="BloodDonations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BloodDonation_User" Association="Self.FK_BloodDonation_User">
+            <End Role="User" EntitySet="Users" />
+            <End Role="BloodDonation" EntitySet="BloodDonations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Khamsanloc_BloodDonation" Association="Self.FK_Khamsanloc_BloodDonation">
+            <End Role="BloodDonation" EntitySet="BloodDonations" />
+            <End Role="Khamsanloc" EntitySet="Khamsanlocs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Log_BloodDonation" Association="Self.FK_Log_BloodDonation">
+            <End Role="BloodDonation" EntitySet="BloodDonations" />
+            <End Role="Log" EntitySet="Logs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Khamsanloc_BloodDonation_Detail" Association="Self.FK_Khamsanloc_BloodDonation_Detail">
+            <End Role="BloodDonation_Detail" EntitySet="BloodDonation_Detail" />
+            <End Role="Khamsanloc" EntitySet="Khamsanlocs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ketquakham_Khamsanloc" Association="Self.FK_Ketquakham_Khamsanloc">
+            <End Role="Khamsanloc" EntitySet="Khamsanlocs" />
+            <End Role="Ketquakham" EntitySet="Ketquakhams" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_Role" Association="Self.FK_User_Role">
+            <End Role="Role" EntitySet="Roles" />
+            <End Role="User" EntitySet="Users" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="BoodDonationAppModelStoreContainer" CdmEntityContainer="BoodDonationAppEntities">
+          <EntitySetMapping Name="Batches">
+            <EntityTypeMapping TypeName="BoodDonationAppModel.Batch">
+              <MappingFragment StoreEntitySet="Batch">
+                <ScalarProperty Name="BatchID" ColumnName="BatchID" />
+                <ScalarProperty Name="BatchName" ColumnName="BatchName" />
+                <ScalarProperty Name="Thoigianhien" ColumnName="Thoigianhien" />
+                <ScalarProperty Name="Nguoitaohien" ColumnName="Nguoitaohien" />
+                <ScalarProperty Name="StatusDothien" ColumnName="StatusDothien" />
+                <ScalarProperty Name="Thoigianthemluothien" ColumnName="Thoigianthemluothien" />
+                <ScalarProperty Name="Thoigianbatdau" ColumnName="Thoigianbatdau" />
+                <ScalarProperty Name="Thoigianketthuc" ColumnName="Thoigianketthuc" />
+                <ScalarProperty Name="Soluongdukien" ColumnName="Soluongdukien" />
+                <ScalarProperty Name="Soluongdem" ColumnName="Soluongdem" />
+                <ScalarProperty Name="idLocaltion" ColumnName="idLocaltion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BloodDonations">
+            <EntityTypeMapping TypeName="BoodDonationAppModel.BloodDonation">
+              <MappingFragment StoreEntitySet="BloodDonation">
+                <ScalarProperty Name="BloodID" ColumnName="BloodID" />
+                <ScalarProperty Name="Hovaten" ColumnName="Hovaten" />
+                <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="BatchID" ColumnName="BatchID" />
+                <ScalarProperty Name="NhomMau" ColumnName="NhomMau" />
+                <ScalarProperty Name="Solanhienmau" ColumnName="Solanhienmau" />
+                <ScalarProperty Name="CMND" ColumnName="CMND" />
+                <ScalarProperty Name="gioitinh" ColumnName="gioitinh" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="IdUser" ColumnName="IdUser" />
+                <ScalarProperty Name="CCCD" ColumnName="CCCD" />
+                <ScalarProperty Name="Donvicongtac" ColumnName="Donvicongtac" />
+                <ScalarProperty Name="IDPhuong" ColumnName="IDPhuong" />
+                <ScalarProperty Name="IDQuan" ColumnName="IDQuan" />
+                <ScalarProperty Name="IDTinh" ColumnName="IDTinh" />
+                <ScalarProperty Name="IDQuocGia" ColumnName="IDQuocGia" />
+                <ScalarProperty Name="Nest" ColumnName="Nest" />
+                <ScalarProperty Name="sonha" ColumnName="sonha" />
+                <ScalarProperty Name="duong" ColumnName="duong" />
+                <ScalarProperty Name="truocdayquividatunghienmauchuacau1" ColumnName="truocdayquividatunghienmauchuacau1" />
+                <ScalarProperty Name="tamthankinhcau2" ColumnName="tamthankinhcau2" />
+                <ScalarProperty Name="sutcan4kgcau3" ColumnName="sutcan4kgcau3" />
+                <ScalarProperty Name="noihachkeodaicau4" ColumnName="noihachkeodaicau4" />
+                <ScalarProperty Name="phauthuatcau5" ColumnName="phauthuatcau5" />
+                <ScalarProperty Name="xamminhxolocau6" ColumnName="xamminhxolocau6" />
+                <ScalarProperty Name="duoctruyenmaucau7" ColumnName="duoctruyenmaucau7" />
+                <ScalarProperty Name="sudungmatuycau8" ColumnName="sudungmatuycau8" />
+                <ScalarProperty Name="quanhetinhduccau9" ColumnName="quanhetinhduccau9" />
+                <ScalarProperty Name="quanhetinhducvoinguoidonggioicau10" ColumnName="quanhetinhducvoinguoidonggioicau10" />
+                <ScalarProperty Name="tiemvacxinphongbenhcau11" ColumnName="tiemvacxinphongbenhcau11" />
+                <ScalarProperty Name="songtrongvungcodichluuhanhcau12" ColumnName="songtrongvungcodichluuhanhcau12" />
+                <ScalarProperty Name="bicumhonhucdausotcau13" ColumnName="bicumhonhucdausotcau13" />
+                <ScalarProperty Name="dungthuockhangsinhcau14" ColumnName="dungthuockhangsinhcau14" />
+                <ScalarProperty Name="denkhamsuckhoelamxetnghiemchuarangcau15" ColumnName="denkhamsuckhoelamxetnghiemchuarangcau15" />
+                <ScalarProperty Name="quivihienladoituongtantatcau16" ColumnName="quivihienladoituongtantatcau16" />
+                <ScalarProperty Name="chihiendangnuoiconduoi12thangtuoicau17" ColumnName="chihiendangnuoiconduoi12thangtuoicau17" />
+                <ScalarProperty Name="chidatungcothaihoacsinhconchuacau18" ColumnName="chidatungcothaihoacsinhconchuacau18" />
+                <ScalarProperty Name="ngayhienmaugannhat" ColumnName="ngayhienmaugannhat" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BloodDonation_Detail">
+            <EntityTypeMapping TypeName="BoodDonationAppModel.BloodDonation_Detail">
+              <MappingFragment StoreEntitySet="BloodDonation_Detail">
+                <ScalarProperty Name="Blood_DetalID" ColumnName="Blood_DetalID" />
+                <ScalarProperty Name="BatchID" ColumnName="BatchID" />
+                <ScalarProperty Name="BloodID" ColumnName="BloodID" />
+                <ScalarProperty Name="Thoigianhien" ColumnName="Thoigianhien" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="songaycothehienlai" ColumnName="songaycothehienlai" />
+                <ScalarProperty Name="CMND" ColumnName="CMND" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ketquakhams">
+            <EntityTypeMapping TypeName="BoodDonationAppModel.Ketquakham">
+              <MappingFragment StoreEntitySet="Ketquakham">
+                <ScalarProperty Name="ResultsScreeningID" ColumnName="ResultsScreeningID" />
+                <ScalarProperty Name="KhamsanlocID" ColumnName="KhamsanlocID" />
+                <ScalarProperty Name="BloodID" ColumnName="BloodID" />
+                <ScalarProperty Name="Ngaylaymau" ColumnName="Ngaylaymau" />
+                <ScalarProperty Name="Phanung" ColumnName="Phanung" />
+                <ScalarProperty Name="Matuimau1" ColumnName="Matuimau1" />
+                <ScalarProperty Name="MatuiPooltieucau" ColumnName="MatuiPooltieucau" />
+                <ScalarProperty Name="Maday" ColumnName="Maday" />
+                <ScalarProperty Name="Luongmau" ColumnName="Luongmau" />
+                <ScalarProperty Name="Thetich" ColumnName="Thetich" />
+                <ScalarProperty Name="Xutri" ColumnName="Xutri" />
+                <ScalarProperty Name="MatuiPoolTualanh" ColumnName="MatuiPoolTualanh" />
+                <ScalarProperty Name="MatuiPoolHuyettuong" ColumnName="MatuiPoolHuyettuong" />
+                <ScalarProperty Name="KTVlaymau" ColumnName="KTVlaymau" />
+                <ScalarProperty Name="HBSAG" ColumnName="HBSAG" />
+                <ScalarProperty Name="AntiHCV" ColumnName="AntiHCV" />
+                <ScalarProperty Name="AntiHIV" ColumnName="AntiHIV" />
+                <ScalarProperty Name="AntiHBV" ColumnName="AntiHBV" />
+                <ScalarProperty Name="NATHCV" ColumnName="NATHCV" />
+                <ScalarProperty Name="NATHIV" ColumnName="NATHIV" />
+                <ScalarProperty Name="NATHBV" ColumnName="NATHBV" />
+                <ScalarProperty Name="SLKTBT" ColumnName="SLKTBT" />
+                <ScalarProperty Name="Combstructiep" ColumnName="Combstructiep" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="songaycothehienlai" ColumnName="songaycothehienlai" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Khamsanlocs">
+            <EntityTypeMapping TypeName="BoodDonationAppModel.Khamsanloc">
+              <MappingFragment StoreEntitySet="Khamsanloc">
+                <ScalarProperty Name="KhamsanlocID" ColumnName="KhamsanlocID" />
+                <ScalarProperty Name="BloodID" ColumnName="BloodID" />
+                <ScalarProperty Name="Blood_DetalID" ColumnName="Blood_DetalID" />
+                <ScalarProperty Name="doituonghienmau" ColumnName="doituonghienmau" />
+                <ScalarProperty Name="hinhthuchienmau" ColumnName="hinhthuchienmau" />
+                <ScalarProperty Name="huyetsacto" ColumnName="huyetsacto" />
+                <ScalarProperty Name="tieucau" ColumnName="tieucau" />
+                <ScalarProperty Name="veinkhongdat" ColumnName="veinkhongdat" />
+                <ScalarProperty Name="cannang" ColumnName="cannang" />
+                <ScalarProperty Name="mach" ColumnName="mach" />
+                <ScalarProperty Name="huyetaptamtruong" ColumnName="huyetaptamtruong" />
+                <ScalarProperty Name="huyetaptamthu" ColumnName="huyetaptamthu" />
+                <ScalarProperty Name="tinhtranglamsan" ColumnName="tinhtranglamsan" />
+                <ScalarProperty Name="ketluan" ColumnName="ketluan" />
+                <ScalarProperty Name="Lydo" ColumnName="Lydo" />
+                <ScalarProperty Name="ktvketluan" ColumnName="ktvketluan" />
+                <ScalarProperty Name="HBV" ColumnName="HBV" />
+                <ScalarProperty Name="HCV" ColumnName="HCV" />
+                <ScalarProperty Name="HIV" ColumnName="HIV" />
+                <ScalarProperty Name="Giangmai" ColumnName="Giangmai" />
+                <ScalarProperty Name="HBsAg" ColumnName="HBsAg" />
+                <ScalarProperty Name="huyettuongduc" ColumnName="huyettuongduc" />
+                <ScalarProperty Name="username" ColumnName="username" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Locations">
+            <EntityTypeMapping TypeName="BoodDonationAppModel.Location">
+              <MappingFragment StoreEntitySet="Location">
+                <ScalarProperty Name="idLocaltion" ColumnName="idLocaltion" />
+                <ScalarProperty Name="TenDiachi" ColumnName="TenDiachi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Logs">
+            <EntityTypeMapping TypeName="BoodDonationAppModel.Log">
+              <MappingFragment StoreEntitySet="Log">
+                <ScalarProperty Name="LogID" ColumnName="LogID" />
+                <ScalarProperty Name="Log_Time" ColumnName="Log_Time" />
+                <ScalarProperty Name="BloodID" ColumnName="BloodID" />
+                <ScalarProperty Name="action" ColumnName="action" />
+                <ScalarProperty Name="nguoithaotac" ColumnName="nguoithaotac" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Phuongs">
+            <EntityTypeMapping TypeName="BoodDonationAppModel.Phuong">
+              <MappingFragment StoreEntitySet="Phuong">
+                <ScalarProperty Name="IDPhuong" ColumnName="IDPhuong" />
+                <ScalarProperty Name="IDQuan" ColumnName="IDQuan" />
+                <ScalarProperty Name="IDTinh" ColumnName="IDTinh" />
+                <ScalarProperty Name="MaPhuong" ColumnName="MaPhuong" />
+                <ScalarProperty Name="TenP" ColumnName="TenP" />
+                <ScalarProperty Name="active" ColumnName="active" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Quans">
+            <EntityTypeMapping TypeName="BoodDonationAppModel.Quan">
+              <MappingFragment StoreEntitySet="Quan">
+                <ScalarProperty Name="IDQuan" ColumnName="IDQuan" />
+                <ScalarProperty Name="IDTinh" ColumnName="IDTinh" />
+                <ScalarProperty Name="MaQuan" ColumnName="MaQuan" />
+                <ScalarProperty Name="TenQ" ColumnName="TenQ" />
+                <ScalarProperty Name="ACTIVE" ColumnName="ACTIVE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="QuocGias">
+            <EntityTypeMapping TypeName="BoodDonationAppModel.QuocGia">
+              <MappingFragment StoreEntitySet="QuocGia">
+                <ScalarProperty Name="IDQuocGia" ColumnName="IDQuocGia" />
+                <ScalarProperty Name="MaQG" ColumnName="MaQG" />
+                <ScalarProperty Name="TenQG" ColumnName="TenQG" />
+                <ScalarProperty Name="active" ColumnName="active" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Roles">
+            <EntityTypeMapping TypeName="BoodDonationAppModel.Role">
+              <MappingFragment StoreEntitySet="Role">
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+                <ScalarProperty Name="NameRole" ColumnName="NameRole" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="BoodDonationAppModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tinhs">
+            <EntityTypeMapping TypeName="BoodDonationAppModel.Tinh">
+              <MappingFragment StoreEntitySet="Tinh">
+                <ScalarProperty Name="IDTinh" ColumnName="IDTinh" />
+                <ScalarProperty Name="MaT" ColumnName="MaT" />
+                <ScalarProperty Name="TenT" ColumnName="TenT" />
+                <ScalarProperty Name="ACTIVE" ColumnName="ACTIVE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="BoodDonationAppModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="IdUser" ColumnName="IdUser" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

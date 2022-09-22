@@ -61,8 +61,8 @@ namespace BoolDonationApp.Controllers
                                   IsActive = bo.IsActive,
                                   BatchName = bat.BatchName,
                                   Thoigianhien = bat.Thoigianhien,
-                                  Thoigianketthuc = bat.Thoigianketthuc
-
+                                  Thoigianketthuc = bat.Thoigianketthuc,
+                                  BatchID=bat.BatchID
                               });
 
 
@@ -187,7 +187,7 @@ namespace BoolDonationApp.Controllers
 
 
         [HttpPost]
-        public ActionResult FormHienMau(BloodDonation dbBlood, string Gioitinhform, Batch bats)
+        public ActionResult FormHienMau(BloodDonation dbBlood, string Gioitinhform, Batch bats, BloodDonation_Detail dbbloodDetail)
         {
             var truecau1 = Request.Form["cau1true"];
             var falsecau1 = Request.Form["cau1false"];
@@ -236,9 +236,9 @@ namespace BoolDonationApp.Controllers
             ViewBag.ListOfTinh = new SelectList(listTinh, "IDTinh", "TenT");
             ViewBag.ListOfQuocGia = new SelectList(listQuocGia, "IDQuocGia", "TenQG");
 
-            //try
-            //{
-            var result = (from bo in db.BloodDonations
+            try
+            {
+                var result = (from bo in db.BloodDonations
                           join us in db.Users
                           on bo.IdUser equals us.IdUser
                           join bat in db.Batches
@@ -268,9 +268,9 @@ namespace BoolDonationApp.Controllers
             SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["hienmauConnectionString"].ConnectionString);//conect DB
             con.Open();
             int soluongdemfinish = 0;
-            int soluongfinish = 0;
+            
 
-            string sqlsoluongdem = "select Soluongdem from Batch where BatchID= '" + dbBlood.BatchID + "' ";
+            string sqlsoluongdem = "select Soluongdukien from Batch where BatchID= '" + dbBlood.BatchID + "' ";
 
             SqlCommand cmdsoluongdem = new SqlCommand(sqlsoluongdem, con);//connect
 
@@ -287,7 +287,7 @@ namespace BoolDonationApp.Controllers
             cmdsoluongdem.Dispose(); cmdsoluongdem.Clone();
 
             var list = db.BloodDonations.ToList();
-            if (list.Any(m => m.BatchID == dbBlood.BatchID) && result >= soluongfinish)
+            if (list.Any(m => m.BatchID == dbBlood.BatchID) && result >= soluongdemfinish)
             {
 
                 ViewBag.Danger = "Đợt hiến máu đã đủ vui lòng chọn đợt hiến khác";
@@ -303,20 +303,11 @@ namespace BoolDonationApp.Controllers
                     ViewBag.Danger = "Tài khoản đã tồn tại hoặc  vui lòng chọn đợt khác";
                     return View(dbBlood);
                 }
-                if (list.Any(m => m.BatchID == dbBlood.BatchID) && result >= soluongfinish)
-                {
-
-                    ViewBag.Danger = "Đợt hiến máu đã đủ vui lòng chọn đợt hiến khác";
-                    return View(dbBlood);
-                }
+               
 
             }
             BloodDonation BD = new BloodDonation();
             BD.Hovaten = dbBlood.Hovaten;
-            //CultureInfo culture = new CultureInfo("es-ES");
-
-            //DateTime startTime = DateTime.Parse(dbBlood.NgaySinh.ToString(), culture);
-
             DateTime startTime = DateTime.Parse(dbBlood.NgaySinh.ToString());
             DateTime endTime = DateTime.Today;
             TimeSpan timespan = endTime.Subtract(startTime);
@@ -372,6 +363,20 @@ namespace BoolDonationApp.Controllers
 
             dr.Dispose(); dr.Close();
             cmd.Dispose(); cmd.Clone();
+
+
+            SqlCommand cmdthoigianhien = new SqlCommand(sqls, con);
+            SqlDataReader drthoigianhien = cmd.ExecuteReader();
+            while (drthoigianhien.Read())
+            {
+                thoigianhiens = drthoigianhien.GetDateTime(0);//đọc từng dòng vị trí thứ 0
+
+            }
+
+            drthoigianhien.Dispose(); drthoigianhien.Close();
+            cmdthoigianhien.Dispose(); cmdthoigianhien.Clone();
+
+
             SqlCommand cmdtenphuong = new SqlCommand(tenphuong, con);
             SqlDataReader drtenphuong = cmdtenphuong.ExecuteReader();
             while (drtenphuong.Read())
@@ -381,6 +386,8 @@ namespace BoolDonationApp.Controllers
             }
             drtenphuong.Dispose(); drtenphuong.Close();
             cmdtenphuong.Dispose(); cmdtenphuong.Clone();
+
+
             SqlCommand cmdtinh = new SqlCommand(tentinh, con);
             SqlDataReader drtentinh = cmdtinh.ExecuteReader();
             while (drtentinh.Read())
@@ -390,6 +397,8 @@ namespace BoolDonationApp.Controllers
             }
             drtentinh.Dispose(); drtentinh.Close();
             cmdtinh.Dispose(); cmdtinh.Clone();
+
+
             SqlCommand cmdtenquan = new SqlCommand(tenquan, con);
             SqlDataReader drtenquan = cmdtenquan.ExecuteReader();
             while (drtenquan.Read())
@@ -422,7 +431,15 @@ namespace BoolDonationApp.Controllers
             BD.IsActive = 1;
             BD.Solanhienmau = 0;
             BD.IdUser = 1;
-
+            BloodDonation_Detail bldt = new BloodDonation_Detail();
+          
+            bldt.BatchID = dbBlood.BatchID;
+            bldt.CMND = dbBlood.CMND;
+            bldt.Thoigianhien = thoigianhiens;
+            db.BloodDonation_Detail.Add(bldt);
+            db.SaveChanges();
+                Session["BloodID"] = dbBlood.BloodID;
+                Session["BatchID"] = dbBlood.BatchID;
             if (truecau1 != null)
             {
                 BD.truocdayquividatunghienmauchuacau1 = true;
@@ -697,12 +714,12 @@ namespace BoolDonationApp.Controllers
             return (RedirectToAction("Qrcode", "Home", new { codecheck = codecheck }));
 
 
-            //}
-            //catch
-            //{
-            //    return View(dbBlood);
-            //}
         }
+            catch
+            {
+                return View(dbBlood);
+    }
+}
 
         [HttpGet]
         public ActionResult Qrcode(string codecheck)
@@ -729,43 +746,50 @@ namespace BoolDonationApp.Controllers
             return View(db.BloodDonations.Where(x => x.BloodID == id).FirstOrDefault());
         }
         [HttpGet]
-        public ActionResult Khamsanloc(int id, string Hovaten, string CMND)
+        public ActionResult Khamsanloc(int id, int idBatch, string CMND)
         {
-            var result = (from bo in db.BloodDonations
-                          join us in db.Users
-                          on bo.IdUser equals us.IdUser
-                          join bat in db.Batches
-                          on bo.BatchID equals bat.BatchID
+           
+                var result = (from bo in db.BloodDonations
+                              join us in db.Users
+                              on bo.IdUser equals us.IdUser
+                              join bat in db.Batches
+                              on bo.BatchID equals bat.BatchID
+                              select new connectBoodandUserbatch
+                              {
+                                  BloodID = bo.BloodID,
+                                  IdUser = us.IdUser,
+                                  Hovaten = bo.Hovaten,
+                                  NgaySinh = bo.NgaySinh,
+                                  Phone = bo.Phone,
+                                  DiaChi = bo.DiaChi,
+                                  Email = bo.Email,
+                                  UserName = us.UserName,
+                                  NhomMau = bo.NhomMau,
+                                  Solanhienmau = bo.Solanhienmau,
+                                  CMND = bo.CMND,
+                                  gioitinh = bo.gioitinh,
+                                  IsActive = bo.IsActive,
+                                  BatchName = bat.BatchName,
+                                  Thoigianhien = bat.Thoigianhien,
+                                  Thoigianketthuc = bat.Thoigianketthuc
 
+                              });
+            ViewBag.datimeBlood = db.BloodDonation_Detail.Where(x => x.BatchID == idBatch && x.CMND == CMND).ToList();
 
-                          select new connectBoodandUserbatch
-                          {
-                              BloodID = bo.BloodID,
-                              IdUser = us.IdUser,
-                              Hovaten = bo.Hovaten,
-                              NgaySinh = bo.NgaySinh,
-                              Phone = bo.Phone,
-                              DiaChi = bo.DiaChi,
-                              Email = bo.Email,
-                              UserName = us.UserName,
-                              NhomMau = bo.NhomMau,
-                              Solanhienmau = bo.Solanhienmau,
-                              CMND = bo.CMND,
-                              gioitinh = bo.gioitinh,
-                              IsActive = bo.IsActive,
-                              BatchName = bat.BatchName,
-                              Thoigianhien = bat.Thoigianhien,
-                              Thoigianketthuc = bat.Thoigianketthuc
-
-                          });
-
-
-            ViewBag.datimeBlood = result.Where(x => x.Hovaten == Hovaten && x.CMND == CMND).ToList();
+            var locationResult = (from bat in db.Batches
+                                  join lo in db.Locations
+                                  on bat.idLocaltion equals lo.idLocaltion
+                                  select new conectbatchLocaltion
+                                  {
+                                      BatchID=bat.BatchID,
+                                      TenDiachi = lo.TenDiachi
+                                  });
+            ViewBag.BloodLocation = locationResult.Where(x => x.BatchID == idBatch).ToList();
 
             return View(result.Where(x => x.BloodID == id).FirstOrDefault());
         }
         [HttpPost]
-        public ActionResult Khamsanloc(string Doituongform, string Hinhthucform, int huyetsacto, int tieucau, bool veinkhongdat, string Hsabgform, int cannang)
+        public ActionResult Khamsanloc(string Doituongform, string Hinhthucform, int? huyetsacto, int? tieucau, bool? veinkhongdat, string Hsabgform, int? cannang ,string ketluan)
         {
             var asdasd = "";
             return View();
