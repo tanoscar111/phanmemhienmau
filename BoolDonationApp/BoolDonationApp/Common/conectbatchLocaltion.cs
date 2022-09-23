@@ -31,6 +31,7 @@ namespace BoolDonationApp.Common
         public Nullable<int> Soluongdukien { get; set; }
         public Nullable<int> Soluongdem { get; set; }
         public Nullable<int> idLocaltion { get; set; }
+        public string CMND { get; set; }
         public string TenDiachi { get; set; }
 
     }

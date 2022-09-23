@@ -1,0 +1,60 @@
+﻿@model IEnumerable<BoolDonationApp.Common.conectbatchLocaltion>
+
+@{
+    ViewBag.Title = "Dotkham";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
+<style>
+    p {
+        margin-bottom: 0px;
+    }
+
+    .blockitem {
+        margin-top: 20px;
+    }
+</style>
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-md-4">
+            <div style="background-color: #f7f8fc; border-radius: 32px;padding:15px;">
+                <div style="display:flex;align-items:center">
+                    <div style="background-color: #479d90;width:70px; height:70px; border-radius: 20px; padding: 15px; justify-content:center;display:flex;align-items:center">
+                        <img src="~/Content/Images/m2i8d3Z5K9m2A0G6.png" style="width:60%" />
+
+                    </div>
+                    <p style="font-size: 23px; font-weight: bold; text-transform: capitalize; padding-left: 50px; margin-bottom: 0px;">Đợt hiến máu</p>
+                </div>
+                <div class="blockitem" style="display: flex; align-items: center">
+                    <i class="fa-solid fa-location-dot" style="color: #479d90;padding-right:10px"></i>
+                    <p> @item.TenDiachi</p>
+
+                </div>
+                <div style="display:flex;align-items:center" class="blockitem">
+                    <div style="display:flex;align-items:center">
+                        <i class="fa-solid fa-briefcase" style="color: #479d90;padding-right:10px"></i>
+
+                        @Html.DisplayFor(modelItem => item.Thoigianhien, "{0:dd/MM/yyyy}")
+                    </div>
+                    <div style="display: flex; align-items: center; margin-left:50px">
+                        <i class="fa-sharp fa-solid fa-business-time" style="color: #479d90;padding-right:10px"></i>
+                        <div style="display:flex">
+                            <p>@Html.DisplayFor(modelItem => item.Thoigianbatdau, "{0:HH:mm}")</p>
+                            <p>-</p>
+                            <p> @Html.DisplayFor(modelItem => item.Thoigianketthuc, "{0:HH:mm}")</p>
+
+
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+
+    }
+</div>

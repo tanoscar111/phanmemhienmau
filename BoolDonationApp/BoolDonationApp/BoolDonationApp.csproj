@@ -259,6 +259,7 @@
     <Content Include="Content\Images\logo-lg.png" />
     <Content Include="Content\Images\logo-mb.png" />
     <Content Include="Content\Images\Lovepik_com-401398803-world-blood-donation-day-vector-blood-bag.png" />
+    <Content Include="Content\Images\m2i8d3Z5K9m2A0G6.png" />
     <Content Include="Content\Images\printer.png" />
     <Content Include="Content\Images\sneaker.jpg" />
     <Content Include="Content\Images\thumb-7.jpg" />
@@ -412,6 +413,7 @@
     <Content Include="Views\Locations\Index.cshtml" />
     <Content Include="Views\Locations\Create.cshtml" />
     <Content Include="Views\Batch\ListBatch.cshtml" />
+    <Content Include="Views\Home\Dotkham.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

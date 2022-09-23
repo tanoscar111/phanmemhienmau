@@ -239,8 +239,10 @@
                 <a class="font-color-blue" href="/Home/Edit/@item.BloodID" title="Sửa và xác nhận hiến"><i class="fa-solid fa-pen"></i></a>
                 <a class="font-color-blue" href="/Home/Details/@item.BloodID" title="In phiêu"><i class="fa-solid fa-print"></i></a>
                 @Html.ActionLink("khám sàn lọc",
-                 "Khamsanloc",
-                  new { id = item.BloodID, idBatch = item.BatchID, CMND = item.CMND })
+                 "Dotkham",
+
+                  new {  CMND = item.CMND })  
+            <a class="font-color-blue" href="/BatchDetail/Index/@item.CMND" title="đợt hiến máu">Đợt hiến máu</a>
                 @*<a class="font-color-blue" href="/Home/Khamsanloc/@item.BloodID&&@item.Hovaten&&@item.CMND" title="Khám sàn lọc"><i class="fa-solid fa-print"></i></a>*@
                 <a id="btnDelete" style="color: #007bff !important; cursor:pointer" class="font-color-blue" title="Xóa" t data-toggle="modal"
                    data-target="#DeleteModal-@item.BloodID"><i class="fa-solid fa-trash-can"></i> </a>
