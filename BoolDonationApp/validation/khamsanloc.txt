@@ -1,0 +1,25 @@
+public int KhamsanlocID { get; set; }
+        public Nullable<int> BloodID { get; set; }
+        public Nullable<int> BatchID { get; set; }
+        public Nullable<int> Blood_DetalID { get; set; }
+        public string doituonghienmau { get; set; }
+        public string hinhthuchienmau { get; set; }
+        [Required(ErrorMessage = "Vui lòng nhập huyết sắc tố")]
+        public Nullable<int> huyetsacto { get; set; }
+        [Required(ErrorMessage = "Vui lòng nhập tiểu cầu")]
+        public Nullable<int> tieucau { get; set; }
+        public Nullable<bool> veinkhongdat { get; set; }
+        [Required(ErrorMessage = "Vui lòng nhập cân nặng")]
+        public Nullable<int> cannang { get; set; }
+        [Required(ErrorMessage = "Vui lòng nhập mạch")]
+        public Nullable<int> mach { get; set; }
+        [Required(ErrorMessage = "Vui lòng nhập huyết huyết tâm trương")]
+        public Nullable<int> huyetaptamtruong { get; set; }
+        [Required(ErrorMessage = "Vui lòng nhập huyết tâm thu")]
+        public Nullable<int> huyetaptamthu { get; set; }
+        [Required(ErrorMessage = "Vui lòng nhập tình trạng lâm sàng")]
+        public string tinhtranglamsan { get; set; }
+        public string ketluan { get; set; }
+        public string Lydo { get; set; }
+        [Required(ErrorMessage = "Vui lòng nhập kỹ thuật viên kết luận")]
+        public string ktvketluan { get; set; }

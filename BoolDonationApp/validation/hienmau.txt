@@ -1,4 +1,4 @@
-  public int BloodID { get; set; }
+public int BloodID { get; set; }
         [Display(Name = "Họ và Tên")]
         [Required(ErrorMessage = "Vui lòng nhập Họ và Tên")]
         public string Hovaten { get; set; }

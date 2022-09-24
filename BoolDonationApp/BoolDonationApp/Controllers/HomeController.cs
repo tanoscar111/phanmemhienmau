@@ -292,7 +292,7 @@ namespace BoolDonationApp.Controllers
                     thoigianhiens = drthoigianhien.GetDateTime(0);//đọc từng dòng vị trí thứ 0
 
                 }
-                 drthoigianhien.Dispose(); drthoigianhien.Close();
+                drthoigianhien.Dispose(); drthoigianhien.Close();
                 cmdthoigianhien.Dispose(); cmdthoigianhien.Clone();
 
 
@@ -314,7 +314,7 @@ namespace BoolDonationApp.Controllers
                         ViewBag.Danger = "Tài khoản đã tồn tại hoặc  vui lòng chọn đợt khác";
                         return View(dbBlood);
                     }
-                    else if(list.Any(m => m.CMND == dbBlood.CMND))
+                    else if (list.Any(m => m.CMND == dbBlood.CMND))
                     {
                         bldt.BatchID = dbBlood.BatchID;
                         bldt.CMND = dbBlood.CMND;
@@ -442,7 +442,7 @@ namespace BoolDonationApp.Controllers
                 BD.IsActive = 1;
                 BD.Solanhienmau = 0;
                 BD.IdUser = 1;
-               
+
 
                 if (truecau1 != null)
                 {
@@ -750,13 +750,13 @@ namespace BoolDonationApp.Controllers
             return View(db.BloodDonations.Where(x => x.BloodID == id).FirstOrDefault());
         }
         [HttpGet]
-        public ActionResult Dotkham(string CMND,int BloodID)
+        public ActionResult Dotkham(string CMND, int BloodID)
         {
-           
+
             var locationResult = (from bat in db.Batches
                                   join lo in db.Locations on bat.idLocaltion equals lo.idLocaltion
                                   join bats in db.BloodDonation_Detail on bat.BatchID equals bats.BatchID
-                                  
+
                                   select new conectbatchLocaltion
                                   {
                                       BatchID = bat.BatchID,
@@ -766,9 +766,9 @@ namespace BoolDonationApp.Controllers
                                       Thoigianketthuc = bat.Thoigianketthuc,
                                       Thoigianhien = bat.Thoigianhien,
                                       CMND = bats.CMND,
-                                      BloodID=bats.BloodID
+                                      BloodID = bats.BloodID
                                   });
-           
+
 
 
             SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["hienmauConnectionString"].ConnectionString);//conect DB
@@ -785,7 +785,7 @@ namespace BoolDonationApp.Controllers
 
             drsoluongdem.Dispose(); drsoluongdem.Close();
             cmdCMND.Dispose(); cmdCMND.Clone();
-           
+
             var col1 = db.BloodDonation_Detail.Where(w => w.CMND == CMND);
             foreach (var item in col1)
             {
@@ -796,12 +796,128 @@ namespace BoolDonationApp.Controllers
             return View(location);
         }
         [HttpGet]
-        public ActionResult Khamtheodot( string CMND ,int BloodID, int BatchID)
+        public ActionResult Khamtheodot(string CMND, int BloodID, int BatchID, string local)
         {
-            var ass = "";
+            var result = (from bo in db.BloodDonations
+                          join us in db.Users
+                          on bo.IdUser equals us.IdUser
+                          join bat in db.Batches
+                          on bo.BatchID equals bat.BatchID
+                          select new connectBoodandUserbatch
+                          {
+                              BloodID = bo.BloodID,
+                              IdUser = us.IdUser,
+                              Hovaten = bo.Hovaten,
+                              NgaySinh = bo.NgaySinh,
+                              Phone = bo.Phone,
+                              DiaChi = bo.DiaChi,
+                              Email = bo.Email,
+                              UserName = us.UserName,
+                              NhomMau = bo.NhomMau,
+                              Solanhienmau = bo.Solanhienmau,
+                              CMND = bo.CMND,
+                              gioitinh = bo.gioitinh,
+                              IsActive = bo.IsActive,
+                              BatchName = bat.BatchName,
+                              Thoigianhien = bat.Thoigianhien,
+                              Thoigianketthuc = bat.Thoigianketthuc
+
+                          });
+            ViewBag.Blood = result.Where(x => x.BloodID == BloodID).ToList();
+            //get 1 value of coluum in table
+
+            ViewBag.BloodLocation = local;
+            return View(db.Khamsanlocs.Where(s => s.BatchID == BatchID && s.BloodID == BloodID).FirstOrDefault());
+
+        }
+        [HttpPost]
+        public ActionResult Khamtheodot(int BatchID, Khamsanloc klss, string CMND, string local, int BloodID, string Doituongform, string Hinhthucform, int? huyetsacto, int? tieucau, string luongmau350, string luongmau250, string veinkhongdat, string huyettuongdung, string Hsabgform, int? cannang, string ketluan, string lido)
+        {
+            var result = (from bo in db.BloodDonations
+                          join us in db.Users
+                          on bo.IdUser equals us.IdUser
+                          join bat in db.Batches
+                          on bo.BatchID equals bat.BatchID
+                          select new connectBoodandUserbatch
+                          {
+                              BloodID = bo.BloodID,
+                              IdUser = us.IdUser,
+                              Hovaten = bo.Hovaten,
+                              NgaySinh = bo.NgaySinh,
+                              Phone = bo.Phone,
+                              DiaChi = bo.DiaChi,
+                              Email = bo.Email,
+                              UserName = us.UserName,
+                              NhomMau = bo.NhomMau,
+                              Solanhienmau = bo.Solanhienmau,
+                              CMND = bo.CMND,
+                              gioitinh = bo.gioitinh,
+                              IsActive = bo.IsActive,
+                              BatchName = bat.BatchName,
+                              Thoigianhien = bat.Thoigianhien,
+                              Thoigianketthuc = bat.Thoigianketthuc
+
+                          });
+            ViewBag.Blood = result.Where(x => x.BloodID == BloodID).ToList();
+            //get 1 value of coluum in table
+
+            ViewBag.BloodLocation = local;
+            Khamsanloc ksl = new Khamsanloc();
+            var Blood_DetalID = db.BloodDonation_Detail.Where(p => p.BloodID == BloodID && p.BatchID == BatchID).Select(p => p.Blood_DetalID).FirstOrDefault();
+            ksl.Blood_DetalID = Blood_DetalID;
+            if(Doituongform==null)
+            {
+                ViewBag.doituong = "Vui lòng chọn đối tượng hiến máu";
+            }
+            if(luongmau250 ==null || luongmau350 == null)
+            {
+                ViewBag.luongmau = "Vui lòng chọn lượng máu cần hiến";
+            }
+            ksl.doituonghienmau = Doituongform;
+
+            ksl.hinhthuchienmau = Hinhthucform;
+            if (Hinhthucform == "Toàn phần")
+            {
+                if (luongmau350 == "on")
+                {
+                    ksl.Luongmau = 350;
+                }
+                else if (luongmau250 == "on")
+                {
+                    if (Hinhthucform == "Toàn phần")
+                    {
+                        ksl.Luongmau = 250;
+                    }
+                }
+                else
+                {
+                    ksl.Luongmau = 0;
+                }
+
+            }
+            else
+            {
+                ViewBag.Danger = "Vui lòng chọn hình thức hiến máu";
+                return View(klss);
+            }
+
+            ksl.huyetsacto = huyetsacto;
+            ksl.tieucau = tieucau;
+            if (veinkhongdat == "on")
+            {
+                ksl.veinkhongdat = true;
+                ksl.ketluan = ketluan;
+            }
+            if (huyettuongdung == "on")
+            {
+                ksl.huyettuongduc = true;
+
+                ksl.ketluan = ketluan;
+            }
+            ksl.HBsAg = Hsabgform;
+
             return View();
         }
-
         [HttpGet]
         public ActionResult Khamsanloc(int id, int idBatch, string CMND)
         {
@@ -831,17 +947,9 @@ namespace BoolDonationApp.Controllers
                               Thoigianketthuc = bat.Thoigianketthuc
 
                           });
-            ViewBag.datimeBlood = db.BloodDonation_Detail.Where(x => x.BatchID == idBatch && x.CMND == CMND).ToList();
 
-            var locationResult = (from bat in db.Batches
-                                  join lo in db.Locations
-                                  on bat.idLocaltion equals lo.idLocaltion
-                                  select new conectbatchLocaltion
-                                  {
-                                      BatchID = bat.BatchID,
-                                      TenDiachi = lo.TenDiachi
-                                  });
-            ViewBag.BloodLocation = locationResult.Where(x => x.BatchID == idBatch).ToList();
+
+
             Session["BloodID"] = id;
             Session["BatchID"] = idBatch;
             Session["cmnd"] = CMND;
@@ -930,7 +1038,7 @@ namespace BoolDonationApp.Controllers
             }
         }
 
-        // POST: ErrorsProduct/Edit/5
+
         [HttpPost]
         public ActionResult Edit(int id, BloodDonation dbBlood, Log log, string Gioitinhform)
         {
@@ -977,8 +1085,8 @@ namespace BoolDonationApp.Controllers
 
 
         }
-        
-     
+
+
         [HttpGet]
         public ActionResult history()
         {

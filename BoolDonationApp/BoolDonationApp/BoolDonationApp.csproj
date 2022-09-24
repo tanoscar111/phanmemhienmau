@@ -414,6 +414,7 @@
     <Content Include="Views\Locations\Create.cshtml" />
     <Content Include="Views\Batch\ListBatch.cshtml" />
     <Content Include="Views\Home\Dotkham.cshtml" />
+    <Content Include="Views\Home\Khamtheodot.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

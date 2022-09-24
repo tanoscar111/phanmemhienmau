@@ -1,0 +1,786 @@
+﻿@model BoolDonationApp.Models.Khamsanloc
+
+@{
+    ViewBag.Title = "Khamtheodot";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="~/Content/FormBool.css" rel="stylesheet" />
+    <link href="~/Content/buttons.css" rel="stylesheet" />
+    <style>
+        .table-hover {
+            cursor: pointer;
+        }
+
+        th, td {
+            text-align: center;
+        }
+
+        td {
+            background: #bbbbbb;
+        }
+
+        .table-bordered > tbody > tr > td, .table-bordered > tbody > tr > th, .table-bordered > tfoot > tr > td, .table-bordered > tfoot > tr > th, .table-bordered > thead > tr > td, .table-bordered > thead > tr > th {
+            border: 1px solid red;
+        }
+
+        input[type=text] {
+            text-align: center
+        }
+    </style>
+}
+<table class="table table-sm table-bordered  ">
+    <thead>
+        <tr>
+            <th>Họ và tên</th>
+            <th>Ngày sinh</th>
+            <th>Giới tính</th>
+            <th>Số điện thoại</th>
+            <th>Số CMND</th>
+            <th>Nhóm máu</th>
+            <th>Số lần HM</th>
+            <th>Ngày hiến máu</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (BoolDonationApp.Common.connectBoodandUserbatch bloodDonation in ViewBag.Blood)
+        {
+            <tr>
+                <td>@bloodDonation.Hovaten</td>
+                <td>@Convert.ToDateTime(bloodDonation.NgaySinh).ToString("dd/MM/yyyy")</td>
+
+                @if (@bloodDonation.gioitinh == 0)
+                {
+                    <td>Nữ</td>
+                }
+                else
+                {
+                    <td>Nam</td>
+                }
+
+                <td>@bloodDonation.Phone</td>
+                <td>@bloodDonation.CMND</td>
+                <td>@bloodDonation.NhomMau</td>
+                <td>@bloodDonation.Solanhienmau</td>
+                <td>@Convert.ToDateTime(bloodDonation.Thoigianhien).ToString("dd/MM/yyyy")</td>
+
+            </tr>
+
+        }
+
+    </tbody>
+</table>
+
+@using (Html.BeginForm())
+{
+
+    @Html.AntiForgeryToken()
+    <div class="d-flex">
+
+        <div class="col-md-6" style="border: 1px solid rgb(0 0 0 / 15%);padding:10px">
+            <div class="d-flex" style="justify-content:space-between; align-items:center">
+                @foreach (BoolDonationApp.Common.connectBoodandUserbatch bloodDonation in ViewBag.Blood)
+                {
+                    <div class="d-flex" style="justify-content:center;align-items:center">
+                        <p style="margin-bottom:0 !important;margin-right:10px">Ngày</p>
+                        <div><input value="@Convert.ToDateTime(bloodDonation.Thoigianhien).ToString("dd/MM/yyyy")" style="width:100%" class="form-control" , disabled="disabled" /></div>
+
+                    </div>
+                    <div class="d-flex" style="align-items:center">
+                        <p style="margin-bottom: 0 !important; margin-right: 10px ">Số lần hiến máu</p>
+                        <div><input value="@bloodDonation.Solanhienmau" style="width:50px" class="form-control" , disabled="disabled" /></div>
+                    </div>
+                }
+            </div>
+
+            <div class="d-flex" style="align-items:center ;margin-top:15px">
+                <p style="margin-bottom: 0 !important; padding-left: 0px !important; padding-right: 0px!important; " class="col-md-2">Đối tượng:</p>
+                <div class="col-md-10" style="margin-bottom: 0 !important; padding-right: 0px !important; padding-left: 0px !important;">
+                    <select class="form-control" aria-label="Default select example" name="Doituongform">
+                        <option disabled selected>Hình thức hiến máu</option>
+                        <option value="Tình nguyện">Tình nguyện</option>
+                        <option value="Chuyên nghiệp">Chuyên nghiệp</option>
+                        <option value="Người nhà cho máu tình nguyện">Người nhà cho máu tình nguyện</option>
+                        <option value="Người nhà cho máu chuyên nghiệp">Người nhà cho máu chuyên nghiệp</option>
+                        <option value="Khám sức khỏe">Khám sức khỏe</option>
+                    </select>
+                </div>
+            </div>
+            <div class="d-flex" style="align-items:center ;margin-top:15px">
+                <p style="margin-bottom: 0 !important; padding-left: 0px !important; padding-right: 0px!important; " class="col-md-4">Hình thức hiến máu :</p>
+                <div class="col-md-8" style="margin-bottom: 0 !important; padding-right: 0px !important; padding-left: 0px !important;">
+                    <select id="test" class="form-control hinhthuc" aria-label="Default select example" name="Hinhthucform" onchange="showDiv()">
+                        <option disabled selected>Hình thức hiến máu</option>
+                        <option value="Toàn phần">Toàn phần</option>
+                        <option value="Gạn tiểu cầu">Gạn tiểu cầu</option>
+                    </select>
+                </div>
+            </div>
+            <div class="d-flex" style="align-items:center ;margin-top:15px">
+                <p style="margin-bottom: 0 !important; padding-left: 0px !important; padding-right: 0px!important; " class="col-md-4">Điểm hiến máu :</p>
+                <div class="col-md-8" style="margin-bottom: 0 !important; padding-right: 0px !important; padding-left: 0px !important;">
+
+                    <p style="margin-bottom:0 !important;font-weight:bold">@ViewBag.BloodLocation</p>
+
+
+                </div>
+            </div>
+            <div id="hidden" style="display:none ">
+                <b>Lượng máu:</b>
+                <div style=" border: 1px solid rgb(0 0 0 / 15%); padding: 15px 10px;margin-top:10px">
+                    <div class="d-flex" style="padding-left: 0px!important;padding-right: 0px !important; align-items:center;justify-content:center">
+
+
+                        <div class="col-md-3" style="padding-left: 0px!important;padding-right: 0px !important;">
+                            <input type="checkbox" class="form-check-input" id="luongmau350" name="luongmau350" style=" margin-left: 7px;">
+                            <p class="form-check-label" for="exampleCheck1" style=" margin-left: 24px;">350ml</p>
+                        </div>
+                        <div class="col-md-3" style="padding-left: 0px!important;padding-right: 0px !important;">
+                            <input type="checkbox" class="form-check-input" id="luongmau250" name="luongmau250" style=" margin-left: 7px;">
+                            <p class="form-check-label" for="exampleCheck1" style=" margin-left: 24px;">250ml</p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <b>Xét nghiệm trước:</b>
+            <div style="border: 1px solid rgb(0 0 0 / 15%); padding: 15px 10px; ">
+                <div class="col-md-12 d-flex" style="padding-left: 0px!important;padding-right: 0px !important; align-items:center">
+                    <div class="col-md-3" style="padding-left: 0px!important;padding-right: 0px !important;">
+                        <div class="d-flex" style="justify-content:center;align-items:center">
+                            <p style="margin-bottom: 0 !important; margin-right: 10px; width: 100px; font-size:12px">HST</p>
+                            @*<input type="number" class="form-control" name="huyetsacto" id="huyetsacto" onchange="showErorrhst()">*@
+                            @Html.EditorFor(model => model.huyetsacto, new { htmlAttributes = new { @class = "form-control", onchange = "showErorrhst()", id = "huyetsacto" } })
+
+
+                        </div>
+                        <div>@Html.ValidationMessageFor(model => model.huyetsacto, "", new { @class = "text-danger" })</div>
+                        <div id="huuyetsac" style="display: none; ">
+
+                            <p class="text-danger">Huyết sắc tố không đạt</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3" style="padding-left: 0px!important;padding-right: 0px !important;">
+                        <div class="d-flex" style="justify-content:center;align-items:center">
+                            <p style="margin-bottom: 0 !important; margin-right: 10px; width: 157px; padding-left: 10px; font-size: 12px ">Tiểu cầu</p>
+                            @Html.EditorFor(model => model.tieucau, new { htmlAttributes = new { @class = "form-control", id = "tieucau" ,onchange = "showErorrtieucau()" } })
+                            @*<input type="number" class="form-control" name="tieucau" id="tieucau" onchange="showErorrtieucau()">*@
+
+                        </div>
+                        <div>@Html.ValidationMessageFor(model => model.tieucau, "", new { @class = "text-danger" })</div>
+                        <div id="tieucauerr" style="display: none; ">
+                            <p class="text-danger">Tiểu cầu không đạt</p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3" style=" padding-right: 0px; padding-left: 6px;">
+                        <input type="checkbox" onchange="Vienkhongdat(event)" class="form-check-input" name="veinkhongdat" id="veinkhongdat" style=" margin-left: 7px;">
+                        <p class="form-check-label" for="exampleCheck1" style=" margin-left: 24px; font-size:12px">Vein không Đạt</p>
+                    </div>
+                    <div class="col-md-3" style=" padding-right: 0px; padding-left: 6px;">
+                        <input type="checkbox" onchange="Huyettuongduc(event)" class="form-check-input" name="huyettuongdung" id="huyettuongduc" style=" margin-left: 7px;">
+                        <p class="form-check-label" for="exampleCheck1" style=" margin-left: 24px; font-size: 12px">Huyết tương đục</p>
+                    </div>
+
+                </div>
+                <div class="d-flex " style="align-items:center">
+                    <div class="d-flex col-mod-6" style="align-items:center;margin-top: 0px;padding-left: 0px;padding-right: 0px;margin-bottom: 0px;">
+                        <p style="margin-bottom: 0 !important; padding-left: 0px !important; padding-right: 0px!important; " class="col-md-4">HBsAG :</p>
+                        <div class="col-md-8" style="margin-bottom: 0 !important; padding-right: 0px !important; padding-left: 0px !important;">
+                            <select id="hsbg" class="form-control" aria-label="Default select example" name="Hsabgform" onchange="hsbgform()">
+
+                                <option selected value="Âm tính">Âm Tính</option>
+                                <option value="Dương Tính">Dương Tính</option>
+
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-mod-6" style="  margin-bottom: 0px;">
+                        <input type='text' id='id1' disabled />
+                    </div>
+                </div>
+            </div>
+            <div id="hidden_div" style="display: none; border: 1px solid rgb(0 0 0 / 15%); padding: 15px 10px;margin-top:10px">
+                <div class="d-flex" style="padding-left: 0px!important;padding-right: 0px !important; align-items:center">
+                    <div class="col-md-3" style="padding-left: 0px!important;padding-right: 0px !important;">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1" style=" margin-left: 7px;">
+                        <p class="form-check-label" for="exampleCheck1" style=" margin-left: 24px;">HBV</p>
+                    </div>
+                    <div class="col-md-3" style="padding-left: 0px!important;padding-right: 0px !important;">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1" style=" margin-left: 7px;">
+                        <p class="form-check-label" for="exampleCheck1" style=" margin-left: 24px;">HCV</p>
+
+                    </div>
+                    <div class="col-md-3" style="padding-left: 0px!important;padding-right: 0px !important;">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1" style=" margin-left: 7px;">
+                        <p class="form-check-label" for="exampleCheck1" style=" margin-left: 24px;">HIV</p>
+                    </div>
+                    <div class="col-md-3" style="padding-left: 0px!important;padding-right: 0px !important;">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1" style=" margin-left: 7px;">
+                        <p class="form-check-label" for="exampleCheck1" style=" margin-left: 24px;">Giang mai</p>
+                    </div>
+
+                </div>
+            </div>
+
+            <p class="text-danger">@ViewBag.Danger</p>
+            <p class="text-danger">@ViewBag.doituong</p>
+            <p class="text-danger">@ViewBag.luongmau</p>
+        </div>
+        <div class="col-md-6" style="border: 1px solid rgb(0 0 0 / 15%);padding:10px">
+            <div class="d-flex " style=" align-items:center">
+                <p class="col-md-4" style="margin-bottom:0px !important">Cân nặng :</p>
+                @Html.EditorFor(model => model.cannang, new { htmlAttributes = new { @class = "form-control", id = "cannang", placeholder = "cân nặng", onchange = "showErorrcannang()" } })
+                @*<input type="number" class="form-control" id="cannang" placeholder="cân nặng" onchange="showErorrcannang()">*@
+            </div>
+            <div>@Html.ValidationMessageFor(model => model.cannang, "", new { @class = "text-danger" })</div>
+            <div class="d-flex " style=" align-items:center">
+                <p class="col-md-4" style="margin-bottom:0px !important"></p>
+                <div id="cannangerr" style="display: none; ">
+                    <p class="text-danger">cân nặng không đủ</p>
+                </div>
+            </div>
+
+            <div class="d-flex " style=" align-items:center;margin-top:10px">
+                <p class="col-md-4" style="margin-bottom:0px !important">Mạch :</p>
+                @*<input type="number" class="form-control" id="mach" placeholder="Mạch" onchange="showErorrmach()">*@
+                @Html.EditorFor(model => model.mach, new { htmlAttributes = new { @class = "form-control", id = "mach", placeholder = "Mạch", onchange = "showErorrmach()" } })
+            </div>
+            <div>@Html.ValidationMessageFor(model => model.mach, "", new { @class = "text-danger" })</div>
+            <div class="d-flex " style=" align-items:center">
+                <p class="col-md-4" style="margin-bottom:0px !important"></p>
+                <div id="macherr" style="display: none; ">
+                    <p class="text-danger">mạch không đủ</p>
+                </div>
+            </div>
+            <div class="d-flex " style=" align-items:center;margin-top:10px">
+                <p class="col-md-4" style="margin-bottom:0px !important">Huyết áp :</p>
+
+                <div class="col-md-4">
+                    @Html.EditorFor(model => model.huyetaptamthu, new { htmlAttributes = new { @class = "form-control", id = "huyetamthu", onchange = "showErorrhuyettamthu()", placeholder = "Huyết áp tâm thu" } })
+                    @*<input type="number" class="form-control" id="huyetamthu" onchange="showErorrhuyettamthu()" placeholder="Huyết áp tâm thu">*@
+                </div>
+                <div class="col-md-4">
+                    @Html.EditorFor(model => model.huyetaptamtruong, new { htmlAttributes = new { @class = "form-control", id = "huyettamtruong", onchange = "showErorrhuyettamtruong()", placeholder = "Huyết áp tâm trương" } })
+                    @*<input type="number" class="form-control" id="huyettamtruong" onchange="showErorrhuyettamtruong()" placeholder="Huyết áp tâm trương">*@
+                </div>
+            </div>
+
+            <div class="d-flex " style=" align-items:center">
+                <div class="col-md-4" style="margin-bottom:0px !important">
+                    <div>@Html.ValidationMessageFor(model => model.huyetaptamthu, "", new { @class = "text-danger" })</div>
+                    <div id="huyetamthuerr" style="display: none; ">
+                        <p class="text-danger">Huyết áp tâm thu không đủ</p>
+                    </div>
+                </div>
+                <div class="col-md-4" style="margin-bottom:0px !important">
+                    <div>@Html.ValidationMessageFor(model => model.huyetaptamtruong, "", new { @class = "text-danger" })</div>
+                    <div id="huyettamtruongerr" style="display: none; ">
+                        <p class="text-danger">huyết tâm trương không đủ</p>
+                    </div>
+                </div>
+
+                <div id="huyettamtruongerr" style="display: none; ">
+                    <p class="text-danger">huyết tâm trương không đủ</p>
+                </div>
+
+
+            </div>
+            <div class="d-flex " style=" align-items:center">
+                <p class="col-md-4" style="margin-bottom:0px !important">Tình trạng lâm sàng :</p>
+                @Html.EditorFor(model => model.tinhtranglamsan, new { htmlAttributes = new { @class = "form-control", placeholder = "Tình trạng lâm sàng" } })
+                @*<input type="text" class="form-control" id="exampleInputEmail1" placeholder="Tình trạng lâm sàng">*@
+            </div>
+            <div>@Html.ValidationMessageFor(model => model.huyetaptamtruong, "", new { @class = "text-danger" })</div>
+            <b>Kết luận:</b>
+            <div style="border: 1px solid rgb(0 0 0 / 15%); padding: 15px 10px; ">
+                <div class="d-flex" style="align-items:center ;margin-top:15px">
+                    <p style="margin-bottom: 0 !important; padding-left: 0px !important; padding-right: 0px!important; " class="col-md-4">Kết luận :</p>
+                    <input type="text" class="form-control" id="ketluan" name="ketluan" readonly>
+                </div>
+                <div class="d-flex" style="align-items:center ;margin-top:15px">
+                    <p style="margin-bottom: 0 !important; padding-left: 0px !important; padding-right: 0px!important; " class="col-md-4">Lý do :</p>
+                    <input type="text" class="form-control" id="lido" name="lido" readonly>
+                </div>
+                <div class="d-flex" style="align-items:center ;margin-top:15px">
+                    <p style="margin-bottom: 0 !important; padding-left: 0px !important; padding-right: 0px!important; " class="col-md-4">KTV xét nghiệm :</p>
+                    @*<input type="text" class="form-control" id="ktvxetnghiem">*@
+                    @Html.EditorFor(model => model.huyetaptamthu, new { htmlAttributes = new { @class = "form-control", placeholder = "Kỹ thuật viên xét nghiệm" } })
+                    <div>@Html.ValidationMessageFor(model => model.ktvketluan, "", new { @class = "text-danger" })</div>
+                </div>
+                <div class="d-flex" style="align-items:center ;margin-top:15px">
+                    <p style="margin-bottom: 0 !important; padding-left: 0px !important; padding-right: 0px!important; " class="col-md-4">Bác sỹ kết luận :</p>
+                    <input type="text" class="form-control" id="bacyketluan">
+                </div>
+
+            </div>
+            <p class="text-danger">@ViewBag.Danger</p>
+        </div>
+
+
+    </div>
+    <button>Xác nhận</button>
+
+    @*<div class="form-horizontal">
+            <h4>Khamsanloc</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.KhamsanlocID)
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.BloodID, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.BloodID, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.BloodID, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.BatchID, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.BatchID, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.BatchID, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Blood_DetalID, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Blood_DetalID, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Blood_DetalID, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.doituonghienmau, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.doituonghienmau, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.doituonghienmau, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.hinhthuchienmau, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.hinhthuchienmau, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.hinhthuchienmau, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.huyetsacto, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.huyetsacto, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.huyetsacto, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.tieucau, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.tieucau, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.tieucau, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.veinkhongdat, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.veinkhongdat, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.veinkhongdat, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.cannang, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.cannang, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.cannang, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.mach, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.mach, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.mach, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.huyetaptamtruong, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.huyetaptamtruong, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.huyetaptamtruong, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.huyetaptamthu, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.huyetaptamthu, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.huyetaptamthu, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.tinhtranglamsan, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.tinhtranglamsan, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.tinhtranglamsan, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.ketluan, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.ketluan, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.ketluan, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Lydo, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Lydo, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Lydo, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.ktvketluan, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.ktvketluan, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.ktvketluan, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.HBV, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.HBV, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.HBV, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.HCV, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.HCV, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.HCV, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.HIV, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.HIV, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.HIV, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Giangmai, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Giangmai, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Giangmai, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.HBsAg, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.HBsAg, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.HBsAg, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.huyettuongduc, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.huyettuongduc, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.huyettuongduc, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.username, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.username, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.username, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Luongmau, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Luongmau, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Luongmau, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Save" class="btn btn-default" />
+                </div>
+            </div>
+        </div>*@
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+<script>
+
+    var styleError = "";
+    var totalErros = "";
+    var tieycauErrors = "";
+
+    var ketluan = "";
+    var cannangError = "";
+
+    function showDiv() {
+
+        getSelectValue = document.getElementById("test").value;
+        if (getSelectValue == "Gạn tiểu cầu") {
+
+            document.getElementById("hidden_div").style.display = "block";
+            document.getElementById("hidden").style.display = "none";
+        } if (getSelectValue == "Toàn phần") {
+            document.getElementById("hidden").style.display = "block";
+            document.getElementById("hidden_div").style.display = "none";
+        }
+
+    }
+    function showErorrhst() {
+        getSelectValue = document.getElementById("huyetsacto").value;
+        if (getSelectValue < 125 && getSelectValue) {
+            styleError = "";
+            document.getElementById("huuyetsac").style.display = "block";
+            document.getElementById("ketluan").value = "Tạm ngừng";
+            totalErros = styleError + "Huyết sắc tố";
+            document.getElementById("lido").value = totalErros + styleError;
+            styleError = document.getElementById("lido").value;
+        } else {
+            document.getElementById("huuyetsac").style.display = "none";
+            document.getElementById("ketluan").value = "Bình thường";
+            ketluan = document.getElementById("ketluan").value = "Bình thường";
+            document.getElementById("lido").value = ""
+        }
+        if (!getSelectValue) {
+            document.getElementById("lido").value = ""
+            document.getElementById("ketluan").value = "";
+            totalErros = ""
+        }
+
+    };
+    function showErorrtieucau() {
+        tieycauErrors = "";
+        getSelectValue = document.getElementById("tieucau").value;
+
+        if (getSelectValue < 120 && getSelectValue) {
+
+            document.getElementById("tieucauerr").style.display = "block";
+            document.getElementById("ketluan").value = "Tạm ngừng";
+            ketluan = document.getElementById("ketluan").value = "Tạm ngừng";
+
+            tieycauErrors = "Thiếu máu";
+            if (document.getElementById("lido").value === "Thiếu máu") {
+                document.getElementById("lido").value = totalErros;
+            } else {
+                document.getElementById("lido").value = totalErros + "," + tieycauErrors;
+                totalErros = totalErros + "," + tieycauErrors;
+
+            }
+            if (totalErros.includes("Thiếu máu")) {
+                document.getElementById("lido").value = "Huyết sắc tố " + "," + "Thiếu máu"
+            }
+            if (!document.getElementById("huyetsacto").value) {
+                document.getElementById("lido").value = "Thiếu máu"
+            }
+        } else {
+            document.getElementById("tieucauerr").style.display = "none";
+            document.getElementById("ketluan").value = "Bình thường";
+            document.getElementById("lido").value = "Huyết sắc tố ";
+        } if (!getSelectValue) {
+            document.getElementById("lido").value = ""
+            document.getElementById("ketluan").value = "";
+            styleError = ""
+
+        }
+    }
+    function Vienkhongdat(e) {
+        const { checked } = e.target;
+
+        if (checked) {
+
+            document.getElementById("ketluan").value = "Ngừng vĩnh viễn";
+
+        } else {
+            if (ketluan) {
+                document.getElementById("ketluan").value = ketluan;
+            } else
+                document.getElementById("ketluan").value = "";
+        }
+
+    }
+    function Huyettuongduc(e) {
+        const { checked } = e.target;
+
+        if (checked) {
+
+            document.getElementById("ketluan").value = "Ngừng vĩnh viễn";
+
+        } else {
+            if (ketluan) {
+                document.getElementById("ketluan").value = ketluan;
+            } else
+                document.getElementById("ketluan").value = "";
+        }
+
+    }
+    function showErorrcannang() {
+        cannangError = "";
+        getSelectValue = document.getElementById("cannang").value;
+        if (getSelectValue < 50 && getSelectValue) {
+
+            document.getElementById("cannangerr").style.display = "block";
+            document.getElementById("ketluan").value = "Tạm ngừng";
+            cannangError = "cân nặng";
+            if (document.getElementById("lido").value === "cân nặng") {
+                document.getElementById("lido").value = totalErros;
+            } else {
+                document.getElementById("lido").value = totalErros + "," + cannangError;
+                totalErros = totalErros + "," + cannangError;
+
+            }
+            if (totalErros.includes("cân nặng")) {
+                document.getElementById("lido").value = "Huyết sắc tố " + "," + "Thiếu máu" + "," + "cân nặng"
+            }
+            if (!document.getElementById("huyetsacto").value && !document.getElementById("tieucau").value) {
+                document.getElementById("lido").value = "cân nặng"
+            }
+
+        } else {
+            document.getElementById("cannangerr").style.display = "none";
+            document.getElementById("ketluan").value = "Bình thường";
+            document.getElementById("lido").value = "Huyết sắc tố " + "," + "Thiếu máu";
+        }
+        if (!getSelectValue) {
+            document.getElementById("lido").value = ""
+            document.getElementById("ketluan").value = "";
+            styleError = ""
+        }
+
+    };
+    function showErorrmach() {
+        getSelectValue = document.getElementById("mach").value;
+        if (getSelectValue > 85 || getSelectValue < 70) {
+            document.getElementById("macherr").style.display = "block";
+            document.getElementById("ketluan").value = "Tạm ngừng";
+            machError = "Huyết áp";
+            if (document.getElementById("lido").value === "Huyết áp") {
+                document.getElementById("lido").value = totalErros;
+            } else {
+                document.getElementById("lido").value = totalErros + "," + machError;
+                totalErros = totalErros + "," + machError;
+
+            }
+            if (totalErros.includes("Huyết áp")) {
+                document.getElementById("lido").value = "Huyết sắc tố " + "," + "Thiếu máu" + "," + "cân nặng" + "," + "Huyết áp"
+            }
+            if (!document.getElementById("huyetsacto").value && !document.getElementById("tieucau").value && !document.getElementById("cannang").value) {
+                document.getElementById("lido").value = "Huyết áp"
+            }
+
+        } else {
+            document.getElementById("macherr").style.display = "none";
+            document.getElementById("ketluan").value = "Bình thường";
+        }
+        if (!getSelectValue) {
+            document.getElementById("macherr").style.display = "none";
+            document.getElementById("lido").value = ""
+            document.getElementById("ketluan").value = "";
+            styleError = ""
+        }
+
+    };
+    function showErorrhuyettamthu() {
+        getSelectValue = document.getElementById("huyetamthu").value;
+        if (getSelectValue > 140 || getSelectValue < 100) {
+            document.getElementById("huyetamthuerr").style.display = "block";
+            document.getElementById("ketluan").value = "Tạm ngừng";
+            machError = "Huyết áp";
+            if (document.getElementById("lido").value === "Huyết áp") {
+                document.getElementById("lido").value = totalErros;
+            } else {
+                document.getElementById("lido").value = totalErros + "," + machError;
+                totalErros = totalErros + "," + machError;
+
+            }
+
+            if (totalErros.includes("Huyết áp")) {
+                document.getElementById("lido").value = "Huyết sắc tố " + "," + "Thiếu máu" + "," + "cân nặng" + "," + "Huyết áp"
+            }
+            if (!document.getElementById("huyetsacto").value && !document.getElementById("tieucau").value && !document.getElementById("cannang").value && !document.getElementById("mach").value) {
+                document.getElementById("lido").value = "Huyết áp"
+            }
+        } else {
+            document.getElementById("huyetamthuerr").style.display = "none";
+            document.getElementById("ketluan").value = "Bình thường";
+        }
+        if (!getSelectValue) {
+            document.getElementById("huyetamthuerr").style.display = "none";
+            document.getElementById("lido").value = ""
+            document.getElementById("ketluan").value = "Bình thường";
+            styleError = ""
+        }
+
+    };
+
+    function showErorrhuyettamtruong() {
+        getSelectValue = document.getElementById("huyettamtruong").value;
+        if (getSelectValue > 90 || getSelectValue < 60) {
+            document.getElementById("huyettamtruongerr").style.display = "block";
+            document.getElementById("ketluan").value = "Tạm ngừng";
+            machError = "Huyết áp";
+            if (document.getElementById("lido").value === "Huyết áp") {
+                document.getElementById("lido").value = totalErros;
+            } else {
+                document.getElementById("lido").value = totalErros + "," + machError;
+                totalErros = totalErros + "," + machError;
+
+            }
+            if (totalErros.includes("Huyết áp")) {
+                document.getElementById("lido").value = "Huyết sắc tố " + "," + "Thiếu máu" + "," + "cân nặng" + "," + "Huyết áp"
+            }
+            if (!document.getElementById("huyetsacto").value && !document.getElementById("tieucau").value && !document.getElementById("cannang").value && !document.getElementById("huyetamthu").value && !document.getElementById("mach").value) {
+                document.getElementById("lido").value = "Huyết áp"
+            }
+        } else {
+            document.getElementById("huyettamtruongerr").style.display = "none";
+            document.getElementById("ketluan").value = "Bình thường";
+        }
+        if (!getSelectValue) {
+            document.getElementById("huyettamtruongerr").style.display = "none";
+            document.getElementById("lido").value = ""
+            document.getElementById("ketluan").value = "";
+            styleError = ""
+        }
+
+    };
+
+
+    function hsbgform() {
+
+        getSelectValue = document.getElementById("hsbg").value;
+        if (getSelectValue != "Âm tính") {
+
+            document.getElementById("ketluan").value = "Ngừng vĩnh viễn";
+        } else {
+            document.getElementById("ketluan").value = "Bình thường";
+        }
+    }
+
+    document.getElementById('id1').value = 'Không phản ứng';
+</script>
