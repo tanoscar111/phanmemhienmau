@@ -34,5 +34,6 @@ namespace BoolDonationApp.Common
         public string CMND { get; set; }
         public string TenDiachi { get; set; }
 
+        public Nullable<int> BloodID { get; set; }
     }
 }

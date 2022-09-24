@@ -750,7 +750,7 @@ namespace BoolDonationApp.Controllers
             return View(db.BloodDonations.Where(x => x.BloodID == id).FirstOrDefault());
         }
         [HttpGet]
-        public ActionResult Dotkham(string CMND)
+        public ActionResult Dotkham(string CMND,int BloodID)
         {
            
             var locationResult = (from bat in db.Batches
@@ -765,12 +765,43 @@ namespace BoolDonationApp.Controllers
                                       Thoigianbatdau = bat.Thoigianbatdau,
                                       Thoigianketthuc = bat.Thoigianketthuc,
                                       Thoigianhien = bat.Thoigianhien,
-                                      CMND = bats.CMND
+                                      CMND = bats.CMND,
+                                      BloodID=bats.BloodID
+                                  });
+           
 
-                                  }); ;
+
+            SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["hienmauConnectionString"].ConnectionString);//conect DB
+            con.Open();
+            int BloodIDs = 0;
+            string sqlCMND = "select BloodID from BloodDonation where CMND= '" + CMND + "' ";
+            SqlCommand cmdCMND = new SqlCommand(sqlCMND, con);//connect
+            SqlDataReader drsoluongdem = cmdCMND.ExecuteReader();
+            while (drsoluongdem.Read())
+            {
+                BloodIDs = drsoluongdem.GetInt32(0);//đọc từng dòng vị trí thứ 0
+
+            }
+
+            drsoluongdem.Dispose(); drsoluongdem.Close();
+            cmdCMND.Dispose(); cmdCMND.Clone();
+           
+            var col1 = db.BloodDonation_Detail.Where(w => w.CMND == CMND);
+            foreach (var item in col1)
+            {
+                item.BloodID = BloodIDs;
+            }
+            db.SaveChanges();
             var location = locationResult.Where(x => x.CMND == CMND).ToList();
             return View(location);
         }
+        [HttpGet]
+        public ActionResult Khamtheodot( string CMND ,int BloodID, int BatchID)
+        {
+            var ass = "";
+            return View();
+        }
+
         [HttpGet]
         public ActionResult Khamsanloc(int id, int idBatch, string CMND)
         {
@@ -946,12 +977,8 @@ namespace BoolDonationApp.Controllers
 
 
         }
-        [HttpGet]
-        public ActionResult Susssess()
-        {
-            return View();
-
-        }
+        
+     
         [HttpGet]
         public ActionResult history()
         {
