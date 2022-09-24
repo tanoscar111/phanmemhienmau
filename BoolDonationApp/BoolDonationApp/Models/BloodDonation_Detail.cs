@@ -17,6 +17,7 @@ namespace BoolDonationApp.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public BloodDonation_Detail()
         {
+            this.Ketquakhams = new HashSet<Ketquakham>();
             this.Khamsanlocs = new HashSet<Khamsanloc>();
         }
     
@@ -30,6 +31,8 @@ namespace BoolDonationApp.Models
     
         public virtual Batch Batch { get; set; }
         public virtual BloodDonation BloodDonation { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Ketquakham> Ketquakhams { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Khamsanloc> Khamsanlocs { get; set; }
     }

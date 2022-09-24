@@ -20,7 +20,7 @@ namespace BoolDonationApp.Models
         {
             this.Ketquakhams = new HashSet<Ketquakham>();
         }
-    
+
         public int KhamsanlocID { get; set; }
         public Nullable<int> BloodID { get; set; }
         public Nullable<int> BatchID { get; set; }
@@ -46,8 +46,6 @@ namespace BoolDonationApp.Models
         public string Lydo { get; set; }
         [Required(ErrorMessage = "Vui lòng nhập kỹ thuật viên kết luận")]
         public string ktvketluan { get; set; }
-
-
         public Nullable<bool> HBV { get; set; }
         public Nullable<bool> HCV { get; set; }
         public Nullable<bool> HIV { get; set; }
@@ -56,6 +54,9 @@ namespace BoolDonationApp.Models
         public Nullable<bool> huyettuongduc { get; set; }
         public string username { get; set; }
         public Nullable<int> Luongmau { get; set; }
+        [Required(ErrorMessage = "Vui lòng nhập Bác sỹ kết luận")]
+        public string Bacsiketluan { get; set; }
+        public Nullable<System.DateTime> Thoigiantaoluotkham { get; set; }
     
         public virtual BloodDonation BloodDonation { get; set; }
         public virtual BloodDonation_Detail BloodDonation_Detail { get; set; }

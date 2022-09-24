@@ -1,0 +1,240 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="BoodDonationAppModelStoreContainer" CdmEntityContainer="BoodDonationAppEntities">
+    <EntitySetMapping Name="Batches">
+      <EntityTypeMapping TypeName="BoodDonationAppModel.Batch">
+        <MappingFragment StoreEntitySet="Batch">
+          <ScalarProperty Name="BatchID" ColumnName="BatchID" />
+          <ScalarProperty Name="BatchName" ColumnName="BatchName" />
+          <ScalarProperty Name="Thoigianhien" ColumnName="Thoigianhien" />
+          <ScalarProperty Name="Nguoitaohien" ColumnName="Nguoitaohien" />
+          <ScalarProperty Name="StatusDothien" ColumnName="StatusDothien" />
+          <ScalarProperty Name="Thoigianthemluothien" ColumnName="Thoigianthemluothien" />
+          <ScalarProperty Name="Thoigianbatdau" ColumnName="Thoigianbatdau" />
+          <ScalarProperty Name="Thoigianketthuc" ColumnName="Thoigianketthuc" />
+          <ScalarProperty Name="Soluongdukien" ColumnName="Soluongdukien" />
+          <ScalarProperty Name="Soluongdem" ColumnName="Soluongdem" />
+          <ScalarProperty Name="idLocaltion" ColumnName="idLocaltion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BloodDonations">
+      <EntityTypeMapping TypeName="BoodDonationAppModel.BloodDonation">
+        <MappingFragment StoreEntitySet="BloodDonation">
+          <ScalarProperty Name="BloodID" ColumnName="BloodID" />
+          <ScalarProperty Name="Hovaten" ColumnName="Hovaten" />
+          <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="BatchID" ColumnName="BatchID" />
+          <ScalarProperty Name="NhomMau" ColumnName="NhomMau" />
+          <ScalarProperty Name="Solanhienmau" ColumnName="Solanhienmau" />
+          <ScalarProperty Name="CMND" ColumnName="CMND" />
+          <ScalarProperty Name="gioitinh" ColumnName="gioitinh" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="IdUser" ColumnName="IdUser" />
+          <ScalarProperty Name="CCCD" ColumnName="CCCD" />
+          <ScalarProperty Name="Donvicongtac" ColumnName="Donvicongtac" />
+          <ScalarProperty Name="IDPhuong" ColumnName="IDPhuong" />
+          <ScalarProperty Name="IDQuan" ColumnName="IDQuan" />
+          <ScalarProperty Name="IDTinh" ColumnName="IDTinh" />
+          <ScalarProperty Name="IDQuocGia" ColumnName="IDQuocGia" />
+          <ScalarProperty Name="Nest" ColumnName="Nest" />
+          <ScalarProperty Name="sonha" ColumnName="sonha" />
+          <ScalarProperty Name="duong" ColumnName="duong" />
+          <ScalarProperty Name="truocdayquividatunghienmauchuacau1" ColumnName="truocdayquividatunghienmauchuacau1" />
+          <ScalarProperty Name="tamthankinhcau2" ColumnName="tamthankinhcau2" />
+          <ScalarProperty Name="sutcan4kgcau3" ColumnName="sutcan4kgcau3" />
+          <ScalarProperty Name="noihachkeodaicau4" ColumnName="noihachkeodaicau4" />
+          <ScalarProperty Name="phauthuatcau5" ColumnName="phauthuatcau5" />
+          <ScalarProperty Name="xamminhxolocau6" ColumnName="xamminhxolocau6" />
+          <ScalarProperty Name="duoctruyenmaucau7" ColumnName="duoctruyenmaucau7" />
+          <ScalarProperty Name="sudungmatuycau8" ColumnName="sudungmatuycau8" />
+          <ScalarProperty Name="quanhetinhduccau9" ColumnName="quanhetinhduccau9" />
+          <ScalarProperty Name="quanhetinhducvoinguoidonggioicau10" ColumnName="quanhetinhducvoinguoidonggioicau10" />
+          <ScalarProperty Name="tiemvacxinphongbenhcau11" ColumnName="tiemvacxinphongbenhcau11" />
+          <ScalarProperty Name="songtrongvungcodichluuhanhcau12" ColumnName="songtrongvungcodichluuhanhcau12" />
+          <ScalarProperty Name="bicumhonhucdausotcau13" ColumnName="bicumhonhucdausotcau13" />
+          <ScalarProperty Name="dungthuockhangsinhcau14" ColumnName="dungthuockhangsinhcau14" />
+          <ScalarProperty Name="denkhamsuckhoelamxetnghiemchuarangcau15" ColumnName="denkhamsuckhoelamxetnghiemchuarangcau15" />
+          <ScalarProperty Name="quivihienladoituongtantatcau16" ColumnName="quivihienladoituongtantatcau16" />
+          <ScalarProperty Name="chihiendangnuoiconduoi12thangtuoicau17" ColumnName="chihiendangnuoiconduoi12thangtuoicau17" />
+          <ScalarProperty Name="chidatungcothaihoacsinhconchuacau18" ColumnName="chidatungcothaihoacsinhconchuacau18" />
+          <ScalarProperty Name="ngayhienmaugannhat" ColumnName="ngayhienmaugannhat" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BloodDonation_Detail">
+      <EntityTypeMapping TypeName="BoodDonationAppModel.BloodDonation_Detail">
+        <MappingFragment StoreEntitySet="BloodDonation_Detail">
+          <ScalarProperty Name="Blood_DetalID" ColumnName="Blood_DetalID" />
+          <ScalarProperty Name="BatchID" ColumnName="BatchID" />
+          <ScalarProperty Name="BloodID" ColumnName="BloodID" />
+          <ScalarProperty Name="Thoigianhien" ColumnName="Thoigianhien" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="songaycothehienlai" ColumnName="songaycothehienlai" />
+          <ScalarProperty Name="CMND" ColumnName="CMND" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Ketquakhams">
+      <EntityTypeMapping TypeName="BoodDonationAppModel.Ketquakham">
+        <MappingFragment StoreEntitySet="Ketquakham">
+          <ScalarProperty Name="ResultsScreeningID" ColumnName="ResultsScreeningID" />
+          <ScalarProperty Name="KhamsanlocID" ColumnName="KhamsanlocID" />
+          <ScalarProperty Name="BloodID" ColumnName="BloodID" />
+          <ScalarProperty Name="BatchID" ColumnName="BatchID" />
+          <ScalarProperty Name="Blood_DetalID" ColumnName="Blood_DetalID" />
+          <ScalarProperty Name="Ngaylaymau" ColumnName="Ngaylaymau" />
+          <ScalarProperty Name="Phanung" ColumnName="Phanung" />
+          <ScalarProperty Name="Matuimau1" ColumnName="Matuimau1" />
+          <ScalarProperty Name="MatuiPooltieucau" ColumnName="MatuiPooltieucau" />
+          <ScalarProperty Name="Maday" ColumnName="Maday" />
+          <ScalarProperty Name="Luongmau" ColumnName="Luongmau" />
+          <ScalarProperty Name="Thetich" ColumnName="Thetich" />
+          <ScalarProperty Name="Xutri" ColumnName="Xutri" />
+          <ScalarProperty Name="MatuiPoolTualanh" ColumnName="MatuiPoolTualanh" />
+          <ScalarProperty Name="MatuiPoolHuyettuong" ColumnName="MatuiPoolHuyettuong" />
+          <ScalarProperty Name="KTVlaymau" ColumnName="KTVlaymau" />
+          <ScalarProperty Name="HBSAG" ColumnName="HBSAG" />
+          <ScalarProperty Name="AntiHCV" ColumnName="AntiHCV" />
+          <ScalarProperty Name="AntiHIV" ColumnName="AntiHIV" />
+          <ScalarProperty Name="AntiHBV" ColumnName="AntiHBV" />
+          <ScalarProperty Name="NATHCV" ColumnName="NATHCV" />
+          <ScalarProperty Name="NATHIV" ColumnName="NATHIV" />
+          <ScalarProperty Name="NATHBV" ColumnName="NATHBV" />
+          <ScalarProperty Name="SLKTBT" ColumnName="SLKTBT" />
+          <ScalarProperty Name="Combstructiep" ColumnName="Combstructiep" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="songaycothehienlai" ColumnName="songaycothehienlai" />
+          <ScalarProperty Name="thoigiantaoketqua" ColumnName="thoigiantaoketqua" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Khamsanlocs">
+      <EntityTypeMapping TypeName="BoodDonationAppModel.Khamsanloc">
+        <MappingFragment StoreEntitySet="Khamsanloc">
+          <ScalarProperty Name="KhamsanlocID" ColumnName="KhamsanlocID" />
+          <ScalarProperty Name="BloodID" ColumnName="BloodID" />
+          <ScalarProperty Name="BatchID" ColumnName="BatchID" />
+          <ScalarProperty Name="Blood_DetalID" ColumnName="Blood_DetalID" />
+          <ScalarProperty Name="doituonghienmau" ColumnName="doituonghienmau" />
+          <ScalarProperty Name="hinhthuchienmau" ColumnName="hinhthuchienmau" />
+          <ScalarProperty Name="huyetsacto" ColumnName="huyetsacto" />
+          <ScalarProperty Name="tieucau" ColumnName="tieucau" />
+          <ScalarProperty Name="veinkhongdat" ColumnName="veinkhongdat" />
+          <ScalarProperty Name="cannang" ColumnName="cannang" />
+          <ScalarProperty Name="mach" ColumnName="mach" />
+          <ScalarProperty Name="huyetaptamtruong" ColumnName="huyetaptamtruong" />
+          <ScalarProperty Name="huyetaptamthu" ColumnName="huyetaptamthu" />
+          <ScalarProperty Name="tinhtranglamsan" ColumnName="tinhtranglamsan" />
+          <ScalarProperty Name="ketluan" ColumnName="ketluan" />
+          <ScalarProperty Name="Lydo" ColumnName="Lydo" />
+          <ScalarProperty Name="ktvketluan" ColumnName="ktvketluan" />
+          <ScalarProperty Name="HBV" ColumnName="HBV" />
+          <ScalarProperty Name="HCV" ColumnName="HCV" />
+          <ScalarProperty Name="HIV" ColumnName="HIV" />
+          <ScalarProperty Name="Giangmai" ColumnName="Giangmai" />
+          <ScalarProperty Name="HBsAg" ColumnName="HBsAg" />
+          <ScalarProperty Name="huyettuongduc" ColumnName="huyettuongduc" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="Luongmau" ColumnName="Luongmau" />
+          <ScalarProperty Name="Bacsiketluan" ColumnName="Bacsiketluan" />
+          <ScalarProperty Name="Thoigiantaoluotkham" ColumnName="Thoigiantaoluotkham" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Locations">
+      <EntityTypeMapping TypeName="BoodDonationAppModel.Location">
+        <MappingFragment StoreEntitySet="Location">
+          <ScalarProperty Name="idLocaltion" ColumnName="idLocaltion" />
+          <ScalarProperty Name="TenDiachi" ColumnName="TenDiachi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Logs">
+      <EntityTypeMapping TypeName="BoodDonationAppModel.Log">
+        <MappingFragment StoreEntitySet="Log">
+          <ScalarProperty Name="LogID" ColumnName="LogID" />
+          <ScalarProperty Name="Log_Time" ColumnName="Log_Time" />
+          <ScalarProperty Name="BloodID" ColumnName="BloodID" />
+          <ScalarProperty Name="action" ColumnName="action" />
+          <ScalarProperty Name="nguoithaotac" ColumnName="nguoithaotac" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Phuongs">
+      <EntityTypeMapping TypeName="BoodDonationAppModel.Phuong">
+        <MappingFragment StoreEntitySet="Phuong">
+          <ScalarProperty Name="IDPhuong" ColumnName="IDPhuong" />
+          <ScalarProperty Name="IDQuan" ColumnName="IDQuan" />
+          <ScalarProperty Name="IDTinh" ColumnName="IDTinh" />
+          <ScalarProperty Name="MaPhuong" ColumnName="MaPhuong" />
+          <ScalarProperty Name="TenP" ColumnName="TenP" />
+          <ScalarProperty Name="active" ColumnName="active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Quans">
+      <EntityTypeMapping TypeName="BoodDonationAppModel.Quan">
+        <MappingFragment StoreEntitySet="Quan">
+          <ScalarProperty Name="IDQuan" ColumnName="IDQuan" />
+          <ScalarProperty Name="IDTinh" ColumnName="IDTinh" />
+          <ScalarProperty Name="MaQuan" ColumnName="MaQuan" />
+          <ScalarProperty Name="TenQ" ColumnName="TenQ" />
+          <ScalarProperty Name="ACTIVE" ColumnName="ACTIVE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="QuocGias">
+      <EntityTypeMapping TypeName="BoodDonationAppModel.QuocGia">
+        <MappingFragment StoreEntitySet="QuocGia">
+          <ScalarProperty Name="IDQuocGia" ColumnName="IDQuocGia" />
+          <ScalarProperty Name="MaQG" ColumnName="MaQG" />
+          <ScalarProperty Name="TenQG" ColumnName="TenQG" />
+          <ScalarProperty Name="active" ColumnName="active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Roles">
+      <EntityTypeMapping TypeName="BoodDonationAppModel.Role">
+        <MappingFragment StoreEntitySet="Role">
+          <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+          <ScalarProperty Name="NameRole" ColumnName="NameRole" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="BoodDonationAppModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tinhs">
+      <EntityTypeMapping TypeName="BoodDonationAppModel.Tinh">
+        <MappingFragment StoreEntitySet="Tinh">
+          <ScalarProperty Name="IDTinh" ColumnName="IDTinh" />
+          <ScalarProperty Name="MaT" ColumnName="MaT" />
+          <ScalarProperty Name="TenT" ColumnName="TenT" />
+          <ScalarProperty Name="ACTIVE" ColumnName="ACTIVE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="BoodDonationAppModel.User">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="IdUser" ColumnName="IdUser" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

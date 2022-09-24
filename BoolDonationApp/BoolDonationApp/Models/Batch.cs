@@ -46,6 +46,7 @@ namespace BoolDonationApp.Models
         public Nullable<int> Soluongdukien { get; set; }
         public Nullable<int> Soluongdem { get; set; }
         public Nullable<int> idLocaltion { get; set; }
+
         public virtual Location Location { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<BloodDonation> BloodDonations { get; set; }

@@ -87,6 +87,7 @@
           <Property Name="KhamsanlocID" Type="int" />
           <Property Name="BloodID" Type="int" />
           <Property Name="BatchID" Type="int" />
+          <Property Name="Blood_DetalID" Type="int" />
           <Property Name="Ngaylaymau" Type="datetime" />
           <Property Name="Phanung" Type="nvarchar(max)" />
           <Property Name="Matuimau1" Type="nvarchar(max)" />
@@ -109,6 +110,7 @@
           <Property Name="Combstructiep" Type="nvarchar(max)" />
           <Property Name="username" Type="nvarchar(max)" />
           <Property Name="songaycothehienlai" Type="int" />
+          <Property Name="thoigiantaoketqua" Type="datetime" />
         </EntityType>
         <EntityType Name="Khamsanloc">
           <Key>
@@ -139,6 +141,8 @@
           <Property Name="huyettuongduc" Type="bit" />
           <Property Name="username" Type="nvarchar(max)" />
           <Property Name="Luongmau" Type="int" />
+          <Property Name="Bacsiketluan" Type="nvarchar(max)" />
+          <Property Name="Thoigiantaoluotkham" Type="datetime" />
         </EntityType>
         <EntityType Name="Location">
           <Key>
@@ -318,6 +322,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Ketquakham_BloodDonation_Detail">
+          <End Role="BloodDonation_Detail" Type="Self.BloodDonation_Detail" Multiplicity="0..1" />
+          <End Role="Ketquakham" Type="Self.Ketquakham" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BloodDonation_Detail">
+              <PropertyRef Name="Blood_DetalID" />
+            </Principal>
+            <Dependent Role="Ketquakham">
+              <PropertyRef Name="Blood_DetalID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Ketquakham_Khamsanloc">
           <End Role="Khamsanloc" Type="Self.Khamsanloc" Multiplicity="0..1" />
           <End Role="Ketquakham" Type="Self.Ketquakham" Multiplicity="*" />
@@ -423,6 +439,10 @@
           </AssociationSet>
           <AssociationSet Name="FK_Ketquakham_BloodDonation" Association="Self.FK_Ketquakham_BloodDonation">
             <End Role="BloodDonation" EntitySet="BloodDonation" />
+            <End Role="Ketquakham" EntitySet="Ketquakham" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ketquakham_BloodDonation_Detail" Association="Self.FK_Ketquakham_BloodDonation_Detail">
+            <End Role="BloodDonation_Detail" EntitySet="BloodDonation_Detail" />
             <End Role="Ketquakham" EntitySet="Ketquakham" />
           </AssociationSet>
           <AssociationSet Name="FK_Ketquakham_Khamsanloc" Association="Self.FK_Ketquakham_Khamsanloc">
@@ -537,6 +557,7 @@
           <Property Name="CMND" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Batch" Relationship="Self.FK_BloodDonation_Detail_Batch" FromRole="BloodDonation_Detail" ToRole="Batch" />
           <NavigationProperty Name="BloodDonation" Relationship="Self.FK_BloodDonation_Detail_BloodDonation" FromRole="BloodDonation_Detail" ToRole="BloodDonation" />
+          <NavigationProperty Name="Ketquakhams" Relationship="Self.FK_Ketquakham_BloodDonation_Detail" FromRole="BloodDonation_Detail" ToRole="Ketquakham" />
           <NavigationProperty Name="Khamsanlocs" Relationship="Self.FK_Khamsanloc_BloodDonation_Detail" FromRole="BloodDonation_Detail" ToRole="Khamsanloc" />
         </EntityType>
         <EntityType Name="Ketquakham">
@@ -547,6 +568,7 @@
           <Property Name="KhamsanlocID" Type="Int32" />
           <Property Name="BloodID" Type="Int32" />
           <Property Name="BatchID" Type="Int32" />
+          <Property Name="Blood_DetalID" Type="Int32" />
           <Property Name="Ngaylaymau" Type="DateTime" Precision="3" />
           <Property Name="Phanung" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Matuimau1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
@@ -569,8 +591,10 @@
           <Property Name="Combstructiep" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="username" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="songaycothehienlai" Type="Int32" />
+          <Property Name="thoigiantaoketqua" Type="DateTime" Precision="3" />
           <NavigationProperty Name="Batch" Relationship="Self.FK_Ketquakham_Batch" FromRole="Ketquakham" ToRole="Batch" />
           <NavigationProperty Name="BloodDonation" Relationship="Self.FK_Ketquakham_BloodDonation" FromRole="Ketquakham" ToRole="BloodDonation" />
+          <NavigationProperty Name="BloodDonation_Detail" Relationship="Self.FK_Ketquakham_BloodDonation_Detail" FromRole="Ketquakham" ToRole="BloodDonation_Detail" />
           <NavigationProperty Name="Khamsanloc" Relationship="Self.FK_Ketquakham_Khamsanloc" FromRole="Ketquakham" ToRole="Khamsanloc" />
         </EntityType>
         <EntityType Name="Khamsanloc">
@@ -602,6 +626,8 @@
           <Property Name="huyettuongduc" Type="Boolean" />
           <Property Name="username" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Luongmau" Type="Int32" />
+          <Property Name="Bacsiketluan" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Thoigiantaoluotkham" Type="DateTime" Precision="3" />
           <NavigationProperty Name="BloodDonation" Relationship="Self.FK_Khamsanloc_BloodDonation" FromRole="Khamsanloc" ToRole="BloodDonation" />
           <NavigationProperty Name="BloodDonation_Detail" Relationship="Self.FK_Khamsanloc_BloodDonation_Detail" FromRole="Khamsanloc" ToRole="BloodDonation_Detail" />
           <NavigationProperty Name="Ketquakhams" Relationship="Self.FK_Ketquakham_Khamsanloc" FromRole="Khamsanloc" ToRole="Ketquakham" />
@@ -814,6 +840,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Ketquakham_BloodDonation_Detail">
+          <End Role="BloodDonation_Detail" Type="Self.BloodDonation_Detail" Multiplicity="0..1" />
+          <End Role="Ketquakham" Type="Self.Ketquakham" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BloodDonation_Detail">
+              <PropertyRef Name="Blood_DetalID" />
+            </Principal>
+            <Dependent Role="Ketquakham">
+              <PropertyRef Name="Blood_DetalID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Khamsanloc_BloodDonation_Detail">
           <End Role="BloodDonation_Detail" Type="Self.BloodDonation_Detail" Multiplicity="0..1" />
           <End Role="Khamsanloc" Type="Self.Khamsanloc" Multiplicity="*" />
@@ -904,6 +942,10 @@
           <AssociationSet Name="FK_Log_BloodDonation" Association="Self.FK_Log_BloodDonation">
             <End Role="BloodDonation" EntitySet="BloodDonations" />
             <End Role="Log" EntitySet="Logs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ketquakham_BloodDonation_Detail" Association="Self.FK_Ketquakham_BloodDonation_Detail">
+            <End Role="BloodDonation_Detail" EntitySet="BloodDonation_Detail" />
+            <End Role="Ketquakham" EntitySet="Ketquakhams" />
           </AssociationSet>
           <AssociationSet Name="FK_Khamsanloc_BloodDonation_Detail" Association="Self.FK_Khamsanloc_BloodDonation_Detail">
             <End Role="BloodDonation_Detail" EntitySet="BloodDonation_Detail" />
@@ -1008,6 +1050,7 @@
                 <ScalarProperty Name="KhamsanlocID" ColumnName="KhamsanlocID" />
                 <ScalarProperty Name="BloodID" ColumnName="BloodID" />
                 <ScalarProperty Name="BatchID" ColumnName="BatchID" />
+                <ScalarProperty Name="Blood_DetalID" ColumnName="Blood_DetalID" />
                 <ScalarProperty Name="Ngaylaymau" ColumnName="Ngaylaymau" />
                 <ScalarProperty Name="Phanung" ColumnName="Phanung" />
                 <ScalarProperty Name="Matuimau1" ColumnName="Matuimau1" />
@@ -1030,6 +1073,7 @@
                 <ScalarProperty Name="Combstructiep" ColumnName="Combstructiep" />
                 <ScalarProperty Name="username" ColumnName="username" />
                 <ScalarProperty Name="songaycothehienlai" ColumnName="songaycothehienlai" />
+                <ScalarProperty Name="thoigiantaoketqua" ColumnName="thoigiantaoketqua" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1061,6 +1105,8 @@
                 <ScalarProperty Name="huyettuongduc" ColumnName="huyettuongduc" />
                 <ScalarProperty Name="username" ColumnName="username" />
                 <ScalarProperty Name="Luongmau" ColumnName="Luongmau" />
+                <ScalarProperty Name="Bacsiketluan" ColumnName="Bacsiketluan" />
+                <ScalarProperty Name="Thoigiantaoluotkham" ColumnName="Thoigiantaoluotkham" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

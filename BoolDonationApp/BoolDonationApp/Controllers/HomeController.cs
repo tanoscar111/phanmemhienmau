@@ -831,7 +831,7 @@ namespace BoolDonationApp.Controllers
 
         }
         [HttpPost]
-        public ActionResult Khamtheodot(int BatchID, Khamsanloc klss, string CMND, string local, int BloodID, string Doituongform, string Hinhthucform, int? huyetsacto, int? tieucau, string luongmau350, string luongmau250, string veinkhongdat, string huyettuongdung, string Hsabgform, int? cannang, string ketluan, string lido)
+        public ActionResult Khamtheodot(int BatchID, Khamsanloc klss, string CMND, string local, int BloodID, string Doituongform, string Hinhthucform, int? huyetsacto, int? tieucau, string luongmau350, string luongmau250, string veinkhongdat, string huyettuongdung, string Hsabgform, string Gianmai, string HIV, string HCV, string HBV, string ketluan, string lido)
         {
             var result = (from bo in db.BloodDonations
                           join us in db.Users
@@ -865,15 +865,16 @@ namespace BoolDonationApp.Controllers
             Khamsanloc ksl = new Khamsanloc();
             var Blood_DetalID = db.BloodDonation_Detail.Where(p => p.BloodID == BloodID && p.BatchID == BatchID).Select(p => p.Blood_DetalID).FirstOrDefault();
             ksl.Blood_DetalID = Blood_DetalID;
-            if(Doituongform==null)
+            if (Doituongform == null)
             {
                 ViewBag.doituong = "Vui lòng chọn đối tượng hiến máu";
             }
-            if(luongmau250 ==null || luongmau350 == null)
+            ksl.doituonghienmau = Doituongform;
+            if (luongmau250 == null && luongmau350 == null)
             {
                 ViewBag.luongmau = "Vui lòng chọn lượng máu cần hiến";
             }
-            ksl.doituonghienmau = Doituongform;
+           
 
             ksl.hinhthuchienmau = Hinhthucform;
             if (Hinhthucform == "Toàn phần")
@@ -895,11 +896,57 @@ namespace BoolDonationApp.Controllers
                 }
 
             }
-            else
+            if (Hinhthucform == "Gạn tiểu cầu")
+            {
+                if (HBV == "on")
+                {
+                    ksl.HBV = true;
+                }
+                else
+                {
+                    ksl.HBV = false;
+                }
+
+                if (HCV == "on")
+                {
+
+                    ksl.HBV = true;
+
+                }
+                else
+                {
+                    ksl.HBV = false;
+                }
+                if (HIV == "on")
+                {
+
+                    ksl.HIV = true;
+
+                }
+                else
+                {
+                    ksl.HIV = false;
+                }
+                if (Gianmai == "on")
+                {
+
+                    ksl.Giangmai = true;
+
+                }
+                else
+                {
+                    ksl.Giangmai = false;
+                }
+                
+            }
+            
+            if(Hinhthucform == null)
             {
                 ViewBag.Danger = "Vui lòng chọn hình thức hiến máu";
                 return View(klss);
             }
+
+
 
             ksl.huyetsacto = huyetsacto;
             ksl.tieucau = tieucau;
@@ -915,8 +962,18 @@ namespace BoolDonationApp.Controllers
                 ksl.ketluan = ketluan;
             }
             ksl.HBsAg = Hsabgform;
-
-            return View();
+            ksl.cannang = klss.cannang;
+            ksl.mach = klss.mach;
+            ksl.huyetaptamthu = klss.huyetaptamthu;
+            ksl.huyetaptamtruong = klss.huyetaptamtruong;
+            ksl.tinhtranglamsan = klss.tinhtranglamsan;
+            ksl.ketluan = ketluan;
+            ksl.Lydo = lido;
+            ksl.ktvketluan = klss.ktvketluan;
+            ksl.Bacsiketluan = klss.Bacsiketluan;
+            db.Khamsanlocs.Add(ksl);
+            db.SaveChanges();
+            return RedirectToAction("Index", "Home");
         }
         [HttpGet]
         public ActionResult Khamsanloc(int id, int idBatch, string CMND)
